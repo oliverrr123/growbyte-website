@@ -7,7 +7,7 @@ export default function Home() {
         <Image src="/growbyte-logo.png" alt="logo" width={400} height={400} />
         <h2 className="text-lg">Making you more money with <span className="font-semibold text-primary">AI</span></h2>
       </div>
-      <div className="flex flex-col w-full mt-24 gap-8">
+      <div className="flex flex-col w-full mt-24 gap-16">
         <h3 className="text-3xl font-black text-center">Custom Solutions</h3>
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-4">
