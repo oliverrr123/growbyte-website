@@ -5,7 +5,7 @@ export default function LetsTalk() {
         <div className="overflow-hidden fixed inset-0">
             <div className="flex flex-col items-center justify-center h-[calc(100dvh-2rem)] gap-12">
                 <div className="flex flex-col items-center justify-center gap-3">
-                    <h1 className="text-4xl font-bold">Let's grab a coffee</h1>
+                    <h1 className="text-4xl font-bold">Let&apos;s grab a coffee</h1>
                     <p className="text-lg">San Francisco, CA</p>
                 </div>
                 <div className="flex items-center justify-center gap-2">

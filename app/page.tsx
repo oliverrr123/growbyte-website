@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 export default function Home() {
-  let skills: { title: string; description: string; image: string; alt: string; link: string; }[] = [
+  const skills: { title: string; description: string; image: string; alt: string; link: string; }[] = [
       {
           title: 'Custom solutions',
           description: 'Automate, save time and make more money with us. We build tailored solutions that automate your business processes.',
@@ -26,29 +26,6 @@ export default function Home() {
           image: 'gradient-3.jpg',
           alt: 'Picture from my IT education workshop',
           link: 'lets-talk',
-      }
-  ]
-  let projects: { title: string; image: string; alt: string; link: string; }[] = [
-      {
-          title: 'Luma production agency',
-          // image: 'luma-production-website-screenshot.png',
-          image: 'gradient-4.jpg',
-          alt: 'Screenshot of a website I built for Luma production agency',
-          link: 'https://luma-production.com/'
-      },
-      {
-          title: 'SX Media - car photos & videos',
-          // image: 'sx-media-website-screenshot.png',
-          image: 'gradient-1.jpg',
-          alt: 'Screenshot of a website I built for SX Media',
-          link: 'https://sx-media.vercel.app/'
-      },
-      {
-          title: 'GrowByte website',
-          // image: 'growbyte-website-screenshot.png',
-          image: 'gradient-2.jpg',
-          alt: 'Screenshot of a website I built for Growbyte company',
-          link: 'https://growbyte.co/'
       }
   ]
 
