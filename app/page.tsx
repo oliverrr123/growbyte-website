@@ -4,27 +4,28 @@ export default function Home() {
   let skills: { title: string; description: string; image: string; alt: string; link: string; }[] = [
       {
           title: 'Custom solutions',
-          description: 'From building fun websites for myself to creating complex systems for companies, I have the skills to create pretty much any site you could imagine.',
+          description: 'Automate, save time and make more money with us. We build tailored solutions that automate your business processes.',
+          // description: 'From building fun websites for myself to creating complex systems for companies, I have the skills to create pretty much any site you could imagine.',
           // image: 'growbyte-website-screenshot.png',
           image: 'gradient-1.jpg',
           alt: 'Screenshot of a website I built for GrowByte company',
-          link: 'web-development',
+          link: 'lets-talk',
       },
       {
           title: 'Saas apps',
-          description: 'My hobby of filming cars grew into a whole production company making marketing videos, music clips, car edits, or other videos & photos of any kind.',
+          description: 'Tired of overpriced social media agencies? Try IG Byte, our AI-powered social media manager. Tired of employee scheduling? Try HR Byte, our AI-powered HR manager.',
           // image: 'music-video-screenshot.png',
           image: 'gradient-2.jpg',
           alt: 'Screenshot of a music video I produced for Mark Steiner',
-          link: 'media-production',
+          link: 'lets-talk',
       },
       {
           title: 'Healthcare robot',
-          description: 'Since IT education in traditional schools is usually very poor, I decided to make fun workshops for children in elementary schools. I also teach teachers or whole companies.',
+          description: '16 200 000 senior people in the US live alone in a household (28% of the senior population). That\'s why we\'re building a robo-companion that can become their friend, help them with daily tasks and improve the quality of their lives.',
           // image: 'it-education-workshop.png',
           image: 'gradient-3.jpg',
           alt: 'Picture from my IT education workshop',
-          link: 'it-education',
+          link: 'lets-talk',
       }
   ]
   let projects: { title: string; image: string; alt: string; link: string; }[] = [
@@ -73,6 +74,16 @@ export default function Home() {
             </div>
         ))}
     </section>
+
+    <footer>
+        <div className="flex justify-center gap-4 pt-16">
+            <a href="https://x.com/grow_byte" target="_blank" aria-label="Twitter profile"><Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
+            <a href="https://linkedin.com/company/grow-byte" target="_blank" aria-label="Linkedin profile"><Image src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
+            <a href="mailto:hello@growbyte.co" target="_blank" aria-label="Email"><Image src="/icons/mail.svg" alt="Email" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
+            <a href="tel:+14155056006" target="_blank" aria-label="Phone"><Image src="/icons/phone.svg" alt="Phone" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
+        </div>
+        <h6 className="py-6 text-center text-black">© 2025 GrowByte</h6>
+    </footer>
 
 
 
