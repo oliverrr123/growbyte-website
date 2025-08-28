@@ -21,16 +21,15 @@ export default function Home() {
       },
       {
           title: 'Healthcare robot',
-          description: '16 200 000 senior people in the US live alone in a household (28% of the senior population). That\'s why we\'re building a robo-companion that can become their friend, help them with daily tasks and improve the quality of their lives.',
-          // image: 'it-education-workshop.png',
+          description: 'MyFriend is a companion robot for seniors living alone. It provides company, helps with daily tasks, and improves quality of life through conversation and wellness support.',
           image: 'gradient-3.jpg',
-          alt: 'Picture from my IT education workshop',
-          link: 'lets-talk',
+          alt: 'MyFriend companion robot for seniors',
+          link: 'robo-companion',
       }
   ]
 
   return (
-    <>
+    <div className="sm:px-[10vw] md:px-[20vw] lg:px-[30vw] xl:px-[30vw] 2xl:px-[35vw]">
 
     <div className="flex w-full justify-center items-center pt-24 pb-6">
         <div className="w-48 h-48 bg-primary rounded-full"></div>
@@ -54,8 +53,8 @@ export default function Home() {
 
     <footer>
         <div className="flex justify-center gap-4 pt-16">
-            <a href="https://x.com/grow_byte" target="_blank" aria-label="Twitter profile"><Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
-            <a href="https://linkedin.com/company/grow-byte" target="_blank" aria-label="Linkedin profile"><Image src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
+            <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile"><Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
+            <a href="https://linkedin.com/in/olivercingl" target="_blank" aria-label="Linkedin profile"><Image src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
             <a href="mailto:hello@growbyte.co" target="_blank" aria-label="Email"><Image src="/icons/mail.svg" alt="Email" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
             <a href="tel:+14155056006" target="_blank" aria-label="Phone"><Image src="/icons/phone.svg" alt="Phone" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
         </div>
@@ -86,6 +85,6 @@ export default function Home() {
         HR Byte
           Design
 */}
-    </>
+    </div>
   );
 }

@@ -9,10 +9,20 @@
   font-display: swap;
 }
 
+/* Borel Font */
+@font-face {
+  font-family: 'Borel';
+  src: url('/fonts/Borel-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
   --font-sf-pro: "SF Pro", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-borel: "Borel", serif;
 }
 
 @theme inline {
@@ -22,6 +32,7 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-sf-pro: var(--font-sf-pro);
+  --font-borel: var(--font-borel);
 }
 
 /* @media (prefers-color-scheme: dark) {
@@ -41,4 +52,9 @@ body {
 .font-sf-pro-rounded-black {
   font-family: var(--font-sf-pro-rounded-black);
   font-weight: 900;
+}
+
+/* Utility class for Borel Font */
+.borel-font {
+  font-family: var(--font-borel);
 }
