@@ -24,7 +24,7 @@ export default function Home() {
           description: 'MyFriend is a companion robot for seniors living alone. It provides company, helps with daily tasks, and improves quality of life through conversation and wellness support.',
           image: 'gradient-3.jpg',
           alt: 'MyFriend companion robot for seniors',
-          link: 'robo-companion',
+          link: 'myfriend',
       }
   ]
 

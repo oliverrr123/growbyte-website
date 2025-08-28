@@ -1,10 +1,11 @@
 import Image from "next/image";
+import Link from "next/link";
 
 export default function RoboCompanion() {
   return (
     <>
       <div className="max-w-4xl mx-auto px-6 py-16">
-        <a href="/" className="text-black text-sm opacity-50 pb-16 block">&lt;&nbsp; Back to main page</a>
+        <Link href="/" className="text-black text-sm opacity-50 pb-16 block">&lt;&nbsp; Back to main page</Link>
         <div className="flex w-full justify-center items-center pb-12">
           <Image 
             src="/images/robo-companion/robo-companion.png" 
@@ -24,7 +25,7 @@ export default function RoboCompanion() {
           <div className="flex items-center gap-12">
             <div className="flex-1">
               <p className="text-lg leading-relaxed text-gray-800">
-                In the United States, <strong>16.2 million seniors live completely alone</strong>. That's more people than the entire population of several U.S. states combined. Many of them rarely see their family, or not at all, and loneliness becomes part of their daily life.
+                In the United States, <strong>16.2 million seniors live completely alone</strong>. That&apos;s more people than the entire population of several U.S. states combined. Many of them rarely see their family, or not at all, and loneliness becomes part of their daily life.
               </p>
             </div>
             <div className="w-96 rounded-xl flex items-center justify-center">
@@ -39,7 +40,7 @@ export default function RoboCompanion() {
           </div>
 
           <div className="text-center py-8">
-            <p className="text-2xl font-semibold">That's why we created <span className="font-borel">my<span className="italic text-orange-500">friend</span></span>.</p>
+            <p className="text-2xl font-semibold">That&apos;s why we created <span className="borel-font">my<span className="italic text-orange-500">friend</span></span>.</p>
           </div>
 
           <div className="flex items-center gap-12">
@@ -88,7 +89,7 @@ export default function RoboCompanion() {
             </div>
             <div className="flex-1">
               <p className="text-lg leading-relaxed text-gray-800">
-                Beyond conversation, MyFriend also looks after seniors' well-being. It reminds them to take their medications on time, encourages light physical exercise and mental activities, and turns these into fun little challenges through gamification. This makes staying healthy and active easier and more enjoyable.
+                Beyond conversation, MyFriend also looks after seniors&apos; well-being. It reminds them to take their medications on time, encourages light physical exercise and mental activities, and turns these into fun little challenges through gamification. This makes staying healthy and active easier and more enjoyable.
               </p>
             </div>
           </div>
