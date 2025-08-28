@@ -4,31 +4,31 @@ import Link from "next/link";
 export default function RoboCompanion() {
   return (
     <>
-      <div className="max-w-4xl mx-auto px-6 py-16">
-        <Link href="/" className="text-black text-sm opacity-50 pb-16 block">&lt;&nbsp; Back to main page</Link>
-        <div className="flex w-full justify-center items-center pb-12">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+        <Link href="/" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Back to main page</Link>
+        <div className="flex w-full justify-center items-center pb-8 sm:pb-12">
           <Image 
             src="/images/robo-companion/robo-companion.png" 
             alt="MyFriend Robot Companion" 
-            className="rounded-xl w-64 object-cover" 
+            className="rounded-xl w-48 sm:w-64 object-cover" 
             width={1000} 
             height={1000} 
           />
         </div>
         
-        <div className="text-center mb-28">
-          <h1 className="text-5xl font-black text-black mb-4 borel-font">my<span className="italic text-orange-400 font-semibold">friend</span></h1>
+        <div className="text-center mb-16 sm:mb-28">
+          <h1 className="text-3xl sm:text-5xl font-black text-black mb-4 borel-font">my<span className="italic text-orange-400 font-semibold">friend</span></h1>
           <p className="text-black opacity-50">A companion for elderly</p>
         </div>
 
-        <section className="space-y-16">
-          <div className="flex items-center gap-12">
-            <div className="flex-1">
-              <p className="text-lg leading-relaxed text-gray-800">
+        <section className="space-y-12 sm:space-y-16">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            <div className="flex-1 order-2 md:order-1">
+              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
                 In the United States, <strong>16.2 million seniors live completely alone</strong>. That&apos;s more people than the entire population of several U.S. states combined. Many of them rarely see their family, or not at all, and loneliness becomes part of their daily life.
               </p>
             </div>
-            <div className="w-96 rounded-xl flex items-center justify-center">
+            <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
               <Image 
                 src="/images/robo-companion/map.png" 
                 alt="Seniors living alone statistics" 
@@ -39,12 +39,12 @@ export default function RoboCompanion() {
             </div>
           </div>
 
-          <div className="text-center py-8">
-            <p className="text-2xl font-semibold">That&apos;s why we created <span className="borel-font">my<span className="italic text-orange-500">friend</span></span>.</p>
+          <div className="text-center py-6 sm:py-8">
+            <p className="text-xl sm:text-2xl font-semibold">That&apos;s why we created <span className="borel-font">my<span className="italic text-orange-500">friend</span></span>.</p>
           </div>
 
-          <div className="flex items-center gap-12">
-            <div className="w-96 bg-blue-200 rounded-xl flex items-center justify-center">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            <div className="w-full md:w-96 bg-blue-200 rounded-xl flex items-center justify-center order-1">
               <Image 
                 src="/images/robo-companion/myfriend-talking-to-senior.png" 
                 alt="Small companion robot" 
@@ -53,20 +53,20 @@ export default function RoboCompanion() {
                 height={400} 
               />
             </div>
-            <div className="flex-1">
-              <p className="text-lg leading-relaxed text-gray-800">
+            <div className="flex-1 order-2">
+              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
                 MyFriend is a <strong>small, one foot tall companion robot</strong> that gives seniors something they often miss most: company and support. Seniors can talk with it, and it helps them overcome loneliness. It can also assist with everyday problems, such as reminding them how to use the TV remote, showing how to set the oven, or helping them find a favorite recipe.
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-12">
-            <div className="flex-1">
-              <p className="text-lg leading-relaxed text-gray-800">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            <div className="flex-1 order-2 md:order-1">
+              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
                 MyFriend adapts to each individual. It learns about their interests and can even start conversations. For example, when a senior comes home from the store, MyFriend might greet them, ask what they bought, or chat about what they plan to cook.
               </p>
             </div>
-            <div className="w-96 bg-green-200 rounded-xl flex items-center justify-center">
+            <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
               <Image 
                 src="/images/robo-companion/myfriend-greeting-senior.png" 
                 alt="Robot having conversation with senior" 
@@ -77,8 +77,8 @@ export default function RoboCompanion() {
             </div>
           </div>
 
-          <div className="flex items-center gap-12">
-            <div className="w-96 bg-purple-200 rounded-xl flex items-center justify-center">
+          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
+            <div className="w-full md:w-96 bg-purple-200 rounded-xl flex items-center justify-center order-1">
               <Image 
                 src="/images/robo-companion/senior-exercising.png" 
                 alt="Health and wellness reminders" 
@@ -87,8 +87,8 @@ export default function RoboCompanion() {
                 height={400} 
               />
             </div>
-            <div className="flex-1">
-              <p className="text-lg leading-relaxed text-gray-800">
+            <div className="flex-1 order-2">
+              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
                 Beyond conversation, MyFriend also looks after seniors&apos; well-being. It reminds them to take their medications on time, encourages light physical exercise and mental activities, and turns these into fun little challenges through gamification. This makes staying healthy and active easier and more enjoyable.
               </p>
             </div>
