@@ -109,7 +109,7 @@ export default function RoboCompanion() {
             </div>
           </div> */}
         </section>
-        <div className="w-full flex flex-col items-center justify-center text-black">
+        <div className="w-full flex flex-col justify-center gap-20 text-black">
           <Link href="/myfriend/media">MyFriend in media</Link>
         </div>
       </div>
