@@ -109,13 +109,18 @@ export default function RoboCompanion() {
             </div>
           </div> */}
         </section>
-        <div className="w-full flex flex-col items-center justify-center text-black">
-          <Link href="/myfriend/media">MyFriend in media</Link>
+        <div className="w-full flex flex-col items-center justify-center py-16">
+          <Link 
+            href="/myfriend/more"
+            className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-400 transition-colors"
+          >
+            More about project
+          </Link>
         </div>
       </div>
 
-      <footer className="mt-24">
-        <div className="flex justify-center gap-4 pt-16">
+      <footer>
+        <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
