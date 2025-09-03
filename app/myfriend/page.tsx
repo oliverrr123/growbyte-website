@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function RoboCompanion() {
   return (
     <>
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <Link href="/" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Back to main page</Link>
         <div className="flex w-full justify-center items-center pb-8 sm:pb-12">
           <Image 
@@ -120,6 +120,7 @@ export default function RoboCompanion() {
       </div>
 
       <footer>
+        <p className="text-center mb-6">Want to support MyFriend?<br />Contact me through the links below:</p>
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />

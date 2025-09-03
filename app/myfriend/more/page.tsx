@@ -21,7 +21,7 @@ export default function RoboCompanion() {
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
               <video 
-                src="/images/robo-companion/myfriend-mvp.mov"
+                src="/images/robo-companion/myfriend-mvp.MOV"
                 poster="/images/robo-companion/myfriend-mvp.jpg"
                 controls
                 className="w-full h-full object-cover rounded-xl" 
@@ -73,7 +73,8 @@ export default function RoboCompanion() {
       </div>
 
       <footer>
-        <div className="flex justify-center gap-4 pt-16">
+        <p className="text-center mb-6 mt-12">Want to support MyFriend?<br />Contact me through the links below:</p>
+        <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
