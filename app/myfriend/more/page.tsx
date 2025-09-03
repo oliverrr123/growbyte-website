@@ -21,7 +21,8 @@ export default function RoboCompanion() {
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
               <video 
-                src="/images/robo-companion/myfriend-mvp.MOV" 
+                src="/images/robo-companion/myfriend-mvp.mov"
+                poster="/images/robo-companion/myfriend-mvp.jpg"
                 controls
                 className="w-full h-full object-cover rounded-xl" 
                 width={400} 
@@ -58,6 +59,7 @@ export default function RoboCompanion() {
             <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
               <video 
                 src="/images/robo-companion/myfriend-tv.mp4" 
+                poster="/images/robo-companion/myfriend-tv.jpg"
                 controls
                 className="w-full h-full object-cover rounded-xl" 
                 width={400} 
@@ -78,7 +80,7 @@ export default function RoboCompanion() {
           <a href="https://linkedin.com/in/olivercingl" target="_blank" aria-label="Linkedin profile">
             <Image src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
-          <a href="mailto:hello@growbyte.co" target="_blank" aria-label="Email">
+          <a href="mailto:oliver.cingl@gmail.com" target="_blank" aria-label="Email">
             <Image src="/icons/mail.svg" alt="Email" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
           <a href="tel:+14155056006" target="_blank" aria-label="Phone">

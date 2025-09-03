@@ -8,7 +8,7 @@ export default function Home() {
           // description: 'From building fun websites for myself to creating complex systems for companies, I have the skills to create pretty much any site you could imagine.',
           // image: 'growbyte-website-screenshot.png',
           image: 'gradient-1.jpg',
-          alt: 'Screenshot of a website I built for GrowByte company',
+          alt: 'Custom solutions',
           link: 'lets-talk',
       },
       {
@@ -16,14 +16,14 @@ export default function Home() {
           description: 'Tired of overpriced social media agencies? Try IG Byte, our AI-powered social media manager. Tired of employee scheduling? Try HR Byte, our AI-powered HR manager.',
           // image: 'music-video-screenshot.png',
           image: 'gradient-2.jpg',
-          alt: 'Screenshot of a music video I produced for Mark Steiner',
+          alt: 'Saas apps',
           link: 'lets-talk',
       },
       {
           title: 'Healthcare robot',
           description: 'MyFriend is a companion robot for seniors living alone. It provides company, helps with daily tasks, and improves quality of life through conversation and wellness support.',
           image: 'gradient-3.jpg',
-          alt: 'MyFriend companion robot for seniors',
+          alt: 'Healthcare robot',
           link: 'myfriend',
       }
   ]
@@ -55,7 +55,7 @@ export default function Home() {
         <div className="flex justify-center gap-4 pt-16">
             <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile"><Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
             <a href="https://linkedin.com/in/olivercingl" target="_blank" aria-label="Linkedin profile"><Image src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
-            <a href="mailto:hello@growbyte.co" target="_blank" aria-label="Email"><Image src="/icons/mail.svg" alt="Email" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
+            <a href="mailto:oliver.cingl@gmail.com" target="_blank" aria-label="Email"><Image src="/icons/mail.svg" alt="Email" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
             <a href="tel:+14155056006" target="_blank" aria-label="Phone"><Image src="/icons/phone.svg" alt="Phone" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
         </div>
         <h6 className="py-6 text-center text-black">© 2025 GrowByte</h6>

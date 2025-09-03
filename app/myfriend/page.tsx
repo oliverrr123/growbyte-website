@@ -46,7 +46,7 @@ export default function RoboCompanion() {
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="w-full md:w-96 bg-blue-200 rounded-xl flex items-center justify-center order-1">
               <Image 
-                src="/images/robo-companion/myfriend-talking-to-senior.png" 
+                src="/images/robo-companion/myfriend-talking-to-senior.jpg" 
                 alt="Small companion robot" 
                 className="w-full h-full object-cover rounded-xl" 
                 width={400} 
@@ -68,7 +68,7 @@ export default function RoboCompanion() {
             </div>
             <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
               <Image 
-                src="/images/robo-companion/myfriend-greeting-senior.png" 
+                src="/images/robo-companion/myfriend-greeting-senior.jpg" 
                 alt="Robot having conversation with senior" 
                 className="w-full h-full object-cover rounded-xl" 
                 width={400} 
@@ -80,7 +80,7 @@ export default function RoboCompanion() {
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="w-full md:w-96 bg-purple-200 rounded-xl flex items-center justify-center order-1">
               <Image 
-                src="/images/robo-companion/senior-exercising.png" 
+                src="/images/robo-companion/senior-exercising.jpg" 
                 alt="Health and wellness reminders" 
                 className="w-full h-full object-cover rounded-xl" 
                 width={400} 
