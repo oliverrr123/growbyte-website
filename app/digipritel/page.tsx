@@ -35,7 +35,7 @@ export default function DigiPritel() {
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                V České Republice žije o samotě cca <strong>2,2 milionu seniorů</strong>. To je více lidí, než žije dohromady v celém Jihočeském kraji. Mnozí z nich se se svou rodinou vídají jen zřídka, nebo vůbec, a samota se stává součástí jejich každodenního života.
+                V České Republice žije o samotě cca <strong>750 000 seniorů</strong>. To je více lidí, než žije dohromady v celém Jihočeském kraji. Mnozí z nich se se svou rodinou vídají jen zřídka, nebo vůbec, a samota se stává součástí jejich každodenního života.
               </p>
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
