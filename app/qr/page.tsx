@@ -1,30 +1,29 @@
 import Link from "next/link";
 import { QRCodeSVG } from "qrcode.react";
 
-const qrLinks = [
+type QrLink = {
+  title: string;
+  url: string;
+  accent: string;
+  qrColor: string;
+};
+
+const qrLinks: QrLink[] = [
   {
     title: "AI Lab Discord",
     url: "https://discord.gg/bsCB4DwTVf",
-    // description: "Join the AI Lab community chat and stay up-to-date with new drops.",
     accent: "from-indigo-500/20 via-sky-500/10 to-transparent",
     qrColor: "#1f2937",
   },
   {
     title: "DigiPřítel",
     url: "https://growbyte.co/digipritel",
-    // description: "See the DigiPřítel showcase, story, and media kit on growbyte.co.",
     accent: "from-orange-500/20 via-amber-400/10 to-transparent",
     qrColor: "#7c2d12",
   },
 ] as const;
 
-function QrPanel({
-  title,
-//   description,
-  url,
-  accent,
-  qrColor,
-}: (typeof qrLinks)[number]) {
+function QrPanel({ title, url, accent, qrColor }: QrLink) {
   return (
     <section className="relative isolate flex flex-col items-center justify-center gap-8 px-6 py-12 sm:px-12">
       <div
