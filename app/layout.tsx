@@ -16,7 +16,7 @@ export default function RootLayout({
       <body
         className={`font-sf-pro antialiased`}
       >
-        <main className="w-full p-4">
+        <main className="w-full">
           {children}
         </main>
       </body>

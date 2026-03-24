@@ -88,7 +88,7 @@ export default function DigiPritelVice() {
             <Image src="/icons/phone.svg" alt="Telefon" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
         </div>
-        <h6 className="py-6 text-center text-black">© 2025 GrowByte</h6>
+        <h6 className="py-6 text-center text-black">© {new Date().getFullYear()} GrowByte</h6>
       </footer>
     </>
   );

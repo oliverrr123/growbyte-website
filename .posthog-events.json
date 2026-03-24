@@ -1,0 +1,52 @@
+[
+  {
+    "event": "skill_cta_clicked",
+    "description": "User clicks 'Find out more' button on a skill card on the home page",
+    "file": "app/page.tsx"
+  },
+  {
+    "event": "footer_social_link_clicked",
+    "description": "User clicks a social/contact link in the home page footer",
+    "file": "app/page.tsx"
+  },
+  {
+    "event": "myfriend_more_clicked",
+    "description": "User clicks 'More about project' CTA button on the /myfriend page",
+    "file": "app/myfriend/page.tsx"
+  },
+  {
+    "event": "myfriend_contact_link_clicked",
+    "description": "User clicks a social/contact link in the /myfriend page footer",
+    "file": "app/myfriend/page.tsx"
+  },
+  {
+    "event": "digipritel_more_clicked",
+    "description": "User clicks 'Více o projektu' CTA button on the /digipritel page",
+    "file": "app/digipritel/page.tsx"
+  },
+  {
+    "event": "digipritel_contact_link_clicked",
+    "description": "User clicks a social/contact link in the /digipritel page footer",
+    "file": "app/digipritel/page.tsx"
+  },
+  {
+    "event": "lets_talk_contact_link_clicked",
+    "description": "User clicks a social/contact link on the /lets-talk page",
+    "file": "app/lets-talk/page.tsx"
+  },
+  {
+    "event": "qr_link_clicked",
+    "description": "User clicks a QR panel link on the /qr page",
+    "file": "app/qr/page.tsx"
+  },
+  {
+    "event": "myfriend_tv_episode_clicked",
+    "description": "User clicks the Czech TV full episode link on /myfriend/more",
+    "file": "app/myfriend/more/page.tsx"
+  },
+  {
+    "event": "digipritel_tv_episode_clicked",
+    "description": "User clicks the Czech TV full episode link on /digipritel/vice",
+    "file": "app/digipritel/vice/page.tsx"
+  }
+]
