@@ -21,11 +21,11 @@ export default function DigiPritel() {
             digi
             <span className="relative italic text-orange-400 font-semibold">
               prítel
-                <span
-                    className="absolute left-1/2 -top-6 -translate-x-1/2 rotate-180"
-                    style={{ fontSize: "0.75em", fontWeight: 700, pointerEvents: "none", transform: "translateX(8px) translateY(6px)" }}
-                    aria-hidden="true"
-                >^</span>
+              <span
+                className="absolute left-1/2 -top-6 -translate-x-1/2 rotate-180"
+                style={{ fontSize: "0.75em", fontWeight: 700, pointerEvents: "none", transform: "translateX(8px) translateY(6px)" }}
+                aria-hidden="true"
+              >^</span>
             </span>
           </h1>
           <p className="text-black opacity-50">Společník pro seniory</p>
@@ -86,7 +86,7 @@ export default function DigiPritel() {
             </div>
             <div className="flex-1 order-2">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                DigiPřítel je <strong>malý, přibližně třiceticentimetrový robo společník</strong>, který seniorům dává to, co jim často nejvíce chybí: společnost a oporu. Mohou si s ním povídat a díky tomu lépe zvládat pocit samoty. Zároveň pomáhá s každodenními situacemi – připomene, jak se ovládá televize, ukáže nastavení trouby nebo pomůže najít oblíbený recept.
+                <strong>DigiPřítel je kamarád na telefonu</strong>, který seniorům dává to, co jim často nejvíce chybí: společnost a oporu. Mohou si s ním povídat a díky tomu lépe zvládat pocit samoty. Zároveň pomáhá s každodenními situacemi – připomene, jak se ovládá televize, ukáže nastavení trouby nebo pomůže najít oblíbený recept.
               </p>
             </div>
           </div>
@@ -94,7 +94,7 @@ export default function DigiPritel() {
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                DigiPřítel se přizpůsobuje každému člověku. Učí se o jeho zájmech a sám dokáže začínat konverzace. Když se senior vrátí z nákupu, DigiPřítel ho přivítá, zeptá se, co si koupil, nebo s ním probere, co plánuje vařit.
+                DigiPřítel se <strong>přizpůsobuje každému člověku</strong>. Učí se o jeho zájmech a sám dokáže začínat konverzace. Občas seniorovi zavolá, aby si s ním jen tak popovídal, nebo mu připomene nějakou důležitou událost.
               </p>
             </div>
             <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
@@ -120,7 +120,7 @@ export default function DigiPritel() {
             </div>
             <div className="flex-1 order-2">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                Kromě konverzace DigiPřítel dohlíží i na pohodu seniorů. Připomíná užívání léků, motivuje k lehkému cvičení i mentálním aktivitám a proměňuje je v zábavné výzvy gamifikací. Díky tomu je zdravý životní styl přirozenější a příjemnější.
+                Kromě konverzace DigiPřítel <strong>dohlíží i na pohodu seniorů</strong>. Připomíná užívání léků, motivuje k lehkému cvičení i mentálním aktivitám a proměňuje je v zábavné výzvy gamifikací. Díky tomu je zdravý životní styl přirozenější a příjemnější.
               </p>
             </div>
           </div>
