@@ -28,8 +28,8 @@ export default function Home() {
       link: 'lets-talk',
     },
     {
-      title: 'Healthcare robot',
-      description: 'MyFriend is a companion robot for seniors living alone. It provides company, helps with daily tasks, and improves quality of life through conversation and wellness support.',
+      title: 'Companion for elderly',
+      description: 'MyFriend is an AI companion for seniors living alone. It\'s a phone number they can call at any time, and it helps them with daily tasks and improves quality of life through conversation and wellness support.',
       image: 'gradient-3.jpg',
       alt: 'Healthcare robot',
       link: 'myfriend',

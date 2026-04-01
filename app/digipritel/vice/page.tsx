@@ -17,6 +17,9 @@ export default function DigiPritelVice() {
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
                 Toto je MVP DigiPřítele vytvořené v České republice. Uspořádali jsme několik workshopů se seniory, abychom získali jejich zpětnou vazbu, a mluvili jsme s domovy seniorů, které nám potvrdily zájem o zkušební provoz.
+                <br />
+                <br />
+                Nakonec jsme se však rozhodli fyzického robota nahradit jednoduše telefonním číslem. Díky tomu je DigiPřítel dostupný pro každého. Není potřeba chytrý telefon, ani internet.
               </p>
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
