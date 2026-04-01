@@ -17,7 +17,7 @@ export default function LetsTalk() {
                 <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile"><Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
                 <a href="https://linkedin.com/in/olivercingl" target="_blank" aria-label="Linkedin profile"><Image src="/icons/linkedin.svg" alt="LinkedIn" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
                 <a href="mailto:oliver.cingl@gmail.com" target="_blank" aria-label="Email"><Image src="/icons/mail.svg" alt="Email" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
-                <a href="tel:+14155056006" target="_blank" aria-label="Phone"><Image src="/icons/phone.svg" alt="Phone" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
+                <a href="tel:+420776781248" target="_blank" aria-label="Phone"><Image src="/icons/phone.svg" alt="Phone" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} /></a>
             </div>
             </div>
         </div>
