@@ -55,7 +55,7 @@ export default function RoboCompanion() {
             </div>
             <div className="flex-1 order-2">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                MyFriend is a <strong>small, one foot tall companion robot</strong> that gives seniors something they often miss most: company and support. Seniors can talk with it, and it helps them overcome loneliness. It can also assist with everyday problems, such as reminding them how to use the TV remote, showing how to set the oven, or helping them find a favorite recipe.
+                MyFriend is a <strong>buddy on the phone</strong> that gives seniors something they often miss most: company and support. Seniors can talk with it, and it helps them overcome loneliness. It can also assist with everyday problems, such as reminding them how to use the TV remote, showing how to set the oven, or helping them find a favorite recipe.
               </p>
             </div>
           </div>
@@ -63,7 +63,7 @@ export default function RoboCompanion() {
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                MyFriend adapts to each individual. It learns about their interests and can even start conversations. For example, when a senior comes home from the store, MyFriend might greet them, ask what they bought, or chat about what they plan to cook.
+                MyFriend adapts to each person. It learns about their interests and can start conversations on its own. Sometimes it calls a senior just to chat, or reminds them about an important event.
               </p>
             </div>
             <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
@@ -120,7 +120,7 @@ export default function RoboCompanion() {
       </div>
 
       <footer>
-        <p className="text-center mb-6">Want to support MyFriend?<br />Contact me through the links below:</p>
+        <p className="text-center mb-6">Want to try MyFriend?<br />Contact me through the links below:</p>
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />

@@ -76,7 +76,7 @@ export default function DigiPritelVice() {
       </div>
 
       <footer>
-        <p className="text-center mb-6 mt-12">Chcete podpořit DigiPřítele?<br />Kontaktujte mě přes odkazy níže:</p>
+        <p className="text-center mb-6 mt-12">Chcete vyzkoušet DigiPřítele?<br />Kontaktujte mě přes odkazy níže:</p>
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profil">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
