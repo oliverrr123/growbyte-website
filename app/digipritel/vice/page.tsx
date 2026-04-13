@@ -23,16 +23,15 @@ export default function DigiPritelVice() {
               </p>
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
-              <video
-                src="/images/robo-companion/myfriend-mvp.MOV"
-                poster="/images/robo-companion/myfriend-mvp.jpg"
-                controls
+              <iframe
+                src="https://player.mux.com/82ykVI701AZjsytyQAXjAy400yUpD72uTzpJ32zSjPcwg?metadata-video-title=myfriend-mvp&video-title=myfriend-mvp&accent-color=%23ff8906"
+                style={{ width: '100%', border: 'none', aspectRatio: '9/16' }}
+                allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                allowFullScreen
                 className="w-full h-full object-cover rounded-xl"
                 width={400}
                 height={400}
-              >
-                Váš prohlížeč nepodporuje video tag.
-              </video>
+              ></iframe>
             </div>
           </div>
 
@@ -53,23 +52,45 @@ export default function DigiPritelVice() {
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="flex-1 order-2 md:order-1">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                DigiPřítel se objevil také v pořadu České televize. Díky tomu jsme navázali spolupráci s odborníkem na wellbeing seniorů, který nám pomáhá začlenit do projektu prvky duševního i fyzického zdraví. <a className="underline" href="https://www.ceskatelevize.cz/porady/14021364946-bilance/224452801250001/">Celý díl (23:42)</a>
-              </p>
-            </div>
-            <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
-              <video
-                src="/images/robo-companion/myfriend-tv.mp4"
-                poster="/images/robo-companion/myfriend-tv.jpg"
-                controls
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
-              >
-                Váš prohlížeč nepodporuje video tag.
-              </video>
+          <div className="space-y-6">
+            <p className="text-base sm:text-lg leading-relaxed text-gray-800">
+              DigiPřítel se také objevil v televizi, a to dokonce dvakrát. Díky tomu jsme začali spolupracovat s odborníkem na wellbeing seniorů, který nám pomáhá začlenit do projektu prvky duševního i fyzického zdraví.
+            </p>
+
+            <div className="flex flex-col md:flex-row gap-6">
+              <div className="w-full flex-1 space-y-3">
+                <div className="bg-green-200 rounded-xl flex items-center justify-center">
+                  <iframe
+                    src="https://player.mux.com/ByAm1xwJ9018UZIyJaWKtLoDF9Pk25MyKhLPDIu92GY4?metadata-video-title=myfriend-tv-nova&video-title=myfriend-tv-nova&accent-color=%23ff8906"
+                    style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                    allowFullScreen
+                    className="w-full h-full object-cover rounded-xl"
+                    width={400}
+                    height={400}
+                  ></iframe>
+                </div>
+                <p className="text-sm sm:text-base">
+                  <a className="underline" href="https://www.ceskatelevize.cz/porady/14021364946-bilance/224452801250001/" target="_blank" rel="noopener noreferrer">Celý díl (23:42)</a>
+                </p>
+              </div>
+
+              <div className="w-full flex-1 space-y-3">
+                <div className="bg-green-200 rounded-xl flex items-center justify-center">
+                  <iframe
+                    src="https://player.mux.com/fPl02nyRWIbVWbbcIuE00VVtJ8JaQODcisQ2Z5hcxUC84?metadata-video-title=myfriend-tv-one&video-title=myfriend-tv-one&accent-color=%23ff8906"
+                    style={{ width: '100%', border: 'none', aspectRatio: '16/9' }}
+                    allow="accelerometer; gyroscope; autoplay; encrypted-media; picture-in-picture;"
+                    allowFullScreen
+                    className="w-full h-full object-cover rounded-xl"
+                    width={400}
+                    height={400}
+                  ></iframe>
+                </div>
+                <p className="text-sm sm:text-base">
+                  <a className="underline" href="https://tv.nova.cz/porad/strepiny/video-epizoda/538187-12-4-2026" target="_blank" rel="noopener noreferrer">Celý díl (20:11)</a>
+                </p>
+              </div>
             </div>
           </div>
         </section>
