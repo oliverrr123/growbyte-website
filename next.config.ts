@@ -4,6 +4,10 @@ const nextConfig: NextConfig = {
   /* config options here */
   devIndicators: false,
 
+  experimental: {
+    optimizePackageImports: ["@phosphor-icons/react"],
+  },
+
   async rewrites() {
     return [
       {
