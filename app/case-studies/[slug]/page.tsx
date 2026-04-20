@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { EnvelopeOpenIcon, WhatsappLogoIcon, PhoneCallIcon } from "@phosphor-icons/react/ssr";
+import { CaseStudyContactCopyButtons } from "@/components/case-study-contact-copy-buttons";
 
 const CASE_STUDIES = {
     "cv-search-engine": {
@@ -10,7 +10,8 @@ const CASE_STUDIES = {
         imageAlt: "AI search interface and data-driven hiring workflow",
     },
     "marketing-analyzer": {
-        title: "AI ad analyzer comparing client's vs competitor's ads",
+        // title: "AI ad analyzer comparing client's vs competitor's ads",
+        title: "How MarketUp ditched spreadsheets for an AI-first marketing analysis tool",
         image: "/images/case-studies/case2.jpg",
         imageAlt: "Marketing performance dashboard and competitor benchmarking",
     },
@@ -48,18 +49,13 @@ export default async function CaseStudyDetail({
                     />
                 </div>
 
-
                 <h1 className="text-3xl sm:text-5xl font-medium leading-tight mb-6">{caseStudy.title}</h1>
 
-                <div className="mb-6">
-                    {/* <p className="text-sm mb-2 text-foreground/60">Written by human:</p> */}
-                    <div className="flex items-center gap-3">
-                        {/* <a href="https://olivercingl.com" target="_blank"><Image src="/images/case-studies/oliver-cingl-profile-picture.jpg" alt="Profile picture" width={100} height={100} className="rounded-full w-12 h-12 aspect-square object-cover" /></a> */}
-                        <div className="flex items-center gap-1">
-                            <p className="text-sm text-foreground/60">Written by human:</p>
-                            <p className="text-sm"><a href="https://olivercingl.com" target="_blank" className="underline decoration-foreground/60">Oliver Cingl</a>, <span className="text-sm text-foreground/60">Founder & CEO of <a href="https://growbyte.co" target="_blank" className="underline decoration-foreground/60">GrowByte</a></span></p>
-                        </div>
-                    </div>
+                <div className="mb-6 flex flex-col md:flex-row md:gap-1">
+                    <p className="text-sm text-foreground">2 min read</p>
+                    <p className="text-sm text-foreground/60">•</p>
+                    <p className="text-sm text-foreground/60">Written by human:</p>
+                    <p className="text-sm text-foreground/60"><a href="https://olivercingl.com" target="_blank" className="underline decoration-foreground/60">Oliver Cingl</a>, <span className="text-sm text-foreground/60">Founder & CEO of <a href="https://growbyte.co" target="_blank" className="underline decoration-foreground/60">GrowByte</a></span></p>
                 </div>
 
                 <div className="space-y-6 text-foreground/80 leading-relaxed text-base sm:text-lg">
@@ -84,7 +80,7 @@ export default async function CaseStudyDetail({
                         Thanks to this system, MarketUp now saves time and focuses on the actually important part of their job, instead of wasting time on spreadsheets.
                         They also provide added value for their clients by giving them access to this tool, so they can see for themselves how their ads are performing compared to their competition.
                     </p>
-                    <div className="border border-foreground/10 px-6 py-5">
+                    <div className="border border-foreground/10 px-6 py-5 my-8">
                         <p className="italic mb-4">
                             "This is some random text. You can replace this with anything you like! Here is another sentence to show random content in this paragraph. This is not a real paragraph, it's just here to show you how the text looks like."
                         </p>
@@ -98,20 +94,7 @@ export default async function CaseStudyDetail({
                     </div>
                     <div className="mb-16">
                         <p>Want to level up your company just like MarketUp? Call me or send me a message:</p>
-                        <div className="flex items-center gap-2 my-5">
-                            <div className="border border-foreground/10 px-4 py-2 flex items-center gap-2">
-                                <EnvelopeOpenIcon className="text-foreground/60" size={20} />
-                                <p className="text-sm">oliver.cingl@gmail.com</p>
-                            </div>
-                            <div className="border border-foreground/10 px-4 py-2 flex items-center gap-2">
-                                <WhatsappLogoIcon size={20} />
-                                <p className="text-sm">+420 776 781 248</p>
-                            </div>
-                            <div className="border border-foreground/10 px-4 py-2 flex items-center gap-2">
-                                <PhoneCallIcon size={20} />
-                                <p className="text-sm">+420 776 781 248</p>
-                            </div>
-                        </div>
+                        <CaseStudyContactCopyButtons />
                         <p>If you're unsure what to send, just say "hey", I'll get back to you ;)<br />You can call any time. If I don't pick up, I'll call you back.</p>
                     </div>
                 </div>
