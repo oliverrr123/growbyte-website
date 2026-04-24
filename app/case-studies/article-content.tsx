@@ -57,23 +57,22 @@ export function MarketingAnalyzerArticle() {
       </p>
       <div className="border border-foreground/10 px-6 py-5 my-8">
         <p className="italic mb-4">
-          "This is some random text. You can replace this with anything you
-          like! Here is another sentence to show random content in this
-          paragraph. This is not a real paragraph, it's just here to show you
-          how the text looks like."
+          "Oliver delivered exactly what we needed — a tool that lets us stop wasting time gathering data and start uncovering valuable insights instead.
+          What used to take hours of manual work in public ads libraries now happens in minutes with AI-generated analysis.
+          Oliver was a pleasure to work with: responsive, technically sharp, and always focused on delivering real value."
         </p>
         <div className="flex items-center gap-3">
           <Image
-            src="/icons/person.svg"
+            src="/images/case-studies/radek-stepan-profile-picture.jpg"
             alt=""
             width={100}
             height={100}
             className="rounded-full w-11 h-11 aspect-square object-cover bg-foreground/10"
           />
           <div>
-            <p className="text-sm">Name Surname</p>
+            <p className="text-sm">Radek Štěpán</p>
             <p className="text-sm text-foreground/60">
-              Position at{" "}
+              {/* Position at{" "} */}
               <a
                 href="https://marketup.eu"
                 target="_blank"
@@ -89,8 +88,8 @@ export function MarketingAnalyzerArticle() {
         <p>Want to level up your company just like MarketUp? Call me or send me a message:</p>
         <CaseStudyContactCopyButtons />
         <p>
-          If you're unsure what to send, just say "hey", I'll get back to you
-          ;)<br />
+          If you're unsure what to send, just say "hey", I'll get back to you ;)
+          <br />
           You can call any time. If I don't pick up, I'll call you back.
         </p>
       </div>
