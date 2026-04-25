@@ -8,25 +8,25 @@ export function MarketingAnalyzerArticle() {
         <a href="https://marketup.eu" target="_blank" className="underline">
           MarketUp
         </a>
-        , a major marketing agency in Prague, used to compare their client's vs
-        competitor's ads manually. Going through the{" "}
+        {`, a major marketing agency in Prague, used to compare their client's vs
+        competitor's ads manually. Going through the `}
         <a
           href="https://www.facebook.com/ads/library/"
           target="_blank"
           className="underline"
         >
           Meta Ad Library
-        </a>{" "}
-        and comparing every ad manually is not only very time consuming, but
+        </a>
+        {` and comparing every ad manually is not only very time consuming, but
         also lacks context. What if I they wanted to compare the average reach
         of all the active ads in the last month specifically on Instagram? They
         would have to go thorugh every ad manually and copy paste the reach
-        into some spreadsheet and then generate a graph from it.
+        into some spreadsheet and then generate a graph from it.`}
         <br />
-        That just doesn't make sense.
+        {`That just doesn't make sense.`}
         <br />
         <br />
-        That's why we built a tool that takes all the hassle away and just lets
+        {`That's why we built a tool that takes all the hassle away and just lets
         you focus on the important stuff - actually reading and analysing the
         data, not just gathering it. You simply select the client and
         competitor pages that you want to compare (you can even select multiple
@@ -38,28 +38,28 @@ export function MarketingAnalyzerArticle() {
         data - the trends, differences and suggestions for improvement. For
         example, you can see that your traditional carousel ads are at the
         median reach, but then there's one video ad with way bigger reach -
-        suggestion? Make more video ads!
+        suggestion? Make more video ads!`}
         <br />
-        The AI analysis can also spot insightful patterns - is your competitor
+        {`The AI analysis can also spot insightful patterns - is your competitor
         running ads for longer periods of time? Are they focusing on a specific
-        product or running a special limited time offer?
+        product or running a special limited time offer?`}
         <br />
-        After you're done with observing the data, you can export it with all
+        {`After you're done with observing the data, you can export it with all
         the graphs and insights into a pdf report and share it directly with
-        your client.
+        your client.`}
         <br />
         <br />
-        Thanks to this system, MarketUp now saves time and focuses on the
+        {`Thanks to this system, MarketUp now saves time and focuses on the
         actually important part of their job, instead of wasting time on
         spreadsheets. They also provide added value for their clients by giving
         them access to this tool, so they can see for themselves how their ads
-        are performing compared to their competition.
+        are performing compared to their competition.`}
       </p>
       <div className="border border-foreground/10 px-6 py-5 my-8">
         <p className="italic mb-4">
-          "Oliver delivered exactly what we needed — a tool that lets us stop wasting time gathering data and start uncovering valuable insights instead.
+          {`"Oliver delivered exactly what we needed — a tool that lets us stop wasting time gathering data and start uncovering valuable insights instead.
           What used to take hours of manual work in public ads libraries now happens in minutes with AI-generated analysis.
-          Oliver was a pleasure to work with: responsive, technically sharp, and always focused on delivering real value."
+          Oliver was a pleasure to work with: responsive, technically sharp, and always focused on delivering real value."`}
         </p>
         <div className="flex items-center gap-3">
           <Image
@@ -72,7 +72,6 @@ export function MarketingAnalyzerArticle() {
           <div>
             <p className="text-sm">Radek Štěpán</p>
             <p className="text-sm text-foreground/60">
-              {/* Position at{" "} */}
               <a
                 href="https://marketup.eu"
                 target="_blank"
@@ -88,9 +87,9 @@ export function MarketingAnalyzerArticle() {
         <p>Want to level up your company just like MarketUp? Call me or send me a message:</p>
         <CaseStudyContactCopyButtons />
         <p>
-          If you're unsure what to send, just say "hey", I'll get back to you ;)
+          {`If you're unsure what to send, just say "hey", I'll get back to you ;)`}
           <br />
-          You can call any time. If I don't pick up, I'll call you back.
+          {`You can call any time. If I don't pick up, I'll call you back.`}
         </p>
       </div>
     </>
@@ -121,7 +120,9 @@ export function CvSearchEngineArticle() {
       <div className="mb-16">
         <p>Want to level up your hiring workflow like this? Call me or send me a message:</p>
         <CaseStudyContactCopyButtons />
-        <p>If you're unsure what to send, just say "hey" and I'll get back to you.</p>
+        <p>
+          {`If you're unsure what to send, just say "hey" and I'll get back to you.`}
+        </p>
       </div>
     </>
   );
