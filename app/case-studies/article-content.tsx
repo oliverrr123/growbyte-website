@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { CaseStudyContactCopyButtons } from "@/components/case-study-contact-copy-buttons";
+import { Testimonial } from "@/components/testimonial";
 
 export function MarketingAnalyzerArticle() {
   return (
@@ -55,34 +56,15 @@ export function MarketingAnalyzerArticle() {
         them access to this tool, so they can see for themselves how their ads
         are performing compared to their competition.`}
       </p>
-      <div className="border border-foreground/10 px-6 py-5 my-8">
-        <p className="italic mb-4">
-          {`"Oliver delivered exactly what we needed — a tool that lets us stop wasting time gathering data and start uncovering valuable insights instead.
+      <Testimonial
+        text={`"Oliver delivered exactly what we needed — a tool that lets us stop wasting time gathering data and start uncovering valuable insights instead.
           What used to take hours of manual work in public ads libraries now happens in minutes with AI-generated analysis.
           Oliver was a pleasure to work with: responsive, technically sharp, and always focused on delivering real value."`}
-        </p>
-        <div className="flex items-center gap-3">
-          <Image
-            src="/images/case-studies/radek-stepan-profile-picture.jpg"
-            alt=""
-            width={100}
-            height={100}
-            className="rounded-full w-11 h-11 aspect-square object-cover bg-foreground/10"
-          />
-          <div>
-            <p className="text-sm">Radek Štěpán</p>
-            <p className="text-sm text-foreground/60">
-              <a
-                href="https://marketup.eu"
-                target="_blank"
-                className="underline decoration-foreground/60"
-              >
-                MarketUp
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
+        name="Radek Štěpán"
+        company="MarketUp"
+        companyUrl="https://marketup.eu"
+        profilePictureUrl="/images/case-studies/radek-stepan-profile-picture.jpg"
+      />
       <div className="mb-16">
         <p>Want to level up your company just like MarketUp? Call me or send me a message:</p>
         <CaseStudyContactCopyButtons />
@@ -100,25 +82,20 @@ export function CvSearchEngineArticle() {
   return (
     <>
       <p>
-        We built an internal AI search system that helps recruiters find top
-        candidates in seconds across 50,000 CV documents. Instead of manually
-        opening files and searching for keywords, the team now asks
-        natural-language queries and gets ranked, relevant profiles instantly.
+        <a href="https://atollon.com" target="_blank" className="underline">Atollon</a>, a long established ERP software company in Prague asked us to build a tool for their client, that enables them to find the perfect job candidate in their database of 50 000+ CV documents. Without that tool, there was essentially no smart way to find anything. With thousands of CVs, each with a different format and structure, even a simple keyword search might be insufficient. We had to build a robust solution that could handle all of the possible CVs and provide a useful structured overview of each candidate.
       </p>
       <p>
-        The workflow combines semantic search, structured filters, and
-        human-readable candidate summaries. Recruiters can narrow results by
-        seniority, stack, location, and domain expertise while still preserving
-        context from each CV.
+        The first challenge was to somehow extract all of the data from the documents into a structured unified format. We needed to find a good OCR tool that could successfully parse even the weirdest PDFs. After some research and testing, we decided to use <a href="https://unstructured.io" target="_blank" className="underline">unstructured.io</a>, which performed best on the tests, and it's even open source, which let us host it on our servers to prevent any data leaks. After we extract the data, we also need to vectorize them, so they could be queried using semantic search.
       </p>
       <p>
-        This reduced the first-pass screening time significantly and improved
-        candidate relevance in shortlists. The team spends less time on
-        document triage and more time evaluating fit and running better
-        interviews.
+        Next, the search engine. To correclty rank the candidates, we needed to use a combination of semantic search and structured filters (BM25). The semantic search was used to find the best matches for the search query, while the structured filters were used to narrow down the results to the most relevant candidates. I didn't tell you everything about the data extracting part though. Beside extracting and vectorizing the data, we also created a unified structured format for skills, education and past job experiences. AI takes the extracted text from the CV and maps it to this structured format, including a quick AI summary of the candidate. Only thanks to this, we could achieve peak performace.
       </p>
+      <p>
+        Thanks to this tool, Atollon's client can now search easily in natural language. For example, search <i>"senior python developer with 10+ years of experience in the fintech industry and a CS degree from MIT"</i> and the system will give them the perfect candidates ranked from best to worst. They can now focus on the acutally important stuff, instead of drowning in thousands of CVs.
+      </p>
+      
       <div className="mb-16">
-        <p>Want to level up your hiring workflow like this? Call me or send me a message:</p>
+        <p>Want to level up your processes just like Atollon's client? Call me or send me a message:</p>
         <CaseStudyContactCopyButtons />
         <p>
           {`If you're unsure what to send, just say "hey" and I'll get back to you.`}
