@@ -4,10 +4,12 @@ import "../instrumentation-client";
 import { Providers } from "./providers";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
+import { SITE_URL } from "./case-studies/site";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: "GrowByte",
   description: "Making you more money with AI",
 };
