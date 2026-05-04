@@ -156,31 +156,27 @@ export default async function CaseStudyDetail({
           {caseStudy.title}
         </h1>
 
-        <div className="mb-6 flex flex-col md:flex-row md:gap-1">
-          <p className="text-sm text-foreground">{caseStudy.readTime}</p>
-          <p className="text-sm text-foreground/60">•</p>
-          <p className="text-sm text-foreground/60">{dict.writtenByHuman}</p>
-          <p className="text-sm text-foreground/60">
-            <a
-              href={caseStudy.authorUrl}
-              target="_blank"
-              className="underline decoration-foreground/60"
-            >
-              {caseStudy.authorName}
-            </a>
-            ,{" "}
-            <span className="text-sm text-foreground/60">
-              {dict.founderCeoOf}{" "}
-              <a
-                href={caseStudy.companyUrl}
-                target="_blank"
-                className="underline decoration-foreground/60"
-              >
-                {caseStudy.companyName}
-              </a>
-            </span>
-          </p>
-        </div>
+        <p className="mb-6 text-sm text-foreground/60 leading-relaxed">
+          <span className="text-foreground">{caseStudy.readTime}</span>
+          {" • "}
+          {dict.writtenByHuman}{" "}
+          <a
+            href={caseStudy.authorUrl}
+            target="_blank"
+            className="underline decoration-foreground/60"
+          >
+            {caseStudy.authorName}
+          </a>
+          {", "}
+          {dict.founderCeoOf}{" "}
+          <a
+            href={caseStudy.companyUrl}
+            target="_blank"
+            className="underline decoration-foreground/60"
+          >
+            {caseStudy.companyName}
+          </a>
+        </p>
 
         <div className="space-y-6 text-foreground/80 leading-relaxed text-base sm:text-lg">
           <ArticleComponent />
