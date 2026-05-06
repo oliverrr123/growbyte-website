@@ -14,9 +14,9 @@ export type Dictionary = {
 
 export const DICTIONARIES: Record<Locale, Dictionary> = {
   en: {
-    pageTitle: "Case studies",
+    pageTitle: "Solutions",
     pageDescription:
-      "Discover how GrowByte builds AI solutions that help businesses grow and succeed.",
+      "AI-powered automation and tools that help your business save time and grow — chatbots, cold outreach, and custom builds.",
     listHeading: "SOLUTIONS",
     exploreCta: "EXPLORE \u00a0\u00a0→",
     back: "<\u00a0 Back to solutions",
@@ -26,39 +26,39 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
     langSwitcherLabel: "Language",
   },
   cs: {
-    pageTitle: "Případové studie",
+    pageTitle: "Řešení",
     pageDescription:
-      "Jak GrowByte staví AI produkty, které reálným firmám vydělávají více peněz. Přečtěte si naše případové studie.",
-    listHeading: "PŘÍPADOVÉ \u00a0STUDIE",
+      "AI automatizace a nástroje, které firmám šetří čas a přinášejí výsledky — chatboti, cold outreach a řešení na míru.",
+    listHeading: "ŘEŠENÍ",
     exploreCta: "ZJISTIT VÍCE \u00a0\u00a0→",
-    back: "<\u00a0 Zpět na případové studie",
+    back: "<\u00a0 Zpět na řešení",
     writtenByHuman: "Napsal člověk:",
     founderCeoOf: "zakladatel & CEO společnosti",
-    contactFooterTitle: "Chcete vidět více případových studií?\nKontaktujte mě přes odkazy níže:",
+    contactFooterTitle: "Chcete vidět další řešení?\nKontaktujte mě přes odkazy níže:",
     langSwitcherLabel: "Jazyk",
   },
   sk: {
-    pageTitle: "Prípadové štúdie",
+    pageTitle: "Riešenia",
     pageDescription:
-      "Ako GrowByte stavia AI produkty, ktoré reálnym firmám zarábajú viac peňazí. Prečítajte si naše prípadové štúdie.",
-    listHeading: "PRÍPADOVÉ \u00a0ŠTÚDIE",
+      "AI automatizácie a nástroje, ktoré firmám šetria čas a prinášajú výsledky — chatboty, cold outreach a riešenia na mieru.",
+    listHeading: "RIEŠENIA",
     exploreCta: "ZISTIŤ VIAC \u00a0\u00a0→",
-    back: "<\u00a0 Späť na prípadové štúdie",
+    back: "<\u00a0 Späť na riešenia",
     writtenByHuman: "Napísal človek:",
     founderCeoOf: "zakladateľ & CEO spoločnosti",
-    contactFooterTitle: "Chcete vidieť viac prípadových štúdií?\nKontaktujte ma cez odkazy nižšie:",
+    contactFooterTitle: "Chcete vidieť ďalšie riešenia?\nKontaktujte ma cez odkazy nižšie:",
     langSwitcherLabel: "Jazyk",
   },
   de: {
-    pageTitle: "Fallstudien",
+    pageTitle: "Lösungen",
     pageDescription:
-      "Wie GrowByte KI-Produkte baut, die echten Unternehmen mehr Geld einbringen. Lies unsere Fallstudien.",
-    listHeading: "FALLSTUDIEN",
+      "KI-Automatisierung und Tools, die Unternehmen Zeit sparen und Wachstum bringen — Chatbots, Cold Outreach und Custom Builds.",
+    listHeading: "LÖSUNGEN",
     exploreCta: "ENTDECKEN \u00a0\u00a0→",
-    back: "<\u00a0 Zurück zu den Fallstudien",
+    back: "<\u00a0 Zurück zu den Lösungen",
     writtenByHuman: "Verfasst von einem Menschen:",
     founderCeoOf: "Gründer & CEO von",
-    contactFooterTitle: "Möchtest du mehr Fallstudien sehen?\nKontaktiere mich über die Links unten:",
+    contactFooterTitle: "Willst du mehr Lösungen sehen?\nKontaktiere mich über die Links unten:",
     langSwitcherLabel: "Sprache",
   },
 };
