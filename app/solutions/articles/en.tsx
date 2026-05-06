@@ -1,4 +1,5 @@
 import { CaseStudyContactCopyButtons } from "@/components/case-study-contact-copy-buttons";
+import { MuxVideo } from "@/components/mux-video";
 import { Testimonial } from "@/components/testimonial";
 
 export function MarketingAnalyzerArticleEn() {
@@ -81,20 +82,28 @@ export function CvSearchEngineArticleEn() {
   return (
     <>
       <p>
-        <a href="https://atollon.com" target="_blank" className="underline">Atollon</a>, a long established ERP software company in Prague asked us to build a tool for their client, that enables them to find the perfect job candidate in their database of 50 000+ CV documents. Without that tool, there was essentially no smart way to find anything. With thousands of CVs, each with a different format and structure, even a simple keyword search might be insufficient. We had to build a robust solution that could handle all of the possible CVs and provide a useful structured overview of each candidate.
+        Ever tried a chatbot on some website? It's shit, right? Well, it doesn't have to be. Before AI, website chatbots weren't quite popular, because they didn't work very well. They could only answer predefined questions and when you asked them something slightly different, they would just crumble. But now with AI, we can achieve true human-like support! (maybe even better than a human...)
       </p>
       <p>
-        The first challenge was to somehow extract all of the data from the documents into a structured unified format. We needed to find a good OCR tool that could successfully parse even the weirdest PDFs. After some research and testing, we decided to use <a href="https://unstructured.io" target="_blank" className="underline">unstructured.io</a>, which performed best on the tests, and it&apos;s even open source, which let us host it on our servers to prevent any data leaks. After we extract the data, we also need to vectorize them, so they could be queried using semantic search.
+        Imagine this. You go on a website and you want to find out the price of a specific service you're looking for. Instead of clicking through all the pages trying to manually find it, you notice a chatbot in the bottom right already suggesting your question! "What's the price of X?", so you click it, ask it what you're looking for, and it instantly gives you the price with the all necessary details. Then it suggests: "Would you like to book a quick call where we can discuss how we can further help you?", so you just pick a time and it's booked! All in a matter of seconds.
       </p>
       <p>
-        Next, the search engine. To correclty rank the candidates, we needed to use a combination of semantic search and structured filters (BM25). The semantic search was used to find the best matches for the search query, while the structured filters were used to narrow down the results to the most relevant candidates. I didn&apos;t tell you everything about the data extracting part though. Beside extracting and vectorizing the data, we also created a unified structured format for skills, education and past job experiences. AI takes the extracted text from the CV and maps it to this structured format, including a quick AI summary of the candidate. Only thanks to this, we could achieve peak performace.
+        Now imagine this on your website. Your visitors get all the information they need, you get less calls from them, and without lifting a finger, you get new leads and booked calls!
       </p>
       <p>
-        Thanks to this tool, Atollon&apos;s client can now search easily in natural language. For example, search <i>&quot;senior python developer with 10+ years of experience in the fintech industry and a CS degree from MIT&quot;</i> and the system will give them the perfect candidates ranked from best to worst. They can now focus on the acutally important stuff, instead of drowning in thousands of CVs.
+        You can watch this 40 second demo to see it in action:
       </p>
 
+      <div className="my-6 w-full">
+        <MuxVideo
+          playbackId="JwfhdQQrUUQFeFPeD3SZ8S5oTyaek01j5b01A9qTjTpfQ"
+          title="chatbot-demo"
+          aspectRatio="1624 / 1080"
+        />
+      </div>
+
       <div className="mb-16">
-        <p>Want to level up your processes just like Atollon&apos;s client? Call me or send me a message:</p>
+        <p>Want this for your website? Call me or send me a message:</p>
         <CaseStudyContactCopyButtons />
         <p>
           {`If you're unsure what to send, just say "hey" and I'll get back to you.`}
