@@ -2,82 +2,6 @@ import { CaseStudyContactCopyButtons } from "@/components/case-study-contact-cop
 import { MuxVideo } from "@/components/mux-video";
 import { Testimonial } from "@/components/testimonial";
 
-export function MarketingAnalyzerArticleEn() {
-  return (
-    <>
-      <p>
-        <a href="https://marketup.eu" target="_blank" className="underline">
-          MarketUp
-        </a>
-        {`, a major marketing agency in Prague, used to compare their client's vs
-        competitor's ads manually. Going through the `}
-        <a
-          href="https://www.facebook.com/ads/library/"
-          target="_blank"
-          className="underline"
-        >
-          Meta Ad Library
-        </a>
-        {` and comparing every ad manually is not only very time consuming, but
-        also lacks context. What if I they wanted to compare the average reach
-        of all the active ads in the last month specifically on Instagram? They
-        would have to go thorugh every ad manually and copy paste the reach
-        into some spreadsheet and then generate a graph from it.`}
-        <br />
-        {`That just doesn't make sense.`}
-        <br />
-        <br />
-        {`That's why we built a tool that takes all the hassle away and just lets
-        you focus on the important stuff - actually reading and analysing the
-        data, not just gathering it. You simply select the client and
-        competitor pages that you want to compare (you can even select multiple
-        of them!) and click analyze. The system pulls all the ads from Meta so
-        you can instantly view and inspect them side by side. It also generates
-        graphs, which let you easily see the reach and target groups across all
-        ads, so you don't need to touch any spreadsheets. After about a minute,
-        the AI analysis is completed and lets you see the actually important
-        data - the trends, differences and suggestions for improvement. For
-        example, you can see that your traditional carousel ads are at the
-        median reach, but then there's one video ad with way bigger reach -
-        suggestion? Make more video ads!`}
-        <br />
-        {`The AI analysis can also spot insightful patterns - is your competitor
-        running ads for longer periods of time? Are they focusing on a specific
-        product or running a special limited time offer?`}
-        <br />
-        {`After you're done with observing the data, you can export it with all
-        the graphs and insights into a pdf report and share it directly with
-        your client.`}
-        <br />
-        <br />
-        {`Thanks to this system, MarketUp now saves time and focuses on the
-        actually important part of their job, instead of wasting time on
-        spreadsheets. They also provide added value for their clients by giving
-        them access to this tool, so they can see for themselves how their ads
-        are performing compared to their competition.`}
-      </p>
-      <Testimonial
-        text={`"Oliver delivered exactly what we needed — a tool that lets us stop wasting time gathering data and start uncovering valuable insights instead.
-          What used to take hours of manual work in public ads libraries now happens in minutes with AI-generated analysis.
-          Oliver was a pleasure to work with: responsive, technically sharp, and always focused on delivering real value."`}
-        name="Radek Štěpán"
-        company="MarketUp"
-        companyUrl="https://marketup.eu"
-        profilePictureUrl="/images/case-studies/radek-stepan-profile-picture.jpg"
-      />
-      <div className="mb-16">
-        <p>Want to level up your company just like MarketUp? Call me or send me a message:</p>
-        <CaseStudyContactCopyButtons />
-        <p>
-          {`If you're unsure what to send, just say "hey", I'll get back to you ;)`}
-          <br />
-          {`You can call any time. If I don't pick up, I'll call you back.`}
-        </p>
-      </div>
-    </>
-  );
-}
-
 export function CvSearchEngineArticleEn() {
   return (
     <>
@@ -104,6 +28,27 @@ export function CvSearchEngineArticleEn() {
 
       <div className="mb-16">
         <p>Want this for your website? Call me or send me a message:</p>
+        <CaseStudyContactCopyButtons />
+        <p>
+          {`If you're unsure what to send, just say "hey" and I'll get back to you.`}
+        </p>
+      </div>
+    </>
+  );
+}
+
+export function MarketingAnalyzerArticleEn() {
+  return (
+    <>
+      <p>
+        Once I was hired by a company to automate their cold email outreach process. Their setup was a sales guy with a spreadsheet of leads, looking at each one's website, studying it, and then manually writing a personalized email for them. Does this sound like you? Well thank God you're reading this, because you won't have to do this anymore!
+      </p>
+      <p>
+        Instead of doing all this manual work, our AI will do it for you. All you give it is a list of leads, a brief idea of what the email should communicate, and your target group. Wait, you don't have leads? No problem! Our AI can generate those for you, based on your target customer. Then you just say how many email per day you want to send, and boom, now you're sending hundreds of personalized emails every day, and you don't even have to do anything for it.
+      </p>
+
+      <div className="mb-16">
+        <p>Ready to make your life easier? Call me or send me a message:</p>
         <CaseStudyContactCopyButtons />
         <p>
           {`If you're unsure what to send, just say "hey" and I'll get back to you.`}
