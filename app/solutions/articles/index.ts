@@ -1,26 +1,26 @@
 import type { ComponentType } from "react";
 import type { CaseStudyId, Locale } from "../data";
-import { CvSearchEngineArticleEn, MarketingAnalyzerArticleEn } from "./en";
-import { CvSearchEngineArticleCs, MarketingAnalyzerArticleCs } from "./cs";
-import { CvSearchEngineArticleSk, MarketingAnalyzerArticleSk } from "./sk";
-import { CvSearchEngineArticleDe, MarketingAnalyzerArticleDe } from "./de";
+import { ChatbotArticleEn, AutomailerArticleEn } from "./en";
+import { ChatbotArticleCs, AutomailerArticleCs } from "./cs";
+import { ChatbotArticleSk, AutomailerArticleSk } from "./sk";
+import { ChatbotArticleDe, AutomailerArticleDe } from "./de";
 
 export const ARTICLES: Record<Locale, Record<CaseStudyId, ComponentType>> = {
   en: {
-    "cv-search-engine": CvSearchEngineArticleEn,
-    "marketing-analyzer": MarketingAnalyzerArticleEn,
+    chatbot: ChatbotArticleEn,
+    automailer: AutomailerArticleEn,
   },
   cs: {
-    "cv-search-engine": CvSearchEngineArticleCs,
-    "marketing-analyzer": MarketingAnalyzerArticleCs,
+    chatbot: ChatbotArticleCs,
+    automailer: AutomailerArticleCs,
   },
   sk: {
-    "cv-search-engine": CvSearchEngineArticleSk,
-    "marketing-analyzer": MarketingAnalyzerArticleSk,
+    chatbot: ChatbotArticleSk,
+    automailer: AutomailerArticleSk,
   },
   de: {
-    "cv-search-engine": CvSearchEngineArticleDe,
-    "marketing-analyzer": MarketingAnalyzerArticleDe,
+    chatbot: ChatbotArticleDe,
+    automailer: AutomailerArticleDe,
   },
 };
 

@@ -1,91 +1,57 @@
 import { CaseStudyContactCopyButtons } from "@/components/case-study-contact-copy-buttons";
-import { Testimonial } from "@/components/testimonial";
+import { MuxVideo } from "@/components/mux-video";
 
-export function MarketingAnalyzerArticleSk() {
+export function ChatbotArticleSk() {
   return (
     <>
       <p>
-        <a href="https://marketup.eu" target="_blank" className="underline">
-          MarketUp
-        </a>
-        {`, významná pražská marketingová agentúra, predtým porovnávala reklamy svojich klientov s konkurenciou ručne. Prechádzanie `}
-        <a
-          href="https://www.facebook.com/ads/library/"
-          target="_blank"
-          className="underline"
-        >
-          knižnice Meta Ads
-        </a>
-        {` a manuálne porovnávanie každej reklamy je nielen časovo náročné, ale chýba mu aj kontext. Čo keby chceli porovnať priemerný dosah všetkých aktívnych reklám za posledný mesiac, konkrétne na Instagrame? Museli by prejsť každú reklamu zvlášť, kopírovať dosah do tabuľky a z nej až potom generovať graf.`}
-        <br />
-        {`To jednoducho nedáva zmysel.`}
-        <br />
-        <br />
-        {`Preto sme vytvorili nástroj, ktorý túto rutinnú prácu úplne odstraňuje a necháva vás sústrediť sa na to dôležité — na samotné čítanie a analýzu dát, nie na ich zber. Stačí vybrať klientske a konkurenčné stránky, ktoré chcete porovnať (kľudne aj viac naraz!) a kliknúť na analyzovať. Systém stiahne všetky reklamy z Mety, takže si ich môžete okamžite prezrieť vedľa seba. Generuje aj grafy, ktoré ukážu dosah a cieľové skupiny naprieč všetkými reklamami, takže sa nemusíte dotknúť žiadnej tabuľky. Po asi minúte je AI analýza hotová a ukáže to skutočne podstatné — trendy, rozdiely a návrhy na zlepšenie. Napríklad uvidíte, že vaše tradičné carousel reklamy majú mediánový dosah, ale jedna video reklama má výrazne väčší zásah — návrh? Robte viac video reklám!`}
-        <br />
-        {`AI analýza dokáže odhaliť aj hlbšie vzorce — beží konkurencia reklamy dlhšiu dobu? Sústredí sa na konkrétny produkt alebo ponúka časovo obmedzenú akciu?`}
-        <br />
-        {`Keď si dáta prezriete, môžete ich so všetkými grafmi a insightmi exportovať do PDF reportu a zdieľať priamo s klientom.`}
-        <br />
-        <br />
-        {`Vďaka tomuto systému teraz MarketUp šetrí čas a sústredí sa na to, čo je v ich práci skutočne dôležité, namiesto aby strácali čas s tabuľkami. Zároveň prinášajú pridanú hodnotu svojim klientom tým, že im k nástroju dávajú prístup, takže si sami môžu overiť, ako si ich reklamy stoja oproti konkurencii.`}
+        {`Už ste niekedy skúšali chatbota na nejakom webe? Nič moc, však? Lenže nemusí to tak byť. Pred AI neboli chatboti na weboch moc populárni, pretože poriadne nefungovali. Vedeli odpovedať len na preddefinované otázky a keď ste sa opýtali na niečo trochu iné, jednoducho sa rozsypali. Ale teraz s AI môžeme mať naozaj ľudskú podporu! (možno aj lepšiu ako človeka...)`}
       </p>
-      <Testimonial
-        text={`„Oliver dodal presne to, čo sme potrebovali — nástroj, ktorý nás zbavuje straty času zberom dát a namiesto toho odhaľuje cenné insighty.
-          To, čo predtým zabralo hodiny ručnej práce vo verejných knižniciach reklám, teraz s AI analýzou trvá len pár minút.
-          Spolupráca s Oliverom bola radosť: rýchlo reaguje, je technicky zdatný a vždy sa sústredí na dodanie reálnej hodnoty."`}
-        name="Radek Štěpán"
-        company="MarketUp"
-        companyUrl="https://marketup.eu"
-        profilePictureUrl="/images/case-studies/radek-stepan-profile-picture.jpg"
-      />
+      <p>
+        {`Predstavte si to takto. Prídete na web a chcete zistiť cenu konkrétnej služby, ktorú hľadáte. Namiesto toho, aby ste preklikávali všetky stránky a snažili sa to ručne nájsť, všimnete si vpravo dole chatbota, ktorý vám už rovno ponúka vašu otázku! „Aká je cena X?", tak na ňu kliknete, opýtate sa presne na to, čo potrebujete, a chatbot vám okamžite dá cenu so všetkými dôležitými detailmi. Potom navrhne: „Chcete si zarezervovať krátky hovor, kde môžeme prebrať, ako vám môžeme ďalej pomôcť?", vy si len vyberiete čas a je rezervované! A to celé za pár sekúnd.`}
+      </p>
+      <p>
+        {`A teraz si predstavte toto na svojom webe. Vaši návštevníci dostanú všetky informácie, ktoré potrebujú, vám klesne počet hovorov a bez toho, aby ste hli prstom, získavate nové leady a zarezervované hovory!`}
+      </p>
+      <p>
+        {`Môžete sa pozrieť na 40-sekundové demo, aby ste to videli v akcii:`}
+      </p>
+
+      <div className="my-6 w-full">
+        <MuxVideo
+          playbackId="JwfhdQQrUUQFeFPeD3SZ8S5oTyaek01j5b01A9qTjTpfQ"
+          title="chatbot-demo"
+          aspectRatio="1624 / 1080"
+        />
+      </div>
+
       <div className="mb-16">
-        <p>Chcete posunúť svoju firmu ako MarketUp? Zavolajte mi alebo mi napíšte:</p>
+        <p>Chcete toto na svojom webe? Zavolajte mi alebo mi napíšte:</p>
         <CaseStudyContactCopyButtons />
         <p>
-          {`Ak neviete, čo napísať, kľudne len „ahoj“, ozvem sa ;)`}
-          <br />
-          {`Zavolať môžete kedykoľvek. Ak to nezdvihnem, zavolám vám späť.`}
+          {`Ak neviete, čo napísať, kľudne len „ahoj" a ozvem sa vám.`}
         </p>
       </div>
     </>
   );
 }
 
-export function CvSearchEngineArticleSk() {
+export function AutomailerArticleSk() {
   return (
     <>
       <p>
-        <a href="https://atollon.com" target="_blank" className="underline">
-          Atollon
-        </a>
-        {`, zavedená pražská spoločnosť vyvíjajúca ERP softvér, nás požiadala, aby sme pre ich klienta postavili nástroj, ktorý umožní nájsť ideálneho kandidáta v ich databáze 50 000+ životopisov. Bez takého nástroja neexistoval žiaden rozumný spôsob, ako v nej efektívne hľadať. Tisíce životopisov, každý v inom formáte a štruktúre — aj jednoduché vyhľadávanie podľa kľúčových slov tu naráža na strop. Museli sme postaviť robustné riešenie, ktoré si poradí s ľubovoľnou podobou životopisu a poskytne prehľadný štruktúrovaný profil každého kandidáta.`}
+        {`Raz si ma najala firma, aby som im zautomatizoval rozosielanie cold emailov. Ich setup bol obchodník s tabuľkou leadov, ktorý si preklikal každý web, preštudoval ho a potom ručne napísal personalizovaný email. Znie vám to povedome? No vďakabohu, že toto čítate, pretože toto už robiť nebudete musieť!`}
       </p>
       <p>
-        {`Prvou úlohou bolo nejako dostať dáta zo všetkých dokumentov do jednotného štruktúrovaného formátu. Potrebovali sme dobrý OCR nástroj, ktorý si poradí aj s tými najpodivnejšími PDF. Po výskume a testovaní sme sa rozhodli pre `}
-        <a href="https://unstructured.io" target="_blank" className="underline">
-          unstructured.io
-        </a>
-        {`, ktorý v testoch podával najlepšie výsledky a navyše je open source — mohli sme si ho hostiť na vlastných serveroch a predísť tak akémukoľvek úniku dát. Po extrakcii sme dáta ešte vektorizovali, aby sa dali dotazovať sémantickým vyhľadávaním.`}
-      </p>
-      <p>
-        {`Potom prišiel na rad samotný vyhľadávač. Aby správne zoraďoval kandidátov, potrebovali sme kombináciu sémantického vyhľadávania a štruktúrovaných filtrov (BM25). Sémantické vyhľadávanie hľadá najlepšie zhody s dopytom, štruktúrované filtre zužujú výsledky na najrelevantnejších kandidátov. K časti o extrakcii dát som ale ešte nedopovedal všetko. Okrem extrakcie a vektorizácie sme vytvorili aj jednotný štruktúrovaný formát pre zručnosti, vzdelanie a predchádzajúce pracovné skúsenosti. AI vezme extrahovaný text zo životopisu a namapuje ho do tohto formátu — vrátane rýchleho AI súhrnu kandidáta. Až vďaka tomu sme dosiahli špičkový výkon.`}
-      </p>
-      <p>
-        {`Vďaka tomuto nástroju teraz klient Atollonu vyhľadáva jednoducho v prirodzenom jazyku. Zadá napríklad `}
-        <i>
-          „senior python developer s 10+ rokmi skúseností vo fintechu a titulom z
-          informatiky z MIT“
-        </i>
-        {` a systém mu vyhodí ideálnych kandidátov zoradených od najlepšieho. Môžu sa konečne sústrediť na to, čo je skutočne dôležité, namiesto aby sa topili v tisícoch životopisov.`}
+        {`Namiesto všetkej tej ručnej práce to za vás urobí naša AI. Stačí jej dať zoznam leadov, krátku predstavu, čo má email komunikovať, a vašu cieľovú skupinu. Počkať, žiadne leady nemáte? Žiadny problém! Naša AI vám ich vygeneruje na základe vášho ideálneho zákazníka. Potom len poviete, koľko emailov denne chcete posielať, a šup, zrazu rozosielate stovky personalizovaných emailov každý deň a nemusíte pre to vôbec nič robiť.`}
       </p>
 
       <div className="mb-16">
-        <p>
-          {`Chcete posunúť svoje procesy ako klient Atollonu? Zavolajte mi alebo mi napíšte:`}
-        </p>
+        <p>Pripravení si zjednodušiť život? Zavolajte mi alebo mi napíšte:</p>
         <CaseStudyContactCopyButtons />
-        <p>{`Ak neviete, čo napísať, kľudne len „ahoj“ a ozvem sa vám.`}</p>
+        <p>
+          {`Ak neviete, čo napísať, kľudne len „ahoj" a ozvem sa vám.`}
+        </p>
       </div>
     </>
   );

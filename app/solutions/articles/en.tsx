@@ -1,8 +1,7 @@
 import { CaseStudyContactCopyButtons } from "@/components/case-study-contact-copy-buttons";
 import { MuxVideo } from "@/components/mux-video";
-import { Testimonial } from "@/components/testimonial";
 
-export function CvSearchEngineArticleEn() {
+export function ChatbotArticleEn() {
   return (
     <>
       <p>
@@ -37,7 +36,7 @@ export function CvSearchEngineArticleEn() {
   );
 }
 
-export function MarketingAnalyzerArticleEn() {
+export function AutomailerArticleEn() {
   return (
     <>
       <p>

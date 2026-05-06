@@ -6,7 +6,7 @@ export function isLocale(value: string): value is Locale {
   return (LOCALES as readonly string[]).includes(value);
 }
 
-export type CaseStudyId = "cv-search-engine" | "marketing-analyzer";
+export type CaseStudyId = "chatbot" | "automailer";
 
 export type CaseStudy = {
   id: CaseStudyId;
@@ -32,13 +32,13 @@ export const CASE_STUDY_META: Record<
   CaseStudyId,
   { publishedAt: string; updatedAt: string }
 > = {
-  "cv-search-engine": {
-    publishedAt: "2025-03-01",
-    updatedAt: "2025-03-01",
+  chatbot: {
+    publishedAt: "2026-05-06",
+    updatedAt: "2026-05-06",
   },
-  "marketing-analyzer": {
-    publishedAt: "2025-05-01",
-    updatedAt: "2025-05-01",
+  automailer: {
+    publishedAt: "2026-05-06",
+    updatedAt: "2026-05-06",
   },
 };
 
@@ -50,103 +50,111 @@ const COMMON = {
   companyUrl: "https://growbyte.co",
 } as const;
 
+/**
+ * Per-locale article input. `slug` is optional — when omitted, it
+ * defaults to the article's `id` (which is stable across locales and
+ * never changes). Override `slug` only when you want a localized,
+ * SEO-friendly URL for a specific locale.
+ */
+type CaseStudyInput = {
+  id: CaseStudyId;
+  title: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  readTime: string;
+  slug?: string;
+};
+
+function buildStudies(entries: CaseStudyInput[]): CaseStudy[] {
+  return entries.map((entry) => ({
+    ...entry,
+    slug: entry.slug ?? entry.id,
+    ...COMMON,
+  }));
+}
+
 export const CASE_STUDIES: Record<Locale, CaseStudy[]> = {
-  en: [
+  en: buildStudies([
     {
-      id: "cv-search-engine",
-      slug: "automate-support-get-leads-and-book-meetings",
+      id: "chatbot",
       title: "Automate support, get leads and book meetings without lifting a finger",
       description:
-        "Building an AI-powered CV search engine for Atollon: semantic search, structured filters and unified candidate profiles across 50 000+ documents.",
+        "How an AI chatbot turns your website into a 24/7 support agent that answers questions, suggests next steps, and books calls — all without lifting a finger.",
       image: "/images/solutions/solution1.jpg",
-      imageAlt: "AI search interface and data-driven hiring workflow",
+      imageAlt: "AI chatbot answering questions and booking meetings on a website",
       readTime: "2 min read",
-      ...COMMON,
     },
     {
-      id: "marketing-analyzer",
-      slug: "send-hyper-personalized-emails-all-automated",
+      id: "automailer",
       title: "Send hundreds of hyper personalized emails every day, all automated",
       description:
-        "How we built an AI-first ad analysis tool for MarketUp that replaces hours of spreadsheet work with instant side-by-side competitor insights.",
+        "How AI replaces a sales rep with a spreadsheet — generating leads, writing personalized cold emails, and sending hundreds of them every day, fully automated.",
       image: "/images/solutions/solution2.jpg",
-      imageAlt: "Marketing performance dashboard and competitor benchmarking",
+      imageAlt: "AI generating and sending personalized cold emails at scale",
       readTime: "2 min read",
-      ...COMMON,
     },
-  ],
-  cs: [
+  ]),
+  cs: buildStudies([
     {
-      id: "cv-search-engine",
-      slug: "vyhledavac-cv",
-      title: "Jak najít perfektního kandidáta mezi 50 000 životopisy?",
+      id: "chatbot",
+      title: "Automatizujte zákaznickou podporu, získávejte leady a booklé cally, aniž byste hnuli prstem",
       description:
-        "Jak jsme pro Atollon postavili AI nástroj na hledání životopisů: sémantické vyhledávání, strukturované filtry a sjednocené profily kandidátů napříč 50 000+ dokumenty.",
+        "Jak AI chatbot promění váš web v 24/7 zákaznickou podporu, která odpovídá na otázky, navrhuje další kroky a bookuje cally — aniž byste hnuli prstem.",
       image: "/images/solutions/solution1.jpg",
-      imageAlt: "AI rozhraní pro vyhledávání a datově řízený nábor",
+      imageAlt: "AI chatbot odpovídající na otázky a bookující cally na webu",
       readTime: "2 min čtení",
-      ...COMMON,
     },
     {
-      id: "marketing-analyzer",
-      slug: "marketingovy-analyzator",
-      title: "Jak MarketUp vyměnil tabulky za AI nástroj pro analýzu marketingu",
+      id: "automailer",
+      title: "Posílejte stovky personalizovaných emailů každý den, vše automatizovaně",
       description:
-        "Jak jsme pro MarketUp postavili AI nástroj na analýzu reklam, který nahradil hodiny práce v tabulkách okamžitým srovnáním s konkurencí.",
+        "Jak AI nahradí obchodníka s tabulkou — generuje leady, píše personalizované cold emaily a posílá jich stovky denně, plně automatizovaně.",
       image: "/images/solutions/solution2.jpg",
-      imageAlt: "Marketingový dashboard a srovnání s konkurencí",
+      imageAlt: "AI generující a rozesílající personalizované cold emaily ve velkém",
       readTime: "2 min čtení",
-      ...COMMON,
     },
-  ],
-  sk: [
+  ]),
+  sk: buildStudies([
     {
-      id: "cv-search-engine",
-      slug: "vyhladavac-cv",
-      title: "Ako nájsť perfektného kandidáta medzi 50 000 životopismi?",
+      id: "chatbot",
+      title: "Automatizujte zákaznickú podporu, získávejte leady a booknuté cally bez toho, aby ste pohli prstom",
       description:
-        "Ako sme pre Atollon postavili AI nástroj na hľadanie životopisov: sémantické vyhľadávanie, štruktúrované filtre a zjednotené profily kandidátov naprieč 50 000+ dokumentmi.",
+        "Ako AI chatbot premení váš web na 24/7 zákaznícku podporu, ktorá odpovedá na otázky, navrhuje ďalšie kroky a bookuje cally — bez toho, aby ste hli prstom.",
       image: "/images/solutions/solution1.jpg",
-      imageAlt: "AI rozhranie pre vyhľadávanie a dátovo riadený nábor",
+      imageAlt: "AI chatbot odpovedajúci na otázky a bookujúci cally na webe",
       readTime: "2 min čítania",
-      ...COMMON,
     },
     {
-      id: "marketing-analyzer",
-      slug: "marketingovy-analyzator",
-      title: "Ako MarketUp vymenil tabuľky za AI nástroj na analýzu marketingu",
+      id: "automailer",
+      title: "Posielajte stovky personalizovaných emailov každý deň, všetko automatizovane",
       description:
-        "Ako sme pre MarketUp postavili AI nástroj na analýzu reklám, ktorý nahradil hodiny práce s tabuľkami okamžitým porovnaním s konkurenciou.",
+        "Ako AI nahradí obchodníka s tabuľkou — generuje leady, píše personalizované cold emaily a posiela ich stovky denne, plne automatizovane.",
       image: "/images/solutions/solution2.jpg",
-      imageAlt: "Marketingový dashboard a porovnanie s konkurenciou",
+      imageAlt: "AI generujúca a rozosielajúca personalizované cold emaily vo veľkom",
       readTime: "2 min čítania",
-      ...COMMON,
     },
-  ],
-  de: [
+  ]),
+  de: buildStudies([
     {
-      id: "cv-search-engine",
-      slug: "lebenslauf-suchmaschine",
-      title: "Wie findet man den perfekten Kandidaten unter 50 000 Lebensläufen?",
+      id: "chatbot",
+      title: "Kundensupport automatisieren, Leads bekommen und Calls buchen, ohne einen Finger zu rühren",
       description:
-        "Wie wir für Atollon eine KI-gestützte Lebenslauf-Suchmaschine gebaut haben: semantische Suche, strukturierte Filter und einheitliche Kandidatenprofile über 50 000+ Dokumente hinweg.",
+        "Wie ein AI-Chatbot deine Website in einen 24/7-Kundensupport verwandelt — beantwortet Fragen, schlägt nächste Schritte vor und bucht Calls, ohne dass du einen Finger rühren musst.",
       image: "/images/solutions/solution1.jpg",
-      imageAlt: "KI-Suchoberfläche und datengetriebener Recruiting-Workflow",
+      imageAlt: "AI-Chatbot beantwortet Fragen und bucht Calls auf einer Website",
       readTime: "2 Min. Lesezeit",
-      ...COMMON,
     },
     {
-      id: "marketing-analyzer",
-      slug: "marketing-analyse-tool",
-      title: "Wie MarketUp Tabellen gegen ein KI-basiertes Marketing-Analyse-Tool eintauschte",
+      id: "automailer",
+      title: "Versende täglich hunderte personalisierter Emails, alles automatisiert",
       description:
-        "Wie wir für MarketUp ein KI-basiertes Anzeigen-Analyse-Tool gebaut haben, das stundenlange Tabellenarbeit durch sofortige Wettbewerbsvergleiche ersetzt.",
+        "Wie AI einen Sales-Mitarbeiter mit Spreadsheet ersetzt — generiert Leads, schreibt personalisierte Cold Emails und versendet täglich hunderte davon, vollautomatisch.",
       image: "/images/solutions/solution2.jpg",
-      imageAlt: "Marketing-Performance-Dashboard und Wettbewerbs-Benchmarking",
+      imageAlt: "AI generiert und versendet personalisierte Cold Emails im großen Stil",
       readTime: "2 Min. Lesezeit",
-      ...COMMON,
     },
-  ],
+  ]),
 };
 
 export function getCaseStudyBySlug(locale: Locale, slug: string) {
