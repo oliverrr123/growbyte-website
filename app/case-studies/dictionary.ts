@@ -46,7 +46,7 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
     back: "<\u00a0 Späť na riešenia a prípadové štúdie",
     writtenByHuman: "Napísal človek:",
     founderCeoOf: "zakladateľ & CEO spoločnosti",
-    contactFooterTitle: "Chcete vidieť viac prípadových štúdií?\nKontaktujte ma cez odkazy nižšie:",
+    contactFooterTitle: "Chcete vidieť viac prípadových štúdií?\nKontaktujte nás cez odkazy nižšie:",
     langSwitcherLabel: "Jazyk",
   },
   de: {

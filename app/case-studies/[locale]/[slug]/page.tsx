@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   CASE_STUDIES,
@@ -14,6 +13,8 @@ import {
 import { getDictionary } from "../../dictionary";
 import { getArticleComponent } from "../../articles";
 import { SITE_URL } from "../../site";
+import { SolutionsListContactsFooter } from "@/app/solutions/[locale]/list-contacts-footer";
+import { SkMaxLink } from "@/components/sk-max-link";
 import { CaseStudyJsonLd } from "./json-ld";
 import { LanguageSwitcher } from "../language-switcher";
 
@@ -129,12 +130,9 @@ export default async function CaseStudyDetail({
       <CaseStudyJsonLd locale={typedLocale} caseStudy={caseStudy} />
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <div className="flex justify-between items-center pb-8 sm:pb-8 gap-4">
-          <Link
-            href={`/solutions/${typedLocale}`}
-            className="text-foreground text-sm opacity-60"
-          >
+          <SkMaxLink href={`/solutions/${typedLocale}`} className="text-foreground text-sm opacity-60">
             {dict.back}
-          </Link>
+          </SkMaxLink>
           <LanguageSwitcher
             currentLocale={typedLocale}
             alternates={switcherAlternates}
@@ -181,18 +179,20 @@ export default async function CaseStudyDetail({
         <div className="space-y-6 text-foreground/80 leading-relaxed text-base sm:text-lg">
           <ArticleComponent />
         </div>
-        <Link
+        <SkMaxLink
           href={`/solutions/${typedLocale}`}
           className="text-foreground text-sm opacity-60 pb-8 sm:pb-8 block"
         >
           {dict.back}
-        </Link>
+        </SkMaxLink>
       </article>
 
-      <footer>
-        <h6 className="py-6 text-center text-foreground">
-          © {new Date().getFullYear()} GrowByte
-        </h6>
+      <footer className="mt-32">
+        <p className="text-center mb-6 text-foreground whitespace-pre-line">{dict.contactFooterTitle}</p>
+        <div className="flex justify-center flex-wrap gap-4">
+          <SolutionsListContactsFooter locale={typedLocale} />
+        </div>
+        <h6 className="py-6 text-center text-foreground">© {new Date().getFullYear()} GrowByte</h6>
       </footer>
     </div>
   );

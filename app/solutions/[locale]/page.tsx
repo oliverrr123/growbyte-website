@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -13,7 +12,9 @@ import {
 } from "../data";
 import { getDictionary } from "../dictionary";
 import { SITE_URL } from "../site";
+import { SolutionListEntryRow } from "./solution-list-entry-row";
 import { CombinedSolutionsListJsonLd } from "./list-json-ld";
+import { SolutionsListContactsFooter } from "./list-contacts-footer";
 import { LanguageSwitcher } from "./language-switcher";
 
 type Params = { locale: string };
@@ -56,54 +57,7 @@ export async function generateMetadata({
   };
 }
 
-function EntryRow({
-  caseStudy,
-  typedLocale,
-  exploreCta,
-  detailBasePath,
-}: {
-  caseStudy: {
-    id: string;
-    slug: string;
-    title: string;
-    image: string;
-    imageAlt: string;
-  };
-  typedLocale: Locale;
-  exploreCta: string;
-  detailBasePath: "solutions" | "case-studies";
-}) {
-  return (
-    <div className="flex flex-col md:flex-row md:items-start md:gap-12">
-      <div className="flex-1 w-full md:w-96 flex items-center aspect-16/11 justify-center bg-foreground/10">
-        <Image
-          src={caseStudy.image}
-          alt={caseStudy.imageAlt}
-          className="w-full h-full object-cover"
-          width={400}
-          height={400}
-        />
-      </div>
-      <div className="flex-1 flex flex-col gap-6 items-start">
-        <p className="text-2xl font-medium sm:text-3xl mt-4 sm:mt-8 max-w-11/12">
-          {caseStudy.title}
-        </p>
-        <Link
-          href={`/${detailBasePath}/${typedLocale}/${caseStudy.slug}`}
-          className="bg-transparent border border-foreground px-4 py-2 inline hover:bg-foreground hover:text-background transition-colors duration-300 cursor-pointer"
-        >
-          <p>{exploreCta}</p>
-        </Link>
-      </div>
-    </div>
-  );
-}
-
-export default async function SolutionsList({
-  params,
-}: {
-  params: Promise<Params>;
-}) {
+export default async function SolutionsList({ params }: { params: Promise<Params> }) {
   const { locale } = await params;
   if (!isLocale(locale)) {
     notFound();
@@ -143,7 +97,7 @@ export default async function SolutionsList({
 
         <section className="space-y-20 sm:space-y-28 text-foreground">
           {solutions.map((cs) => (
-            <EntryRow
+            <SolutionListEntryRow
               key={cs.id}
               caseStudy={cs}
               typedLocale={typedLocale}
@@ -161,7 +115,7 @@ export default async function SolutionsList({
 
         <section className="space-y-20 sm:space-y-28 text-foreground pb-4">
           {portfolioCaseStudies.map((cs) => (
-            <EntryRow
+            <SolutionListEntryRow
               key={cs.id}
               caseStudy={cs}
               typedLocale={typedLocale}
@@ -176,43 +130,8 @@ export default async function SolutionsList({
         <p className="text-center mb-6 text-foreground whitespace-pre-line">
           {dict.contactFooterTitle}
         </p>
-        <div className="flex justify-center gap-4">
-          <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile">
-            <Image
-              src="/icons/twitter-x.svg"
-              alt="Twitter"
-              className="w-8 h-8 brightness-0 hover:opacity-100 transition-opacity"
-              width={32}
-              height={32}
-            />
-          </a>
-          <a href="https://linkedin.com/in/olivercingl" target="_blank" aria-label="Linkedin profile">
-            <Image
-              src="/icons/linkedin.svg"
-              alt="LinkedIn"
-              className="w-8 h-8 brightness-0 hover:opacity-100 transition-opacity"
-              width={32}
-              height={32}
-            />
-          </a>
-          <a href="mailto:oliver.cingl@gmail.com" target="_blank" aria-label="Email">
-            <Image
-              src="/icons/mail.svg"
-              alt="Email"
-              className="w-8 h-8 brightness-0 hover:opacity-100 transition-opacity"
-              width={32}
-              height={32}
-            />
-          </a>
-          <a href="tel:+420776781248" target="_blank" aria-label="Phone">
-            <Image
-              src="/icons/phone.svg"
-              alt="Phone"
-              className="w-8 h-8 brightness-0 hover:opacity-100 transition-opacity"
-              width={32}
-              height={32}
-            />
-          </a>
+        <div className="flex justify-center flex-wrap gap-4">
+          <SolutionsListContactsFooter locale={typedLocale} />
         </div>
         <h6 className="py-6 text-center text-foreground">© {new Date().getFullYear()} GrowByte</h6>
         <div className="flex justify-center pb-8">

@@ -6,6 +6,7 @@ import {
   type Locale,
 } from "../data";
 import { LangAttribute } from "./lang-attribute";
+import { SkMaxCampaignProvider } from "@/components/sk-max-campaign-context";
 
 export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
@@ -34,7 +35,7 @@ export default async function CaseStudiesLocaleLayout({
   return (
     <>
       <LangAttribute locale={locale as Locale} />
-      {children}
+      <SkMaxCampaignProvider>{children}</SkMaxCampaignProvider>
     </>
   );
 }
