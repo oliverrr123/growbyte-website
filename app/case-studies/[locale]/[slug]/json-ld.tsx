@@ -4,6 +4,7 @@ import {
   type Locale,
 } from "../../data";
 import { getDictionary } from "../../dictionary";
+import { getDictionary as getSolutionsDictionary } from "../../../solutions/dictionary";
 import { SITE_URL } from "../../site";
 
 /**
@@ -24,6 +25,7 @@ export function CaseStudyJsonLd({
   caseStudy: CaseStudy;
 }) {
   const dict = getDictionary(locale);
+  const solutionsDict = getSolutionsDictionary(locale);
   const meta = CASE_STUDY_META[caseStudy.id];
   const url = `${SITE_URL}/case-studies/${locale}/${caseStudy.slug}`;
   const imageUrl = `${SITE_URL}${caseStudy.image}`;
@@ -81,8 +83,8 @@ export function CaseStudyJsonLd({
       {
         "@type": "ListItem",
         position: 2,
-        name: dict.pageTitle,
-        item: `${SITE_URL}/case-studies/${locale}`,
+        name: solutionsDict.pageTitle,
+        item: `${SITE_URL}/solutions/${locale}`,
       },
       {
         "@type": "ListItem",

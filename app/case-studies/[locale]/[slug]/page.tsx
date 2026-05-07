@@ -130,7 +130,7 @@ export default async function CaseStudyDetail({
       <article className="max-w-3xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <div className="flex justify-between items-center pb-8 sm:pb-8 gap-4">
           <Link
-            href={`/case-studies/${typedLocale}`}
+            href={`/solutions/${typedLocale}`}
             className="text-foreground text-sm opacity-60"
           >
             {dict.back}
@@ -182,7 +182,7 @@ export default async function CaseStudyDetail({
           <ArticleComponent />
         </div>
         <Link
-          href={`/case-studies/${typedLocale}`}
+          href={`/solutions/${typedLocale}`}
           className="text-foreground text-sm opacity-60 pb-8 sm:pb-8 block"
         >
           {dict.back}

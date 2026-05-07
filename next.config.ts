@@ -8,6 +8,16 @@ const nextConfig: NextConfig = {
     optimizePackageImports: ["@phosphor-icons/react"],
   },
 
+  async redirects() {
+    return [
+      {
+        source: "/digipriatel/vice",
+        destination: "/digipriatel/viac",
+        permanent: true,
+      },
+    ];
+  },
+
   async rewrites() {
     return [
       {

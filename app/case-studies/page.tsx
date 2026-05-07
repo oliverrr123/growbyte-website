@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "./data";
 
 /**
- * Redirects /case-studies → /case-studies/{user's preferred locale}.
+ * Redirects /case-studies → /solutions/{user's preferred locale}.
  * Falls back to the default locale (en) if no match.
  */
 export default async function CaseStudiesIndex() {
@@ -11,7 +11,7 @@ export default async function CaseStudiesIndex() {
   const acceptLanguage = headerList.get("accept-language") ?? "";
 
   const detected = pickPreferredLocale(acceptLanguage) ?? DEFAULT_LOCALE;
-  redirect(`/case-studies/${detected}`);
+  redirect(`/solutions/${detected}`);
 }
 
 function pickPreferredLocale(header: string): Locale | undefined {

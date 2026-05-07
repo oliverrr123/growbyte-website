@@ -5,7 +5,7 @@ export default function RoboCompanion() {
   return (
     <>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
-        <Link href="/myfriend" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Back to main page</Link>
+        <Link href="/myfriend" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Back to MyFriend page</Link>
 
         <div className="mb-12">
           <p className="text-center mb-4 text-lg">Try MyFriend now by calling:</p>

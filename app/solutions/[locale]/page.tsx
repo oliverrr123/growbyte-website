@@ -3,6 +3,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
+  CASE_STUDIES as PORTFOLIO_CASE_STUDIES,
+} from "../../case-studies/data";
+import {
   CASE_STUDIES,
   isLocale,
   LOCALES,
@@ -10,7 +13,7 @@ import {
 } from "../data";
 import { getDictionary } from "../dictionary";
 import { SITE_URL } from "../site";
-import { CaseStudiesListJsonLd } from "./list-json-ld";
+import { CombinedSolutionsListJsonLd } from "./list-json-ld";
 import { LanguageSwitcher } from "./language-switcher";
 
 type Params = { locale: string };
@@ -53,6 +56,49 @@ export async function generateMetadata({
   };
 }
 
+function EntryRow({
+  caseStudy,
+  typedLocale,
+  exploreCta,
+  detailBasePath,
+}: {
+  caseStudy: {
+    id: string;
+    slug: string;
+    title: string;
+    image: string;
+    imageAlt: string;
+  };
+  typedLocale: Locale;
+  exploreCta: string;
+  detailBasePath: "solutions" | "case-studies";
+}) {
+  return (
+    <div className="flex flex-col md:flex-row md:items-start md:gap-12">
+      <div className="flex-1 w-full md:w-96 flex items-center aspect-16/11 justify-center bg-foreground/10">
+        <Image
+          src={caseStudy.image}
+          alt={caseStudy.imageAlt}
+          className="w-full h-full object-cover"
+          width={400}
+          height={400}
+        />
+      </div>
+      <div className="flex-1 flex flex-col gap-6 items-start">
+        <p className="text-2xl font-medium sm:text-3xl mt-4 sm:mt-8 max-w-11/12">
+          {caseStudy.title}
+        </p>
+        <Link
+          href={`/${detailBasePath}/${typedLocale}/${caseStudy.slug}`}
+          className="bg-transparent border border-foreground px-4 py-2 inline hover:bg-foreground hover:text-background transition-colors duration-300 cursor-pointer"
+        >
+          <p>{exploreCta}</p>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default async function SolutionsList({
   params,
 }: {
@@ -65,7 +111,8 @@ export default async function SolutionsList({
 
   const typedLocale = locale as Locale;
   const dict = getDictionary(typedLocale);
-  const studies = CASE_STUDIES[typedLocale];
+  const solutions = CASE_STUDIES[typedLocale];
+  const portfolioCaseStudies = PORTFOLIO_CASE_STUDIES[typedLocale];
 
   const switcherAlternates = LOCALES.reduce<Partial<Record<Locale, string>>>(
     (acc, l) => {
@@ -77,8 +124,17 @@ export default async function SolutionsList({
 
   return (
     <div className="bg-background min-h-screen">
-      <CaseStudiesListJsonLd locale={typedLocale} />
+      <CombinedSolutionsListJsonLd locale={typedLocale} />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
+        <div className="pb-8 sm:pb-8">
+          <Link
+            href={`/${typedLocale}`}
+            className="text-foreground text-sm opacity-60 inline-block"
+          >
+            {dict.backToMainPage}
+          </Link>
+        </div>
+
         <div className="mb-16 sm:mb-32 text-center">
           <h1 className="text-4xl sm:text-5xl tracking-tight text-foreground mb-4">
             {dict.listHeading}
@@ -86,32 +142,32 @@ export default async function SolutionsList({
         </div>
 
         <section className="space-y-20 sm:space-y-28 text-foreground">
-          {studies.map((caseStudy) => (
-            <div
-              key={caseStudy.id}
-              className="flex flex-col md:flex-row md:items-start md:gap-12"
-            >
-              <div className="flex-1 w-full md:w-96 flex items-center aspect-16/11 justify-center bg-foreground/10">
-                <Image
-                  src={caseStudy.image}
-                  alt={caseStudy.imageAlt}
-                  className="w-full h-full object-cover"
-                  width={400}
-                  height={400}
-                />
-              </div>
-              <div className="flex-1 flex flex-col gap-6 items-start">
-                <p className="text-2xl font-medium sm:text-3xl mt-4 sm:mt-8 max-w-11/12">
-                  {caseStudy.title}
-                </p>
-                <Link
-                  href={`/solutions/${typedLocale}/${caseStudy.slug}`}
-                  className="bg-transparent border border-foreground px-4 py-2 inline hover:bg-foreground hover:text-background transition-colors duration-300 cursor-pointer"
-                >
-                  <p>{dict.exploreCta}</p>
-                </Link>
-              </div>
-            </div>
+          {solutions.map((cs) => (
+            <EntryRow
+              key={cs.id}
+              caseStudy={cs}
+              typedLocale={typedLocale}
+              exploreCta={dict.exploreCta}
+              detailBasePath="solutions"
+            />
+          ))}
+        </section>
+
+        <div className="mt-24 sm:mt-32 mb-16 sm:mb-24 text-center">
+          <h2 className="text-3xl sm:text-4xl tracking-tight text-foreground mb-4">
+            {dict.caseStudiesSectionHeading}
+          </h2>
+        </div>
+
+        <section className="space-y-20 sm:space-y-28 text-foreground pb-4">
+          {portfolioCaseStudies.map((cs) => (
+            <EntryRow
+              key={cs.id}
+              caseStudy={cs}
+              typedLocale={typedLocale}
+              exploreCta={dict.exploreCta}
+              detailBasePath="case-studies"
+            />
           ))}
         </section>
       </div>
