@@ -8,7 +8,7 @@ export default function RoboCompanion() {
         <Link href="/myfriend" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Back to MyFriend page</Link>
         
         <div className="text-center mb-16 sm:mb-28">
-          <h1 className="text-3xl sm:text-5xl font-black text-black mb-4 borel-font">my<span className="italic text-orange-400 font-semibold">friend</span></h1>
+          <h1 className="text-6xl font-black text-black mb-4 caveat-font">my<span className="italic text-orange-400 font-semibold">friend</span></h1>
           <p className="text-black opacity-50">A companion for elderly</p>
         </div>
 

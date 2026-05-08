@@ -19,7 +19,7 @@ export default function DigiFreundLanding() {
         </div>
 
         <div className="text-center mb-16 sm:mb-28">
-          <h1 className="text-3xl sm:text-5xl font-black text-black mb-4 borel-font">
+          <h1 className="text-6xl font-black text-black mb-4 caveat-font">
             digi<span className="italic text-orange-400 font-semibold">freund</span>
           </h1>
           <p className="text-black opacity-50">Begleitung für Menschen im Alter</p>
@@ -45,7 +45,10 @@ export default function DigiFreundLanding() {
 
           <div className="text-center py-6 sm:py-8">
             <p className="text-xl sm:text-2xl font-semibold">
-              Darum haben wir <span className="borel-font">digi<span className="italic text-orange-500">freund</span></span>
+              Darum haben wir{" "}
+              <span className="caveat-font text-3xl sm:text-4xl">
+                digi<span className="italic text-orange-500">freund</span>
+              </span>
               {" entwickelt."}
             </p>
           </div>

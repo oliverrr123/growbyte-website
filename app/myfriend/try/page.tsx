@@ -26,7 +26,7 @@ export default function RoboCompanion() {
         </h3>
 
         <div className="text-center mb-16 sm:mb-28">
-          <h1 className="text-3xl sm:text-4xl font-black text-black mb-2 borel-font">my<span className="italic text-orange-400 font-semibold">friend</span></h1>
+          <h1 className="text-4xl sm:text-5xl font-black text-black mb-2 caveat-font">my<span className="italic text-orange-400 font-semibold">friend</span></h1>
           <p className="text-sm text-black opacity-50">A companion for elderly</p>
         </div>
       </div>

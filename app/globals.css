@@ -22,9 +22,45 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Caveat';
+  src: url('/fonts/Caveat-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat Bold';
+  src: url('/fonts/Caveat-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat Medium';
+  src: url('/fonts/Caveat-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Caveat SemiBold';
+  src: url('/fonts/Caveat-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --font-sf-pro: "SF Pro", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-borel: "Borel", serif;
+  --font-caveat: "Caveat", serif;
+  --font-caveat-bold: "Caveat Bold", serif;
+  --font-caveat-medium: "Caveat Medium", serif;
+  --font-caveat-semi-bold: "Caveat SemiBold", serif;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -125,6 +161,31 @@ body {
 /* Utility class for Borel Font */
 .borel-font {
   font-family: var(--font-borel);
+}
+
+/* Utility class for Caveat Font */
+.caveat-font {
+  font-family: var(--font-caveat);
+}
+
+/* Utility class for Caveat Bold Font */
+
+.caveat-bold-font {
+  font-family: var(--font-caveat-bold);
+}
+
+/* Utility class for Caveat Medium Font */
+
+
+.caveat-medium-font {
+  font-family: var(--font-caveat-medium);
+}
+
+/* Utility class for Caveat SemiBold Font */
+
+
+.caveat-semi-bold-font {
+  font-family: var(--font-caveat-semi-bold);
 }
 
 .dark {

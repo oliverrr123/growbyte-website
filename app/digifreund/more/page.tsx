@@ -10,7 +10,7 @@ export default function DigiFreundMore() {
         </Link>
 
         <div className="text-center mb-16 sm:mb-28">
-          <h1 className="text-3xl sm:text-5xl font-black text-black mb-4 borel-font">
+          <h1 className="text-6xl font-black text-black mb-4 caveat-font">
             digi<span className="italic text-orange-400 font-semibold">freund</span>
           </h1>
           <p className="text-black opacity-50">Begleitung für Menschen im Alter</p>

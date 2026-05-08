@@ -19,23 +19,8 @@ export default function DigiPriatel() {
         </div>
 
         <div className="text-center mb-16 sm:mb-28">
-          <h1 className="text-3xl sm:text-5xl font-black text-black mb-4 borel-font">
-            digi
-            <span className="relative italic text-orange-400 font-semibold">
-              priateľ
-              <span
-                className="absolute left-1/2 -top-6 -translate-x-1/2 rotate-180"
-                style={{
-                  fontSize: "0.75em",
-                  fontWeight: 700,
-                  pointerEvents: "none",
-                  transform: "translateX(8px) translateY(6px)",
-                }}
-                aria-hidden="true"
-              >
-                ^
-              </span>
-            </span>
+          <h1 className="text-6xl font-black text-black mb-4 caveat-font">
+            digi<span className="italic text-orange-400 font-semibold">priateľ</span>
           </h1>
           <p className="text-black opacity-50">Spoločník pre seniorov</p>
         </div>
@@ -61,23 +46,8 @@ export default function DigiPriatel() {
           <div className="text-center py-6 sm:py-8">
             <p className="text-xl sm:text-2xl font-semibold">
               Preto sme vytvorili{" "}
-              <span className="borel-font">
-                digi
-                <span className="relative italic text-orange-500 font-semibold">
-                  priateľa
-                  <span
-                    className="absolute left-1/2 -top-3 -translate-x-1/2 rotate-180"
-                    style={{
-                      fontSize: "0.75em",
-                      fontWeight: 700,
-                      pointerEvents: "none",
-                      transform: "translateX(10px) translateY(6px)",
-                    }}
-                    aria-hidden="true"
-                  >
-                    ^
-                  </span>
-                </span>
+              <span className="caveat-font text-3xl sm:text-4xl">
+                digi<span className="italic text-orange-500">priateľa</span>
               </span>
               .
             </p>
