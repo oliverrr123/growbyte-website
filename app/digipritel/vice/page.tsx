@@ -8,8 +8,8 @@ export default function DigiPritelVice() {
         <Link href="/digipritel" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Zpět na stránku DigiPřítele</Link>
 
         <div className="text-center mb-16 sm:mb-28">
-          <h1 className="text-6xl font-black text-black mb-4 caveat-font">
-            digi<span className="italic text-orange-400 font-semibold">přítel</span>
+          <h1 className="text-6xl text-black mb-4 caveat-bold-font">
+            digi<span className="italic text-orange-400">přítel</span>
           </h1>
           <p className="text-black opacity-50">Společník pro seniory</p>
         </div>

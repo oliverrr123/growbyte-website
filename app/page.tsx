@@ -1,5 +1,6 @@
-import { headers } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
+import { SITE_LOCALE_COOKIE } from "@/lib/site-locale-cookie";
 import { DEFAULT_LOCALE, isLocale, type Locale } from "./solutions/data";
 
 /**
@@ -7,6 +8,12 @@ import { DEFAULT_LOCALE, isLocale, type Locale } from "./solutions/data";
  * links should follow to a canonical localized URL with hreflang alternates.
  */
 export default async function HomeRootRedirect() {
+  const jar = await cookies();
+  const saved = jar.get(SITE_LOCALE_COOKIE)?.value;
+  if (saved && isLocale(saved)) {
+    redirect(`/${saved}`);
+  }
+
   const headerList = await headers();
   const acceptLanguage = headerList.get("accept-language") ?? "";
   const detected = pickPreferredLocale(acceptLanguage) ?? DEFAULT_LOCALE;

@@ -1,11 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
+import { LocalizedHomeLink } from "@/components/localized-home-link";
 
 export default function DigiPritel() {
   return (
     <>
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
-        <Link href="/" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Zpět na hlavní stránku</Link>
+        <LocalizedHomeLink
+          fallbackLocale="cs"
+          className="text-black text-sm opacity-50 pb-8 sm:pb-16 block"
+        >
+          &lt;&nbsp; Zpět na hlavní stránku
+        </LocalizedHomeLink>
         <div className="flex w-full justify-center items-center pb-8 sm:pb-12">
           <Image
             src="/images/robo-companion/robo-companion.png"
@@ -17,8 +23,8 @@ export default function DigiPritel() {
         </div>
 
         <div className="text-center mb-16 sm:mb-28">
-          <h1 className="text-6xl font-black text-black mb-4 caveat-font">
-            digi<span className="italic text-orange-400 font-semibold">přítel</span>
+          <h1 className="text-6xl text-black mb-4 caveat-bold-font">
+            digi<span className="italic text-orange-400">přítel</span>
           </h1>
           <p className="text-black opacity-50">Společník pro seniory</p>
         </div>
@@ -44,7 +50,7 @@ export default function DigiPritel() {
           <div className="text-center py-6 sm:py-8">
             <p className="text-xl sm:text-2xl font-semibold">
               Proto jsme vytvořili{" "}
-              <span className="caveat-font text-3xl sm:text-4xl">
+              <span className="caveat-bold-font text-3xl sm:text-4xl">
                 digi<span className="italic text-orange-500">přítele</span>
               </span>
               .

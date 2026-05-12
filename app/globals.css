@@ -166,12 +166,19 @@ body {
 /* Utility class for Caveat Font */
 .caveat-font {
   font-family: var(--font-caveat);
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  letter-spacing: -0.012em;
 }
 
 /* Utility class for Caveat Bold Font */
 
 .caveat-bold-font {
   font-family: var(--font-caveat-bold);
+  font-weight: bold;
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+  letter-spacing: -0.018em;
 }
 
 /* Utility class for Caveat Medium Font */
