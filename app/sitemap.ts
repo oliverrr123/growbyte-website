@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { headers } from "next/headers";
 import {
   CASE_STUDIES as PORTFOLIO_CASE_STUDIES,
   getAllLocaleSlugsForId as getPortfolioSlugsForId,
@@ -9,10 +10,39 @@ import {
   getAllLocaleSlugsForId as getSolutionSlugsForId,
 } from "./solutions/data";
 import { SITE_URL } from "./case-studies/site";
-import { ELDER_COMPANION_PATH, elderCompanionLanguageAlternateUrls } from "@/lib/elder-companion-paths";
+import {
+  ELDER_COMPANION_ALTERNATES,
+  ELDER_COMPANION_CANONICALS,
+  ELDER_COMPANION_MORE_ALTERNATES,
+  ELDER_COMPANION_MORE_CANONICALS,
+  isDigipritelHost,
+} from "@/lib/elder-companion-seo";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const dynamic = "force-dynamic";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const headerList = await headers();
+  const host = headerList.get("host");
+
+  if (isDigipritelHost(host)) {
+    return [
+      {
+        url: ELDER_COMPANION_CANONICALS.cs,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 1,
+        alternates: { languages: ELDER_COMPANION_ALTERNATES },
+      },
+      {
+        url: ELDER_COMPANION_MORE_CANONICALS.cs,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.8,
+        alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
+      },
+    ];
+  }
 
   const solutionsListAlternates = LOCALES.reduce<Record<string, string>>((acc, l) => {
     acc[l] = `${SITE_URL}/solutions/${l}`;
@@ -80,19 +110,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     alternates: { languages: homeAlternates },
   }));
 
-  const elderCompanionAlternates = elderCompanionLanguageAlternateUrls(SITE_URL);
-
-  const elderCompanionEntries: MetadataRoute.Sitemap = LOCALES.map((locale) => ({
-    url: `${SITE_URL}${ELDER_COMPANION_PATH[locale]}`,
+  const elderCompanionEntries: MetadataRoute.Sitemap = LOCALES.filter(
+    (locale) => locale !== "cs",
+  ).map((locale) => ({
+    url: ELDER_COMPANION_CANONICALS[locale],
     lastModified: now,
     changeFrequency: "monthly",
     priority: 0.72,
-    alternates: { languages: elderCompanionAlternates },
+    alternates: { languages: ELDER_COMPANION_ALTERNATES },
+  }));
+
+  const elderCompanionMoreEntries: MetadataRoute.Sitemap = LOCALES.filter(
+    (locale) => locale !== "cs",
+  ).map((locale) => ({
+    url: ELDER_COMPANION_MORE_CANONICALS[locale],
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+    alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
   }));
 
   return [
     ...homeEntries,
     ...elderCompanionEntries,
+    ...elderCompanionMoreEntries,
     ...solutionsListEntries,
     ...solutionsDetailEntries,
     ...portfolioDetailEntries,

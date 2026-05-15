@@ -1,9 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  ELDER_COMPANION_MORE_ALTERNATES,
+  ELDER_COMPANION_MORE_CANONICALS,
+  elderCompanionJsonLd,
+  elderCompanionMetadata,
+} from "@/lib/elder-companion-seo";
+
+const title = "More about MyFriend";
+const description =
+  "The story behind MyFriend: the Czech MVP, senior workshops, care-home interest, TV coverage, and the move to a simple phone number.";
+
+export const metadata = elderCompanionMetadata({
+  locale: "en",
+  title,
+  description,
+  canonical: ELDER_COMPANION_MORE_CANONICALS.en,
+  alternates: ELDER_COMPANION_MORE_ALTERNATES,
+});
 
 export default function RoboCompanion() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            elderCompanionJsonLd({
+              name: "MyFriend",
+              description,
+              url: ELDER_COMPANION_MORE_CANONICALS.en,
+              inLanguage: "en",
+            }),
+          ),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <Link href="/myfriend" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Back to MyFriend page</Link>
         

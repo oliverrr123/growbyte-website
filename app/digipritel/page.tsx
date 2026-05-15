@@ -1,10 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
+import {
+  ELDER_COMPANION_ALTERNATES,
+  ELDER_COMPANION_CANONICALS,
+  elderCompanionJsonLd,
+  elderCompanionMetadata,
+} from "@/lib/elder-companion-seo";
+
+const title = "DigiPřítel - AI společník pro seniory";
+const description =
+  "DigiPřítel je telefonní AI společník pro seniory, který pomáhá proti samotě, připomíná důležité věci a nabízí praktickou oporu v každodenním životě.";
+
+export const metadata = elderCompanionMetadata({
+  locale: "cs",
+  title,
+  description,
+  canonical: ELDER_COMPANION_CANONICALS.cs,
+  alternates: ELDER_COMPANION_ALTERNATES,
+});
 
 export default function DigiPritel() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            elderCompanionJsonLd({
+              name: "DigiPřítel",
+              description,
+              url: ELDER_COMPANION_CANONICALS.cs,
+              inLanguage: "cs-CZ",
+            }),
+          ),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="cs"
@@ -139,4 +170,3 @@ export default function DigiPritel() {
     </>
   );
 }
-

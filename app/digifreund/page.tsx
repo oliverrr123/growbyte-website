@@ -1,10 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
+import {
+  ELDER_COMPANION_ALTERNATES,
+  ELDER_COMPANION_CANONICALS,
+  elderCompanionJsonLd,
+  elderCompanionMetadata,
+} from "@/lib/elder-companion-seo";
+
+const title = "DigiFreund - KI-Telefonbegleiter für Senioren";
+const description =
+  "DigiFreund ist ein KI-Telefonbegleiter für Senioren, der Gespräche, Alltagshilfe, Erinnerungen und sanfte Impulse für das Wohlbefinden bietet.";
+
+export const metadata = elderCompanionMetadata({
+  locale: "de",
+  title,
+  description,
+  canonical: ELDER_COMPANION_CANONICALS.de,
+  alternates: ELDER_COMPANION_ALTERNATES,
+});
 
 export default function DigiFreundLanding() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            elderCompanionJsonLd({
+              name: "DigiFreund",
+              description,
+              url: ELDER_COMPANION_CANONICALS.de,
+              inLanguage: "de-DE",
+            }),
+          ),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="de"

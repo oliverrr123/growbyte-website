@@ -1,9 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  ELDER_COMPANION_MORE_ALTERNATES,
+  ELDER_COMPANION_MORE_CANONICALS,
+  elderCompanionJsonLd,
+  elderCompanionMetadata,
+} from "@/lib/elder-companion-seo";
+
+const title = "Mehr zum Projekt DigiFreund";
+const description =
+  "Die Geschichte hinter DigiFreund: tschechisches MVP, Workshops mit Seniorinnen und Senioren, Interesse von Pflegeheimen, TV-Berichte und die einfache Telefonnummer.";
+
+export const metadata = elderCompanionMetadata({
+  locale: "de",
+  title,
+  description,
+  canonical: ELDER_COMPANION_MORE_CANONICALS.de,
+  alternates: ELDER_COMPANION_MORE_ALTERNATES,
+});
 
 export default function DigiFreundMore() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            elderCompanionJsonLd({
+              name: "DigiFreund",
+              description,
+              url: ELDER_COMPANION_MORE_CANONICALS.de,
+              inLanguage: "de-DE",
+            }),
+          ),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <Link href="/digifreund" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">
           &lt;&nbsp; Zurück zu DigiFreund

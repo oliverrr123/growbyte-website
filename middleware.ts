@@ -1,6 +1,13 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { SITE_LOCALE_COOKIE } from "./lib/site-locale-cookie";
+import {
+  DIGIPRITEL_ORIGIN,
+  isDigipritelComHost,
+  isDigipritelHost,
+  isGrowbyteHost,
+  normalizeHost,
+} from "./lib/elder-companion-seo";
 
 /**
  * Derive locale from path so we can persist the user's language without
@@ -31,19 +38,83 @@ function localeFromPathname(pathname: string): string | null {
   return null;
 }
 
-export function middleware(request: NextRequest) {
-  const locale = localeFromPathname(request.nextUrl.pathname);
-  if (!locale) return NextResponse.next();
-
-  const res = NextResponse.next();
-  res.cookies.set(SITE_LOCALE_COOKIE, locale, {
+function responseWithLocale(locale: string, response: NextResponse) {
+  response.cookies.set(SITE_LOCALE_COOKIE, locale, {
     path: "/",
     maxAge: 60 * 60 * 24 * 400,
     sameSite: "lax",
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
   });
-  return res;
+  return response;
+}
+
+function requestHeadersWithLocale(request: NextRequest, locale: string) {
+  const headers = new Headers(request.headers);
+  headers.set("x-site-locale", locale);
+  return headers;
+}
+
+function redirectToDigipritel(request: NextRequest, pathname: string) {
+  const url = new URL(pathname, DIGIPRITEL_ORIGIN);
+  url.search = request.nextUrl.search;
+  return NextResponse.redirect(url, 301);
+}
+
+export function middleware(request: NextRequest) {
+  const host = normalizeHost(request.headers.get("host"));
+  const { pathname } = request.nextUrl;
+
+  if (host === "www.digipritel.cz") {
+    return redirectToDigipritel(request, pathname);
+  }
+
+  if (isDigipritelComHost(host)) {
+    return redirectToDigipritel(request, pathname);
+  }
+
+  if (isDigipritelHost(host)) {
+    if (pathname === "/digipritel" || pathname === "/digipritel/") {
+      return redirectToDigipritel(request, "/");
+    }
+
+    if (
+      pathname === "/digipritel/vice" ||
+      pathname === "/digipritel/vice/"
+    ) {
+      return redirectToDigipritel(request, "/vice");
+    }
+
+    if (pathname === "/" || pathname === "/vice") {
+      const rewriteUrl = request.nextUrl.clone();
+      rewriteUrl.pathname = pathname === "/" ? "/digipritel" : "/digipritel/vice";
+      const response = NextResponse.rewrite(rewriteUrl, {
+        request: { headers: requestHeadersWithLocale(request, "cs") },
+      });
+      return responseWithLocale("cs", response);
+    }
+  }
+
+  if (
+    isGrowbyteHost(host) &&
+    (pathname === "/digipritel" ||
+      pathname === "/digipritel/" ||
+      pathname === "/digipritel/vice" ||
+      pathname === "/digipritel/vice/")
+  ) {
+    return redirectToDigipritel(
+      request,
+      pathname.startsWith("/digipritel/vice") ? "/vice" : "/",
+    );
+  }
+
+  const locale = localeFromPathname(pathname);
+  if (!locale) return NextResponse.next();
+
+  const response = NextResponse.next({
+    request: { headers: requestHeadersWithLocale(request, locale) },
+  });
+  return responseWithLocale(locale, response);
 }
 
 export const config = {

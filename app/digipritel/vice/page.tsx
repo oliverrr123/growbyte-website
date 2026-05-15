@@ -1,9 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  ELDER_COMPANION_MORE_ALTERNATES,
+  ELDER_COMPANION_MORE_CANONICALS,
+  elderCompanionJsonLd,
+  elderCompanionMetadata,
+} from "@/lib/elder-companion-seo";
+
+const title = "Více o projektu DigiPřítel";
+const description =
+  "Příběh DigiPřítele: české MVP, workshopy se seniory, zájem domovů seniorů, televizní reportáže a přechod na jednoduché telefonní číslo.";
+
+export const metadata = elderCompanionMetadata({
+  locale: "cs",
+  title,
+  description,
+  canonical: ELDER_COMPANION_MORE_CANONICALS.cs,
+  alternates: ELDER_COMPANION_MORE_ALTERNATES,
+});
 
 export default function DigiPritelVice() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            elderCompanionJsonLd({
+              name: "DigiPřítel",
+              description,
+              url: ELDER_COMPANION_MORE_CANONICALS.cs,
+              inLanguage: "cs-CZ",
+            }),
+          ),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <Link href="/digipritel" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Zpět na stránku DigiPřítele</Link>
 
@@ -119,4 +150,3 @@ export default function DigiPritelVice() {
     </>
   );
 }
-

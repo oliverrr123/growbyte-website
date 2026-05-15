@@ -1,9 +1,40 @@
 import Image from "next/image";
 import Link from "next/link";
+import {
+  ELDER_COMPANION_MORE_ALTERNATES,
+  ELDER_COMPANION_MORE_CANONICALS,
+  elderCompanionJsonLd,
+  elderCompanionMetadata,
+} from "@/lib/elder-companion-seo";
+
+const title = "Viac o projekte DigiPriateľ";
+const description =
+  "Príbeh DigiPriateľa: české MVP, workshopy so seniormi, záujem domovov dôchodcov, televízne reportáže a prechod na jednoduché telefónne číslo.";
+
+export const metadata = elderCompanionMetadata({
+  locale: "sk",
+  title,
+  description,
+  canonical: ELDER_COMPANION_MORE_CANONICALS.sk,
+  alternates: ELDER_COMPANION_MORE_ALTERNATES,
+});
 
 export default function DigiPriatelViac() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            elderCompanionJsonLd({
+              name: "DigiPriateľ",
+              description,
+              url: ELDER_COMPANION_MORE_CANONICALS.sk,
+              inLanguage: "sk-SK",
+            }),
+          ),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <Link href="/digipriatel" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">
           &lt;&nbsp; Späť na stránku DigiPriateľa

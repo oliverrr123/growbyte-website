@@ -1,10 +1,41 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
+import {
+  ELDER_COMPANION_ALTERNATES,
+  ELDER_COMPANION_CANONICALS,
+  elderCompanionJsonLd,
+  elderCompanionMetadata,
+} from "@/lib/elder-companion-seo";
+
+const title = "MyFriend - AI phone companion for seniors";
+const description =
+  "MyFriend is an AI phone companion for seniors that offers conversation, everyday support, medication reminders, and gentle wellness prompts.";
+
+export const metadata = elderCompanionMetadata({
+  locale: "en",
+  title,
+  description,
+  canonical: ELDER_COMPANION_CANONICALS.en,
+  alternates: ELDER_COMPANION_ALTERNATES,
+});
 
 export default function RoboCompanion() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            elderCompanionJsonLd({
+              name: "MyFriend",
+              description,
+              url: ELDER_COMPANION_CANONICALS.en,
+              inLanguage: "en",
+            }),
+          ),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="en"
