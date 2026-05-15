@@ -3,6 +3,7 @@ import { NextResponse } from "next/server";
 import { SITE_LOCALE_COOKIE } from "./lib/site-locale-cookie";
 import {
   DIGIPRITEL_ORIGIN,
+  GROWBYTE_ORIGIN,
   isDigipritelComHost,
   isDigipritelHost,
   isGrowbyteHost,
@@ -61,6 +62,22 @@ function redirectToDigipritel(request: NextRequest, pathname: string) {
   return NextResponse.redirect(url, 301);
 }
 
+function redirectToGrowbyte(request: NextRequest, pathname: string) {
+  const url = new URL(pathname, GROWBYTE_ORIGIN);
+  url.search = request.nextUrl.search;
+  return NextResponse.redirect(url, 301);
+}
+
+function isDigipritelPublicPath(pathname: string): boolean {
+  return (
+    pathname === "/robots.txt" ||
+    pathname === "/sitemap.xml" ||
+    pathname.startsWith("/images/") ||
+    pathname.startsWith("/icons/") ||
+    pathname.startsWith("/fonts/")
+  );
+}
+
 export function middleware(request: NextRequest) {
   const host = normalizeHost(request.headers.get("host"));
   const { pathname } = request.nextUrl;
@@ -92,6 +109,10 @@ export function middleware(request: NextRequest) {
         request: { headers: requestHeadersWithLocale(request, "cs") },
       });
       return responseWithLocale("cs", response);
+    }
+
+    if (!isDigipritelPublicPath(pathname)) {
+      return redirectToGrowbyte(request, pathname);
     }
   }
 
