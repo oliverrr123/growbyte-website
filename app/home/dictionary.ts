@@ -54,7 +54,7 @@ const SKILLS_EN: [HomeSkill, HomeSkill, HomeSkill] = [
   {
     title: "Companion for elderly",
     description:
-      "MyFriend is an AI companion for seniors living alone. It's a phone number they can call at any time — help with daily tasks and better wellbeing through conversation and support.",
+      "MyFriend is an AI companion for seniors through a regular phone call. It helps with loneliness, important reminders and everyday support without requiring a smartphone, app or internet.",
     image: "gradient-3.jpg",
     alt: "AI companion for seniors",
     link: { type: "elder-companion" },
@@ -102,7 +102,7 @@ export const HOME_DICTIONARIES: Record<Locale, HomeDictionary> = {
       {
         title: "Společník pro seniory",
         description:
-          "DigiPřítel je AI společník pro seniory žijící o samotě. Je to telefonní číslo, na které mohou kdykoliv zavolat a jen tak si popovídat, nebo dostat praktickou pomoc jako například připomenutí léků.",
+          "DigiPřítel je AI společník pro seniory přes běžný telefonní hovor. Pomáhá proti samotě, připomíná důležité věci a nabízí oporu bez nutnosti chytrého telefonu, aplikace nebo internetu.",
         image: "gradient-3.jpg",
         alt: "AI společník pro seniory DigiPřítel",
         link: { type: "elder-companion" },
@@ -138,7 +138,7 @@ export const HOME_DICTIONARIES: Record<Locale, HomeDictionary> = {
       {
         title: "Spoločník pre seniorov",
         description:
-          "DigiPriateľ je AI spoločník pre seniorov, ktorí žijú sami. Je to telefónne číslo, na ktoré môžu kedykoľvek zavolať a len tak sa porozprávať, alebo získať praktickú pomoc ako napríklad pripomenutie liekov.",
+          "DigiPriateľ je AI spoločník pre seniorov cez bežný telefonický hovor. Pomáha proti samote, pripomína dôležité veci a ponúka oporu bez potreby smartfónu, aplikácie alebo internetu.",
         image: "gradient-3.jpg",
         alt: "AI spoločník pre seniorov DigiPriateľ",
         link: { type: "elder-companion" },
@@ -174,7 +174,7 @@ export const HOME_DICTIONARIES: Record<Locale, HomeDictionary> = {
       {
         title: "Begleiter für Senioren",
         description:
-          "DigiFreund ist ein KI-Begleiter für allein lebende Senioren — eine Rufnummer, die sie jederzeit anrufen können, Unterstützung im Alltag und mehr Wohlbefinden durch Gespräch und Betreuung.",
+          "DigiFreund ist ein KI-Begleiter für Senioren über einen normalen Telefonanruf. Er hilft gegen Einsamkeit, erinnert an wichtige Dinge und bietet Unterstützung ohne Smartphone, App oder Internet.",
         image: "gradient-3.jpg",
         alt: "KI-Begleiter für Senioren DigiFreund",
         link: { type: "elder-companion" },

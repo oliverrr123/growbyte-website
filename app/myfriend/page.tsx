@@ -4,8 +4,10 @@ import { LocalizedHomeLink } from "@/components/localized-home-link";
 import {
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
+  MYFRIEND_FAQS,
   elderCompanionJsonLd,
   elderCompanionMetadata,
+  faqJsonLd,
 } from "@/lib/elder-companion-seo";
 
 const title = "MyFriend - AI phone companion for seniors";
@@ -36,6 +38,12 @@ export default function RoboCompanion() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd(MYFRIEND_FAQS)),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="en"
@@ -59,6 +67,10 @@ export default function RoboCompanion() {
         </div>
 
         <section className="space-y-12 sm:space-y-16">
+          <p className="text-base sm:text-lg leading-relaxed text-gray-800 w-full md:max-w-1/2 md:mx-auto md:text-center mb-32 -mt-8">
+            MyFriend is an <strong>AI companion for seniors through a regular phone call</strong>. It helps with loneliness, reminds seniors about important things, and offers clear support without requiring a smartphone, an app, or the internet.
+          </p>
+
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
@@ -77,7 +89,7 @@ export default function RoboCompanion() {
           </div>
 
           <div className="text-center py-6 sm:py-8">
-            <p className="text-xl sm:text-2xl font-semibold">That&apos;s why we created <span className="caveat-bold-font text-3xl sm:text-4xl">my<span className="italic text-orange-500">friend</span></span>.</p>
+            <p className="text-xl sm:text-2xl font-semibold">That&apos;s why we created <span className="caveat-bold-font text-3xl sm:text-4xl">my<span className="italic text-orange-500">friend</span></span></p>
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
@@ -92,7 +104,7 @@ export default function RoboCompanion() {
             </div>
             <div className="flex-1 order-2">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                MyFriend is a <strong>buddy on the phone</strong> that gives seniors something they often miss most: company and support. Seniors can talk with it, and it helps them overcome loneliness. It can also assist with everyday problems, such as reminding them how to use the TV remote, showing how to set the oven, or helping them find a favorite recipe.
+                <strong>MyFriend is a buddy on the phone</strong> that gives seniors what they often miss most: company and support. They can talk with it and better manage the feeling of loneliness. It also helps with everyday situations: it can remind them how to use the TV, show oven settings, or help find a favorite recipe.
               </p>
             </div>
           </div>
@@ -100,7 +112,7 @@ export default function RoboCompanion() {
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                MyFriend adapts to each person. It learns about their interests and can start conversations on its own. Sometimes it calls a senior just to chat, or reminds them about an important event.
+                MyFriend <strong>adapts to each person</strong>. It learns about their interests and can start conversations on its own. Sometimes it calls a senior just to chat, or reminds them about an important event.
               </p>
             </div>
             <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
@@ -131,20 +143,42 @@ export default function RoboCompanion() {
             </div>
           </div>
 
-          {/* <div className="text-center py-12 bg-gray-50 rounded-xl">
-            <p className="text-lg text-gray-800 mb-6">
-              We want MyFriend to be accessible to every senior. That's why we're working with senior facilities and institutions that can provide it to those who need it most.
-            </p>
-            <div className="w-96 bg-orange-300 rounded-xl mx-auto flex items-center justify-center">
-              <Image 
-                src="/images/robo-companion/senior-facility.png" 
-                alt="Senior facilities and accessibility" 
-                className="w-full h-full object-cover rounded-xl" 
-                width={400} 
-                height={200} 
-              />
+          <div className="mb-12">
+            <p className="text-center mb-4 text-lg">Want to try MyFriend?<br />Call anytime for free:</p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pb-8 sm:pb-12">
+              <a href="tel:+12346036167" className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+                <span className="block text-sm font-normal text-gray-500 mb-1">US</span>
+                +1 234 603 6167
+              </a>
+              <a href="tel:+420910920500" className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+                <span className="block text-sm font-normal text-gray-500 mb-1">Europe / Czechia</span>
+                +420 910 920 500
+              </a>
             </div>
-          </div> */}
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-gray-950">
+                Frequently asked questions
+              </h2>
+            </div>
+            <div className="grid gap-4">
+              {MYFRIEND_FAQS.map((item) => (
+                <article
+                  key={item.question}
+                  className="rounded-lg border border-gray-200 px-5 py-5"
+                >
+                  <h3 className="text-lg font-semibold text-gray-950 mb-2">
+                    {item.question}
+                  </h3>
+                  <p className="text-base leading-relaxed text-gray-800">
+                    {item.answer}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
         <div className="w-full flex flex-col items-center justify-center py-16">
           <Link
@@ -157,7 +191,7 @@ export default function RoboCompanion() {
       </div>
 
       <footer>
-        <p className="text-center mb-6">Want to try MyFriend?<br />Contact me through the links below:</p>
+        <p className="text-center mb-6">Do you have any questions, feedback, or ideas for MyFriend?<br />Contact me through the links below:</p>
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />

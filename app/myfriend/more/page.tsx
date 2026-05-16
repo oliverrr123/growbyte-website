@@ -85,7 +85,7 @@ export default function RoboCompanion() {
 
           <div className="space-y-6">
             <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-              MyFriend also appeared on Czech national TV, not once, but twice. Thanks to that, we started working with a senior wellbeing expert who helps us integrate wellbeing features into the project.
+              MyFriend also appeared on television twice. Thanks to that, we started working with a senior wellbeing expert who helps us integrate mental and physical wellbeing features into the project.
             </p>
 
             <div className="flex flex-col md:flex-row gap-6">
@@ -124,11 +124,25 @@ export default function RoboCompanion() {
               </div>
             </div>
           </div>
+
+          <div className="-mb-16 mt-20">
+            <p className="text-center mb-4 text-lg">Want to try MyFriend?<br />Call anytime for free:</p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pb-8 sm:pb-12">
+              <a href="tel:+12346036167" className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+                <span className="block text-sm font-normal text-gray-500 mb-1">US</span>
+                +1 234 603 6167
+              </a>
+              <a href="tel:+420910920500" className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+                <span className="block text-sm font-normal text-gray-500 mb-1">Europe / Czechia</span>
+                +420 910 920 500
+              </a>
+            </div>
+          </div>
         </section>
       </div>
 
       <footer>
-        <p className="text-center mb-6 mt-12">Want to try MyFriend?<br />Contact me through the links below:</p>
+        <p className="text-center mb-6 mt-12">Do you have any questions, feedback, or ideas for MyFriend?<br />Contact me through the links below:</p>
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profile">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />

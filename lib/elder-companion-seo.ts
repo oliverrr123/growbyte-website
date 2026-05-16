@@ -36,6 +36,158 @@ export const ELDER_COMPANION_MORE_ALTERNATES: Record<string, string> = {
 
 export const ELDER_COMPANION_IMAGE = `${GROWBYTE_ORIGIN}/images/robo-companion/robo-companion.png`;
 
+export const DIGIPRITEL_FAQS = [
+  {
+    question: "Co je DigiPřítel?",
+    answer:
+      "DigiPřítel je telefonní AI společník pro seniory. Senior mu může 24/7 zdarma zavolat na jeho telefonní číslo a jen tak si s ním popovídat, získat pomoc s různými problémy, nebo si nastavit připomínky na důležité události, jako je braní léků.",
+  },
+  {
+    question: "Komu DigiPřítel pomáhá?",
+    answer:
+      "DigiPřítel je určený hlavně seniorům, kteří tráví hodně času o samotě, mají méně pravidelný kontakt s rodinou nebo potřebují jednoduchou oporu během dne. Využívat ho ale samozřejmě může kdokoliv. Já (autor) ho také využívám např. na připomínky ;)",
+  },
+  {
+    question: "Je k používání potřeba chytrý telefon nebo internet?",
+    answer:
+      "Ne. DigiPřítel funguje přes běžný telefonní hovor, takže senior nepotřebuje chytrý telefon, aplikaci ani internetové připojení.",
+  },
+  {
+    question: "S čím umí DigiPřítel pomoci?",
+    answer:
+      "DigiPřítel nabízí přátelskou konverzaci, připomíná důležité věci, pomáhá s běžnými otázkami doma a podporuje lehký pohyb, mentální aktivity a pravidelný režim.",
+  },
+  {
+    question: "Kolik to stojí?",
+    answer:
+      "DigiPřítel je zdarma. Jakto? Nynější fáze projektu je zaměřena na testování a vylepšování. V budoucnu bude fungovat na základě předplatného, ale než se tak stane, všichni uživatelé budou předem informováni.",
+  },
+  {
+    question: "Jak mohu vyzkoušet DigiPřítele?",
+    answer:
+      "Zavolejte kdykoliv zdarma na telefonní číslo +420 910 920 500.",
+  },
+  {
+    question: "Kdo vytvořil DigiPřítele?",
+    answer:
+      "DigiPřítele vytvořil středoškolský student Oliver Cingl ve spolupráci se seniorem Zdeňkem Svobodou, který pořádá workshopy a přednášky pro seniory, většinou na téma mentálního zdraví.",
+  },
+];
+
+export const MYFRIEND_FAQS = [
+  {
+    question: "What is MyFriend?",
+    answer:
+      "MyFriend is an AI phone companion for seniors. A senior can call its phone number 24/7 for free and simply chat, get help with different problems, or set reminders for important events such as taking medication.",
+  },
+  {
+    question: "Who does MyFriend help?",
+    answer:
+      "MyFriend is mainly designed for seniors who spend a lot of time alone, have less regular contact with family, or need simple support during the day. Of course, anyone can use it. I, the author, also use it for reminders.",
+  },
+  {
+    question: "Do seniors need a smartphone or internet connection?",
+    answer:
+      "No. MyFriend works through a regular phone call, so a senior does not need a smartphone, an app, or an internet connection.",
+  },
+  {
+    question: "What can MyFriend help with?",
+    answer:
+      "MyFriend offers friendly conversation, reminds seniors about important things, helps with everyday questions at home, and supports light movement, mental activities, and a regular routine.",
+  },
+  {
+    question: "How much does it cost?",
+    answer:
+      "MyFriend is free. Why? The current phase of the project is focused on testing and improving it. In the future it will work as a subscription, but before that happens, all users will be informed in advance.",
+  },
+  {
+    question: "How can I try MyFriend?",
+    answer:
+      "Call anytime for free. In the US, use +1 234 603 6167. In Europe or Czechia, use +420 910 920 500.",
+  },
+  {
+    question: "Who created MyFriend?",
+    answer:
+      "MyFriend was created by high school student Oliver Cingl in cooperation with senior Zdeněk Svoboda, who organizes workshops and talks for seniors, mostly focused on mental health.",
+  },
+];
+
+export const DIGIPRIATEL_FAQS = [
+  {
+    question: "Čo je DigiPriateľ?",
+    answer:
+      "DigiPriateľ je telefonický AI spoločník pre seniorov. Senior mu môže 24/7 zadarmo zavolať na jeho telefónne číslo a len tak sa porozprávať, získať pomoc s rôznymi problémami alebo si nastaviť pripomienky na dôležité udalosti, napríklad užívanie liekov.",
+  },
+  {
+    question: "Komu DigiPriateľ pomáha?",
+    answer:
+      "DigiPriateľ je určený hlavne seniorom, ktorí trávia veľa času osamote, majú menej pravidelný kontakt s rodinou alebo potrebujú jednoduchú oporu počas dňa. Využívať ho však môže, samozrejme, ktokoľvek. Ja, autor, ho tiež používam napríklad na pripomienky.",
+  },
+  {
+    question: "Je na používanie potrebný smartfón alebo internet?",
+    answer:
+      "Nie. DigiPriateľ funguje cez bežný telefonický hovor, takže senior nepotrebuje smartfón, aplikáciu ani internetové pripojenie.",
+  },
+  {
+    question: "S čím vie DigiPriateľ pomôcť?",
+    answer:
+      "DigiPriateľ ponúka priateľský rozhovor, pripomína dôležité veci, pomáha s bežnými otázkami doma a podporuje ľahký pohyb, mentálne aktivity a pravidelný režim.",
+  },
+  {
+    question: "Koľko to stojí?",
+    answer:
+      "DigiPriateľ je zadarmo. Ako je to možné? Súčasná fáza projektu je zameraná na testovanie a zlepšovanie. V budúcnosti bude fungovať na základe predplatného, ale skôr než sa tak stane, všetci používatelia budú vopred informovaní.",
+  },
+  {
+    question: "Ako môžem vyskúšať DigiPriateľa?",
+    answer:
+      "Zavolajte kedykoľvek zadarmo na telefónne číslo +420 910 920 500.",
+  },
+  {
+    question: "Kto vytvoril DigiPriateľa?",
+    answer:
+      "DigiPriateľa vytvoril stredoškolský študent Oliver Cingl v spolupráci so seniorom Zdeňkom Svobodom, ktorý organizuje workshopy a prednášky pre seniorov, väčšinou na tému mentálneho zdravia.",
+  },
+];
+
+export const DIGIFREUND_FAQS = [
+  {
+    question: "Was ist DigiFreund?",
+    answer:
+      "DigiFreund ist ein KI-Telefonbegleiter für Senioren. Eine ältere Person kann seine Telefonnummer rund um die Uhr kostenlos anrufen, einfach plaudern, Hilfe bei verschiedenen Problemen bekommen oder Erinnerungen an wichtige Ereignisse wie die Medikamenteneinnahme einstellen.",
+  },
+  {
+    question: "Wem hilft DigiFreund?",
+    answer:
+      "DigiFreund richtet sich vor allem an Senioren, die viel Zeit allein verbringen, weniger regelmäßigen Kontakt zur Familie haben oder tagsüber einfache Unterstützung brauchen. Natürlich kann ihn aber jeder nutzen. Ich, der Autor, nutze ihn zum Beispiel auch für Erinnerungen.",
+  },
+  {
+    question: "Braucht man ein Smartphone oder Internet?",
+    answer:
+      "Nein. DigiFreund funktioniert über einen normalen Telefonanruf, daher braucht die ältere Person kein Smartphone, keine App und keine Internetverbindung.",
+  },
+  {
+    question: "Wobei kann DigiFreund helfen?",
+    answer:
+      "DigiFreund bietet freundliche Gespräche, erinnert an wichtige Dinge, hilft bei Alltagsfragen zu Hause und unterstützt leichte Bewegung, mentale Aktivitäten und eine regelmäßige Routine.",
+  },
+  {
+    question: "Wie viel kostet es?",
+    answer:
+      "DigiFreund ist kostenlos. Warum? Die aktuelle Projektphase konzentriert sich auf Tests und Verbesserungen. In Zukunft wird DigiFreund auf Basis eines Abonnements funktionieren, aber bevor das passiert, werden alle Nutzer vorab informiert.",
+  },
+  {
+    question: "Wie kann ich DigiFreund ausprobieren?",
+    answer:
+      "Rufen Sie jederzeit kostenlos die Telefonnummer +420 910 920 500 an.",
+  },
+  {
+    question: "Wer hat DigiFreund entwickelt?",
+    answer:
+      "DigiFreund wurde vom Gymnasiasten Oliver Cingl in Zusammenarbeit mit dem Senior Zdeněk Svoboda entwickelt, der Workshops und Vorträge für Senioren organisiert, meistens zum Thema mentale Gesundheit.",
+  },
+];
+
 export function normalizeHost(host: string | null): string {
   return (host ?? "").split(":")[0].toLowerCase();
 }
@@ -137,5 +289,20 @@ export function elderCompanionJsonLd({
         url: GROWBYTE_ORIGIN,
       },
     ],
+  };
+}
+
+export function faqJsonLd(faqs: typeof DIGIPRITEL_FAQS) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   };
 }

@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
 import {
+  DIGIPRITEL_FAQS,
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
   elderCompanionJsonLd,
   elderCompanionMetadata,
+  faqJsonLd,
 } from "@/lib/elder-companion-seo";
 
 const title = "DigiPřítel - AI společník pro seniory";
@@ -36,6 +38,12 @@ export default function DigiPritel() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd(DIGIPRITEL_FAQS)),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="cs"
@@ -61,6 +69,10 @@ export default function DigiPritel() {
         </div>
 
         <section className="space-y-12 sm:space-y-16">
+            <p className="text-base sm:text-lg leading-relaxed text-gray-800 w-full md:max-w-1/2 md:mx-auto md:text-center mb-32 -mt-8">
+              DigiPřítel je <strong>AI společník pro seniory přes běžný telefonní hovor</strong>. Pomáhá proti samotě, připomíná důležité věci a nabízí srozumitelnou oporu bez nutnosti chytrého telefonu, aplikace nebo internetu.
+            </p>
+
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
@@ -84,7 +96,6 @@ export default function DigiPritel() {
               <span className="caveat-bold-font text-3xl sm:text-4xl">
                 digi<span className="italic text-orange-500">přítele</span>
               </span>
-              .
             </p>
           </div>
 
@@ -138,6 +149,36 @@ export default function DigiPritel() {
               </p>
             </div>
           </div>
+
+          <div className="mb-12">
+            <p className="text-center mb-4 text-lg">Chcete vyzkoušet DigiPřítele?<br />Zavolejte kdykoliv zdarma:</p>
+            <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
+              <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+420 910 920 500</a>
+            </h3>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-gray-950">
+                Časté otázky
+              </h2>
+            </div>
+            <div className="grid gap-4">
+              {DIGIPRITEL_FAQS.map((item) => (
+                <article
+                  key={item.question}
+                  className="rounded-lg border border-gray-200 px-5 py-5"
+                >
+                  <h3 className="text-lg font-semibold text-gray-950 mb-2">
+                    {item.question}
+                  </h3>
+                  <p className="text-base leading-relaxed text-gray-800">
+                    {item.answer}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </div>
         </section>
         <div className="w-full flex flex-col items-center justify-center py-16">
           <Link
@@ -150,7 +191,7 @@ export default function DigiPritel() {
       </div>
 
       <footer>
-        <p className="text-center mb-6">Chcete vyzkoušet DigiPřítele?<br />Kontaktujte mě přes odkazy níže:</p>
+        <p className="text-center mb-6">Máte jakékoliv dotazy, připomínky, nebo nápady na DigiPřítele?<br />Kontaktujte mě přes odkazy níže:</p>
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profil">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
@@ -165,7 +206,7 @@ export default function DigiPritel() {
             <Image src="/icons/phone.svg" alt="Telefon" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
         </div>
-        <h6 className="py-6 text-center text-black">© 2025 GrowByte</h6>
+        <h6 className="py-6 text-center text-black">© {new Date().getFullYear()} GrowByte</h6>
       </footer>
     </>
   );

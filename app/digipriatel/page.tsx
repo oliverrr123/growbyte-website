@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
 import {
+  DIGIPRIATEL_FAQS,
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
   elderCompanionJsonLd,
   elderCompanionMetadata,
+  faqJsonLd,
 } from "@/lib/elder-companion-seo";
 
 const title = "DigiPriateľ - AI spoločník pre seniorov";
@@ -36,6 +38,12 @@ export default function DigiPriatel() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd(DIGIPRIATEL_FAQS)),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="sk"
@@ -61,10 +69,14 @@ export default function DigiPriatel() {
         </div>
 
         <section className="space-y-12 sm:space-y-16">
+          <p className="text-base sm:text-lg leading-relaxed text-gray-800 w-full md:max-w-1/2 md:mx-auto md:text-center mb-32 -mt-8">
+            DigiPriateľ je <strong>AI spoločník pre seniorov cez bežný telefonický hovor</strong>. Pomáha proti samote, pripomína dôležité veci a ponúka zrozumiteľnú oporu bez potreby smartfónu, aplikácie alebo internetu.
+          </p>
+
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                Na Slovensku žije veľké množstvo seniorov bez pravidelných návštev rodiny alebo v domácnostiach, kde už len zriedka vstúpi hosť. Mnohým chýba spoločnosť v každom dni a samota sa stáva zvykom, nie výnimkou.
+                V Českej republike žije osamote približne <strong>750 000 seniorov</strong>. To je viac ľudí, než žije dohromady v celom Juhočeskom kraji. Mnohí z nich sa so svojou rodinou vídajú len zriedka alebo vôbec a samota sa stáva súčasťou ich každodenného života.
               </p>
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
@@ -84,7 +96,6 @@ export default function DigiPriatel() {
               <span className="caveat-bold-font text-3xl sm:text-4xl">
                 digi<span className="italic text-orange-500">priateľa</span>
               </span>
-              .
             </p>
           </div>
 
@@ -100,7 +111,7 @@ export default function DigiPriatel() {
             </div>
             <div className="flex-1 order-2">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                <strong>DigiPriateľ je kamarát na telefóne</strong>, ktorý seniorom ponúka to, čo im najčastejšie chýba — spoločnosť a oporu. Môžu sa s ním rozprávať a lepšie zvládnuť pocit prázdnoty doma. Zároveň pomáha vo všedných situáciách: pripomenie ovládanie televízora, vysvetlí použitie rúry alebo pomôže nájsť recept.
+                <strong>DigiPriateľ je kamarát na telefóne</strong>, ktorý seniorom dáva to, čo im často najviac chýba: spoločnosť a oporu. Môžu sa s ním rozprávať a vďaka tomu lepšie zvládať pocit samoty. Zároveň pomáha v každodenných situáciách – pripomenie, ako sa ovláda televízor, ukáže nastavenie rúry alebo pomôže nájsť obľúbený recept.
               </p>
             </div>
           </div>
@@ -108,11 +119,7 @@ export default function DigiPriatel() {
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                DigiPriateľ sa{" "}
-                <strong>
-                  prispôsobuje každej osobe — učí sa záujmy a začína rozhovor sám
-                </strong>
-                . Niekedy zavolá len tak, aby sa porozprával, niekedy pripomenie dôležitú udalosť alebo povinnosti.
+                DigiPriateľ sa <strong>prispôsobuje každému človeku</strong>. Učí sa o jeho záujmoch a sám dokáže začínať rozhovory. Občas seniorovi zavolá, aby sa len tak porozprával, alebo mu pripomenie nejakú dôležitú udalosť.
               </p>
             </div>
             <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
@@ -138,9 +145,38 @@ export default function DigiPriatel() {
             </div>
             <div className="flex-1 order-2">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                Okrem rozprávania DigiPriateľ{" "}
-                <strong>dohliada aj na pohodu seniorov</strong>. Pripomína užívanie liekov, nabáda na ľahké cvičenie a mentálne aktivity a hravými prvkami z nich robí menšie výzvy. Zdravší režim tak pôsobí prirodzenejšie a príjemnejšie.
+                Okrem konverzácie DigiPriateľ <strong>dohliada aj na pohodu seniorov</strong>. Pripomína užívanie liekov, motivuje k ľahkému cvičeniu aj mentálnym aktivitám a mení ich na zábavné výzvy gamifikáciou. Vďaka tomu je zdravý životný štýl prirodzenejší a príjemnejší.
               </p>
+            </div>
+          </div>
+
+          <div className="mb-12">
+            <p className="text-center mb-4 text-lg">Chcete vyskúšať DigiPriateľa?<br />Zavolajte kedykoľvek zadarmo:</p>
+            <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
+              <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+420 910 920 500</a>
+            </h3>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-gray-950">
+                Časté otázky
+              </h2>
+            </div>
+            <div className="grid gap-4">
+              {DIGIPRIATEL_FAQS.map((item) => (
+                <article
+                  key={item.question}
+                  className="rounded-lg border border-gray-200 px-5 py-5"
+                >
+                  <h3 className="text-lg font-semibold text-gray-950 mb-2">
+                    {item.question}
+                  </h3>
+                  <p className="text-base leading-relaxed text-gray-800">
+                    {item.answer}
+                  </p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -156,7 +192,7 @@ export default function DigiPriatel() {
 
       <footer>
         <p className="text-center mb-6">
-          Chcete vyskúšať DigiPriateľa?
+          Máte akékoľvek otázky, pripomienky alebo nápady na DigiPriateľa?
           <br />
           Kontaktujte ma cez odkazy nižšie:
         </p>

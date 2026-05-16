@@ -8,10 +8,17 @@ export default function RoboCompanion() {
         <Link href="/myfriend" className="text-black text-sm opacity-50 pb-8 sm:pb-16 block">&lt;&nbsp; Back to MyFriend page</Link>
 
         <div className="mb-12">
-          <p className="text-center mb-4 text-lg">Try MyFriend now by calling:</p>
-          <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
-            <a href="tel:+12346036167" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+1 234 603 6167</a>
-          </h3>
+          <p className="text-center mb-4 text-lg">Want to try MyFriend?<br />Call anytime for free:</p>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pb-8 sm:pb-12">
+            <a href="tel:+12346036167" className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+              <span className="block text-sm font-normal text-gray-500 mb-1">US</span>
+              +1 234 603 6167
+            </a>
+            <a href="tel:+420910920500" className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+              <span className="block text-sm font-normal text-gray-500 mb-1">Europe / Czechia</span>
+              +420 910 920 500
+            </a>
+          </div>
         </div>
 
 

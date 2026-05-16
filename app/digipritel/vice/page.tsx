@@ -126,11 +126,18 @@ export default function DigiPritelVice() {
               </div>
             </div>
           </div>
+
+          <div className="-mb-16 mt-20">
+            <p className="text-center mb-4 text-lg">Chcete vyzkoušet DigiPřítele?<br />Zavolejte kdykoliv zdarma:</p>
+            <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
+              <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+420 910 920 500</a>
+            </h3>
+          </div>
         </section>
       </div>
 
       <footer>
-        <p className="text-center mb-6 mt-12">Chcete vyzkoušet DigiPřítele?<br />Kontaktujte mě přes odkazy níže:</p>
+        <p className="text-center mb-6 mt-12">Máte jakékoliv dotazy, připomínky, nebo nápady na DigiPřítele?<br />Kontaktujte mě přes odkazy níže:</p>
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Twitter profil">
             <Image src="/icons/twitter-x.svg" alt="Twitter" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />

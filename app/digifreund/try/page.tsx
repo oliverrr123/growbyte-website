@@ -10,10 +10,10 @@ export default function DigiFreundTry() {
         </Link>
 
         <div className="mb-12">
-          <p className="text-center mb-4 text-lg">DigiFreund jetzt testen – anrufen unter:</p>
+          <p className="text-center mb-4 text-lg">DigiFreund ausprobieren?<br />Rufen Sie jederzeit kostenlos an:</p>
           <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
-            <a href="tel:+12346036167" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
-              +1 234 603 6167
+            <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+              +420 910 920 500
             </a>
           </h3>
         </div>

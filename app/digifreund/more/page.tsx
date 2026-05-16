@@ -89,7 +89,7 @@ export default function DigiFreundMore() {
 
           <div className="space-y-6">
             <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-              DigiFreund war zweimal im tschechischen Fernsehen zu sehen – seitdem arbeiten wir mit Experten für das Wohlbefinden im Alter zusammen und verstärken entsprechende Angebote im Projekt.
+              DigiFreund war auch im Fernsehen zu sehen, und zwar gleich zweimal. Dadurch haben wir begonnen, mit einem Experten für das Wohlbefinden von Senioren zusammenzuarbeiten, der uns hilft, Elemente der mentalen und körperlichen Gesundheit in das Projekt einzubauen.
             </p>
 
             <div className="flex flex-col md:flex-row gap-6">
@@ -142,12 +142,19 @@ export default function DigiFreundMore() {
               </div>
             </div>
           </div>
+
+          <div className="-mb-16 mt-20">
+            <p className="text-center mb-4 text-lg">DigiFreund ausprobieren?<br />Rufen Sie jederzeit kostenlos an:</p>
+            <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
+              <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+420 910 920 500</a>
+            </h3>
+          </div>
         </section>
       </div>
 
       <footer>
         <p className="text-center mb-6 mt-12">
-          DigiFreund ausprobieren?
+          Haben Sie Fragen, Feedback oder Ideen zu DigiFreund?
           <br />
           Schreiben Sie mir über die Links unten:
         </p>

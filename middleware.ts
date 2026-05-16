@@ -70,6 +70,7 @@ function redirectToGrowbyte(request: NextRequest, pathname: string) {
 
 function isDigipritelPublicPath(pathname: string): boolean {
   return (
+    pathname === "/llms.txt" ||
     pathname === "/robots.txt" ||
     pathname === "/sitemap.xml" ||
     pathname.startsWith("/images/") ||

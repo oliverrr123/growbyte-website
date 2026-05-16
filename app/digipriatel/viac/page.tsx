@@ -89,7 +89,7 @@ export default function DigiPriatelViac() {
 
           <div className="space-y-6">
             <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-              DigiPriateľ sa objavil aj v televízii dvakrát. Vďaka tomu začala spolupráca s odborníkom na duševnú pohodu seniorov pri zapracovaní prvkov blahobytu do produktu.
+              DigiPriateľ sa objavil aj v televízii, a to dokonca dvakrát. Vďaka tomu sme začali spolupracovať s odborníkom na wellbeing seniorov, ktorý nám pomáha začleniť do projektu prvky duševného aj fyzického zdravia.
             </p>
 
             <div className="flex flex-col md:flex-row gap-6">
@@ -142,12 +142,19 @@ export default function DigiPriatelViac() {
               </div>
             </div>
           </div>
+
+          <div className="-mb-16 mt-20">
+            <p className="text-center mb-4 text-lg">Chcete vyskúšať DigiPriateľa?<br />Zavolajte kedykoľvek zadarmo:</p>
+            <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
+              <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+420 910 920 500</a>
+            </h3>
+          </div>
         </section>
       </div>
 
       <footer>
         <p className="text-center mb-6 mt-12">
-          Chcete vyskúšať DigiPriateľa?
+          Máte akékoľvek otázky, pripomienky alebo nápady na DigiPriateľa?
           <br />
           Kontaktujte ma cez odkazy nižšie:
         </p>

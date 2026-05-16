@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
 import {
+  DIGIFREUND_FAQS,
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
   elderCompanionJsonLd,
   elderCompanionMetadata,
+  faqJsonLd,
 } from "@/lib/elder-companion-seo";
 
 const title = "DigiFreund - KI-Telefonbegleiter für Senioren";
@@ -36,6 +38,12 @@ export default function DigiFreundLanding() {
           ),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(faqJsonLd(DIGIFREUND_FAQS)),
+        }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="de"
@@ -61,10 +69,14 @@ export default function DigiFreundLanding() {
         </div>
 
         <section className="space-y-12 sm:space-y-16">
+          <p className="text-base sm:text-lg leading-relaxed text-gray-800 w-full md:max-w-1/2 md:mx-auto md:text-center mb-32 -mt-8">
+            DigiFreund ist ein <strong>KI-Begleiter für Senioren über einen normalen Telefonanruf</strong>. Er hilft gegen Einsamkeit, erinnert an wichtige Dinge und bietet verständliche Unterstützung ohne Smartphone, App oder Internet.
+          </p>
+
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                In Deutschland leben <strong>über fünf Millionen Menschen ab 65 Jahren allein</strong>. Viele haben nur selten persönlichen Kontakt zu Angehörigen – und Einsamkeit gehört für sie zum Alltag.
+                In der Tschechischen Republik leben rund <strong>750.000 Senioren allein</strong>. Das sind mehr Menschen, als in der gesamten Südböhmischen Region leben. Viele von ihnen sehen ihre Familie nur selten oder gar nicht, und Einsamkeit wird Teil ihres Alltags.
               </p>
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
@@ -84,7 +96,7 @@ export default function DigiFreundLanding() {
               <span className="caveat-bold-font text-3xl sm:text-4xl">
                 digi<span className="italic text-orange-500">freund</span>
               </span>
-              {" entwickelt."}
+              {" entwickelt"}
             </p>
           </div>
 
@@ -100,7 +112,7 @@ export default function DigiFreundLanding() {
             </div>
             <div className="flex-1 order-2">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                <strong>DigiFreund ist ein Anruf auf die Nummer</strong>, der Senioren etwas gibt, woran es oft fehlt: Gesellschaft und Halt. Sie können sprechen und den Alltag weniger einsam erleben – und sich praktische Hilfe holen, etwa bei der Fernbedienung, beim Ofen oder beim Lieblingsrezept.
+                <strong>DigiFreund ist ein Freund am Telefon</strong>, der Senioren das gibt, was ihnen oft am meisten fehlt: Gesellschaft und Halt. Sie können mit ihm sprechen und das Gefühl von Einsamkeit besser bewältigen. Gleichzeitig hilft er in Alltagssituationen – er erinnert daran, wie der Fernseher bedient wird, erklärt Ofeneinstellungen oder hilft, ein Lieblingsrezept zu finden.
               </p>
             </div>
           </div>
@@ -108,7 +120,7 @@ export default function DigiFreundLanding() {
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
             <div className="flex-1 order-2 md:order-1">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                DigiFreund <strong>passt sich jeder Person an</strong>, lernt Interessen kennen und kann selbst Gespräche beginnen. Manchmal ruft DigiFreund einfach zum Plaudern an, manchmal erinnert es an einen wichtigen Termin.
+                DigiFreund <strong>passt sich jedem Menschen an</strong>. Er lernt Interessen kennen und kann selbst Gespräche beginnen. Manchmal ruft er einen Senior einfach zum Plaudern an oder erinnert an ein wichtiges Ereignis.
               </p>
             </div>
             <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
@@ -134,8 +146,38 @@ export default function DigiFreundLanding() {
             </div>
             <div className="flex-1 order-2">
               <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                Neben dem Gespräch <strong>kümmert sich DigiFreund ums Wohl</strong>: Mahnungen zur Medikamenteneinnahme, kleine Bewegungsimpulse und Gedächtnisaktivitäten – eingebettet in spielerische Herausforderungen. Gesund bleiben soll leichter und angenehmer werden.
+                Neben der Konversation <strong>kümmert sich DigiFreund auch um das Wohlbefinden von Senioren</strong>. Er erinnert an die Einnahme von Medikamenten, motiviert zu leichter Bewegung und mentalen Aktivitäten und verwandelt sie durch Gamification in unterhaltsame Herausforderungen. Dadurch wird ein gesunder Lebensstil natürlicher und angenehmer.
               </p>
+            </div>
+          </div>
+
+          <div className="mb-12">
+            <p className="text-center mb-4 text-lg">DigiFreund ausprobieren?<br />Rufen Sie jederzeit kostenlos an:</p>
+            <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
+              <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+420 910 920 500</a>
+            </h3>
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-2xl sm:text-3xl font-semibold text-gray-950">
+                Häufige Fragen
+              </h2>
+            </div>
+            <div className="grid gap-4">
+              {DIGIFREUND_FAQS.map((item) => (
+                <article
+                  key={item.question}
+                  className="rounded-lg border border-gray-200 px-5 py-5"
+                >
+                  <h3 className="text-lg font-semibold text-gray-950 mb-2">
+                    {item.question}
+                  </h3>
+                  <p className="text-base leading-relaxed text-gray-800">
+                    {item.answer}
+                  </p>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -152,7 +194,7 @@ export default function DigiFreundLanding() {
 
       <footer>
         <p className="text-center mb-6">
-          DigiFreund ausprobieren?
+          Haben Sie Fragen, Feedback oder Ideen zu DigiFreund?
           <br />
           Schreiben Sie mir über die Links unten:
         </p>
