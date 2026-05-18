@@ -16,6 +16,8 @@ import { SolutionListEntryRow } from "./solution-list-entry-row";
 import { CombinedSolutionsListJsonLd } from "./list-json-ld";
 import { SolutionsListContactsFooter } from "./list-contacts-footer";
 import { LanguageSwitcher } from "./language-switcher";
+import { SK_MAX_CASE_STUDY_IMAGES, SK_MAX_SOLUTION_IMAGES } from "../sk-max-data";
+import { SkMaxAboutUs, SkMaxLegalCaseStudies, SkMaxPageHeading } from "./sk-max-sections";
 
 type Params = { locale: string };
 
@@ -89,23 +91,34 @@ export default async function SolutionsList({ params }: { params: Promise<Params
           </Link>
         </div>
 
-        <div className="mb-16 sm:mb-32 text-center">
-          <h1 className="text-4xl sm:text-5xl tracking-tight text-foreground mb-4">
-            {dict.listHeading}
-          </h1>
+        <div className="mb-8 sm:mb-16 text-center">
+          {typedLocale === "sk" ? (
+            <SkMaxPageHeading fallback={dict.listHeading} />
+          ) : (
+            <h1 className="text-4xl sm:text-5xl tracking-tight text-foreground mb-4">
+              {dict.listHeading}
+            </h1>
+          )}
         </div>
 
         <section className="space-y-20 sm:space-y-28 text-foreground">
-          {solutions.map((cs) => (
-            <SolutionListEntryRow
-              key={cs.id}
-              caseStudy={cs}
-              typedLocale={typedLocale}
-              exploreCta={dict.exploreCta}
-              detailBasePath="solutions"
-            />
-          ))}
+          {solutions.map((cs) => {
+            const maxOverride = typedLocale === "sk" ? SK_MAX_SOLUTION_IMAGES[cs.id] : undefined;
+            return (
+              <SolutionListEntryRow
+                key={cs.id}
+                caseStudy={cs}
+                typedLocale={typedLocale}
+                exploreCta={dict.exploreCta}
+                detailBasePath="solutions"
+                skMaxImage={maxOverride?.image}
+                skMaxImageAlt={maxOverride?.imageAlt}
+              />
+            );
+          })}
         </section>
+
+        {typedLocale === "sk" && <SkMaxAboutUs />}
 
         <div className="mt-24 sm:mt-32 mb-16 sm:mb-24 text-center">
           <h2 className="text-3xl sm:text-4xl tracking-tight text-foreground mb-4">
@@ -113,16 +126,23 @@ export default async function SolutionsList({ params }: { params: Promise<Params
           </h2>
         </div>
 
+        {typedLocale === "sk" && <SkMaxLegalCaseStudies />}
+
         <section className="space-y-20 sm:space-y-28 text-foreground pb-4">
-          {portfolioCaseStudies.map((cs) => (
-            <SolutionListEntryRow
-              key={cs.id}
-              caseStudy={cs}
-              typedLocale={typedLocale}
-              exploreCta={dict.exploreCta}
-              detailBasePath="case-studies"
-            />
-          ))}
+          {portfolioCaseStudies.map((cs) => {
+            const maxOverride = typedLocale === "sk" ? SK_MAX_CASE_STUDY_IMAGES[cs.id] : undefined;
+            return (
+              <SolutionListEntryRow
+                key={cs.id}
+                caseStudy={cs}
+                typedLocale={typedLocale}
+                exploreCta={dict.exploreCta}
+                detailBasePath="case-studies"
+                skMaxImage={maxOverride?.image}
+                skMaxImageAlt={maxOverride?.imageAlt}
+              />
+            );
+          })}
         </section>
       </div>
 

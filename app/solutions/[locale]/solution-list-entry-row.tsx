@@ -4,12 +4,15 @@ import Image from "next/image";
 
 import type { Locale } from "../data";
 import { SkMaxLink } from "@/components/sk-max-link";
+import { useSkMaxCampaign } from "@/components/sk-max-campaign-context";
 
 export function SolutionListEntryRow({
   caseStudy,
   typedLocale,
   exploreCta,
   detailBasePath,
+  skMaxImage,
+  skMaxImageAlt,
 }: {
   caseStudy: {
     id: string;
@@ -21,13 +24,19 @@ export function SolutionListEntryRow({
   typedLocale: Locale;
   exploreCta: string;
   detailBasePath: "solutions" | "case-studies";
+  skMaxImage?: string;
+  skMaxImageAlt?: string;
 }) {
+  const { active } = useSkMaxCampaign();
+  const image = (active && skMaxImage) ? skMaxImage : caseStudy.image;
+  const imageAlt = (active && skMaxImageAlt) ? skMaxImageAlt : caseStudy.imageAlt;
+
   return (
     <div className="flex flex-col md:flex-row md:items-start md:gap-12">
       <div className="flex-1 w-full md:w-96 flex items-center aspect-16/11 justify-center bg-foreground/10">
         <Image
-          src={caseStudy.image}
-          alt={caseStudy.imageAlt}
+          src={image}
+          alt={imageAlt}
           className="w-full h-full object-cover"
           width={400}
           height={400}
