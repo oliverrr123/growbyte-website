@@ -35,6 +35,7 @@ export const ELDER_COMPANION_MORE_ALTERNATES: Record<string, string> = {
 };
 
 export const ELDER_COMPANION_IMAGE = `${GROWBYTE_ORIGIN}/images/robo-companion/robo-companion.png`;
+export const DIGIPRITEL_BANNER_IMAGE = `${GROWBYTE_ORIGIN}/images/robo-companion/digipritel-banner.png`;
 
 export const DIGIPRITEL_FAQS = [
   {
@@ -213,13 +214,16 @@ export function elderCompanionMetadata({
   description,
   canonical,
   alternates,
+  ogImage,
 }: {
   locale: Locale;
   title: string;
   description: string;
   canonical: string;
   alternates: Record<string, string>;
+  ogImage?: { url: string; width: number; height: number };
 }): Metadata {
+  const image = ogImage ?? { url: ELDER_COMPANION_IMAGE, width: 1000, height: 1000 };
   return {
     title,
     description,
@@ -234,9 +238,9 @@ export function elderCompanionMetadata({
       siteName: locale === "cs" ? "DigiPřítel" : "GrowByte",
       images: [
         {
-          url: ELDER_COMPANION_IMAGE,
-          width: 1000,
-          height: 1000,
+          url: image.url,
+          width: image.width,
+          height: image.height,
           alt: title,
         },
       ],

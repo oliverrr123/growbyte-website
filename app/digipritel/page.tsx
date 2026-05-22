@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
 import {
+  DIGIPRITEL_BANNER_IMAGE,
   DIGIPRITEL_FAQS,
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
@@ -20,6 +21,7 @@ export const metadata = elderCompanionMetadata({
   description,
   canonical: ELDER_COMPANION_CANONICALS.cs,
   alternates: ELDER_COMPANION_ALTERNATES,
+  ogImage: { url: DIGIPRITEL_BANNER_IMAGE, width: 1200, height: 630 },
 });
 
 export default function DigiPritel() {
