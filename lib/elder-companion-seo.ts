@@ -36,6 +36,7 @@ export const ELDER_COMPANION_MORE_ALTERNATES: Record<string, string> = {
 
 export const ELDER_COMPANION_IMAGE = `${GROWBYTE_ORIGIN}/images/robo-companion/robo-companion.png`;
 export const DIGIPRITEL_BANNER_IMAGE = `${GROWBYTE_ORIGIN}/images/robo-companion/digipritel-banner.png`;
+export const MYFRIEND_BANNER_IMAGE = `${GROWBYTE_ORIGIN}/images/robo-companion/myfriend-banner.jpg`;
 
 export const DIGIPRITEL_FAQS = [
   {

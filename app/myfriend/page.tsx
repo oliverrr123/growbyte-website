@@ -4,6 +4,7 @@ import { LocalizedHomeLink } from "@/components/localized-home-link";
 import {
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
+  MYFRIEND_BANNER_IMAGE,
   MYFRIEND_FAQS,
   elderCompanionJsonLd,
   elderCompanionMetadata,
@@ -20,6 +21,7 @@ export const metadata = elderCompanionMetadata({
   description,
   canonical: ELDER_COMPANION_CANONICALS.en,
   alternates: ELDER_COMPANION_ALTERNATES,
+  ogImage: { url: MYFRIEND_BANNER_IMAGE, width: 1200, height: 630 },
 });
 
 export default function RoboCompanion() {
