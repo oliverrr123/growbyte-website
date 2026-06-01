@@ -21,3 +21,5 @@ This is the main page for my MyFriend project. 28% of elderly people in the US l
 <br>
 
 ![GrowByte website screenshot](docs/images/growbyte-homepage.png)
+
+AI declaration: I use AI for repetetive stuff / locales translation, also Cursor autocomplete
