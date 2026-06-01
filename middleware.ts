@@ -92,6 +92,10 @@ export function middleware(request: NextRequest) {
   }
 
   if (isDigipritelHost(host)) {
+    if (pathname === "/index.html" || pathname === "/index.html/") {
+      return redirectToDigipritel(request, "/");
+    }
+
     if (pathname === "/digipritel" || pathname === "/digipritel/") {
       return redirectToDigipritel(request, "/");
     }
