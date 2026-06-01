@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GrowByte Website
 
-## Getting Started
+This repo contains the source code of the [growbyte.co](https://growbyte.co) website.
 
-First, run the development server:
+GrowByte is a "holding company" under which I do most of my projects. This website serves as a showcase of all the things that I (the company) do.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+There are 3 main sections:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 1. Custom solutions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Here I talk about what I do for other companies. There are some solutions and case studies that I do / have done so people can see what I can do for them ;)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 2. Websites
 
-## Learn More
+This redirects to my other website - a website agency ([webovka.online](https://webovka.online))
 
-To learn more about Next.js, take a look at the following resources:
+### 3. Companion for elderly
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is the main page for my MyFriend project. 28% of elderly people in the US live alone. That's why I built MyFriend. MyFriend is an AI companion for elderly. It's a phone number that they can call any time just to chat, or get help with some questions. It can also call them to remind them to eg. take their medications on time, so that they never forget.
