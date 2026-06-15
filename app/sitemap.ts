@@ -16,6 +16,8 @@ import {
   ELDER_COMPANION_MORE_ALTERNATES,
   ELDER_COMPANION_MORE_CANONICALS,
   isDigipritelHost,
+  isTryMyFriendHost,
+  requestHostFromHeaders,
 } from "@/lib/elder-companion-seo";
 
 export const dynamic = "force-dynamic";
@@ -23,7 +25,7 @@ export const dynamic = "force-dynamic";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
   const headerList = await headers();
-  const host = headerList.get("host");
+  const host = requestHostFromHeaders(headerList);
 
   if (isDigipritelHost(host)) {
     return [
@@ -36,6 +38,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       },
       {
         url: ELDER_COMPANION_MORE_CANONICALS.cs,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.8,
+        alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
+      },
+    ];
+  }
+
+  if (isTryMyFriendHost(host)) {
+    return [
+      {
+        url: ELDER_COMPANION_CANONICALS.en,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 1,
+        alternates: { languages: ELDER_COMPANION_ALTERNATES },
+      },
+      {
+        url: ELDER_COMPANION_MORE_CANONICALS.en,
         lastModified: now,
         changeFrequency: "monthly",
         priority: 0.8,

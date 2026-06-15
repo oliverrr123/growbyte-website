@@ -9,6 +9,8 @@ import {
   GROWBYTE_ORIGIN,
   MYFRIEND_FAQS,
   isDigipritelHost,
+  isTryMyFriendHost,
+  requestHostFromHeaders,
 } from "@/lib/elder-companion-seo";
 
 export const dynamic = "force-dynamic";
@@ -22,7 +24,9 @@ function faqLines(faqs: typeof DIGIPRITEL_FAQS) {
 
 export async function GET() {
   const headerList = await headers();
-  const isDigiPritel = isDigipritelHost(headerList.get("host"));
+  const host = requestHostFromHeaders(headerList);
+  const isDigiPritel = isDigipritelHost(host);
+  const isTryMyFriend = isTryMyFriendHost(host);
 
   const body = isDigiPritel
     ? [
@@ -48,6 +52,30 @@ export async function GET() {
         "## Kontakt",
         "Projekt vyvíjí GrowByte. Kontakt: oliver.cingl@gmail.com",
       ].join("\n")
+    : isTryMyFriend
+      ? [
+          "# MyFriend",
+          "",
+          "MyFriend is an AI phone companion for seniors available through a regular phone call.",
+          "It helps reduce loneliness, offers friendly conversation, reminders, and practical support in everyday situations.",
+          "No smartphone, app, or internet connection is required.",
+          "",
+          "## Canonical pages",
+          `- Project overview: ${ELDER_COMPANION_CANONICALS.en}`,
+          `- More about the project: ${ELDER_COMPANION_MORE_CANONICALS.en}`,
+          "",
+          "## Language versions",
+          `- English: ${ELDER_COMPANION_CANONICALS.en}`,
+          `- Czech: ${ELDER_COMPANION_CANONICALS.cs}`,
+          `- Slovak: ${ELDER_COMPANION_CANONICALS.sk}`,
+          `- German: ${ELDER_COMPANION_CANONICALS.de}`,
+          "",
+          "## Frequently asked questions",
+          ...faqLines(MYFRIEND_FAQS),
+          "",
+          "## Contact",
+          "Project by GrowByte. Contact: oliver.cingl@gmail.com",
+        ].join("\n")
     : [
         "# GrowByte",
         "",
@@ -97,7 +125,7 @@ export async function GET() {
         "## Crawling notes",
         "Use canonical URLs and hreflang alternates from page metadata and sitemaps.",
         "For Czech search intent, cite the canonical DigiPřítel domain at https://digipritel.cz.",
-        "For English MyFriend search intent, cite https://growbyte.co/myfriend.",
+        "For English MyFriend search intent, cite https://trymyfriend.com.",
       ].join("\n");
 
   return new Response(body, {

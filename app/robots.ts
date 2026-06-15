@@ -3,16 +3,22 @@ import { headers } from "next/headers";
 import { SITE_URL } from "./case-studies/site";
 import {
   DIGIPRITEL_ORIGIN,
+  TRYMYFRIEND_ORIGIN,
   isDigipritelHost,
+  isTryMyFriendHost,
+  requestHostFromHeaders,
 } from "@/lib/elder-companion-seo";
 
 export const dynamic = "force-dynamic";
 
 export default async function robots(): Promise<MetadataRoute.Robots> {
   const headerList = await headers();
-  const origin = isDigipritelHost(headerList.get("host"))
+  const host = requestHostFromHeaders(headerList);
+  const origin = isDigipritelHost(host)
     ? DIGIPRITEL_ORIGIN
-    : SITE_URL;
+    : isTryMyFriendHost(host)
+      ? TRYMYFRIEND_ORIGIN
+      : SITE_URL;
 
   return {
     rules: {

@@ -3,17 +3,18 @@ import type { Locale } from "@/app/solutions/data";
 
 export const GROWBYTE_ORIGIN = "https://growbyte.co";
 export const DIGIPRITEL_ORIGIN = "https://digipritel.cz";
+export const TRYMYFRIEND_ORIGIN = "https://trymyfriend.com";
 
 export const ELDER_COMPANION_CANONICALS: Record<Locale, string> = {
   cs: DIGIPRITEL_ORIGIN,
-  en: `${GROWBYTE_ORIGIN}/myfriend`,
+  en: TRYMYFRIEND_ORIGIN,
   sk: `${GROWBYTE_ORIGIN}/digipriatel`,
   de: `${GROWBYTE_ORIGIN}/digifreund`,
 };
 
 export const ELDER_COMPANION_MORE_CANONICALS: Record<Locale, string> = {
   cs: `${DIGIPRITEL_ORIGIN}/vice`,
-  en: `${GROWBYTE_ORIGIN}/myfriend/more`,
+  en: `${TRYMYFRIEND_ORIGIN}/more`,
   sk: `${GROWBYTE_ORIGIN}/digipriatel/viac`,
   de: `${GROWBYTE_ORIGIN}/digifreund/more`,
 };
@@ -191,7 +192,19 @@ export const DIGIFREUND_FAQS = [
 ];
 
 export function normalizeHost(host: string | null): string {
-  return (host ?? "").split(":")[0].toLowerCase();
+  return (host ?? "")
+    .split(",")[0]
+    .trim()
+    .split(":")[0]
+    .toLowerCase();
+}
+
+export function requestHostFromHeaders(headers: Pick<Headers, "get">): string {
+  return normalizeHost(
+    headers.get("x-forwarded-host") ??
+      headers.get("host") ??
+      headers.get("x-forwarded-server"),
+  );
 }
 
 export function isDigipritelHost(host: string | null): boolean {
@@ -207,6 +220,13 @@ export function isDigipritelComHost(host: string | null): boolean {
 export function isGrowbyteHost(host: string | null): boolean {
   const normalized = normalizeHost(host);
   return normalized === "growbyte.co" || normalized === "www.growbyte.co";
+}
+
+export function isTryMyFriendHost(host: string | null): boolean {
+  const normalized = normalizeHost(host);
+  return (
+    normalized === "trymyfriend.com" || normalized === "www.trymyfriend.com"
+  );
 }
 
 export function elderCompanionMetadata({
