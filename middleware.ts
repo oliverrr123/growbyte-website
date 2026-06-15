@@ -138,18 +138,6 @@ export function middleware(request: NextRequest) {
       return redirectToTryMyFriend(request, "/");
     }
 
-    if (pathname === "/myfriend" || pathname === "/myfriend/") {
-      return redirectToTryMyFriend(request, "/");
-    }
-
-    if (pathname === "/myfriend/more" || pathname === "/myfriend/more/") {
-      return redirectToTryMyFriend(request, "/more");
-    }
-
-    if (pathname === "/myfriend/try" || pathname === "/myfriend/try/") {
-      return redirectToTryMyFriend(request, "/try");
-    }
-
     if (pathname === "/" || pathname === "/more" || pathname === "/try") {
       const rewriteUrl = request.nextUrl.clone();
       rewriteUrl.pathname =
