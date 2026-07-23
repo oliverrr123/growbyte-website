@@ -13,13 +13,13 @@ import { SITE_URL } from "./case-studies/site";
 import {
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
+  ELDER_COMPANION_EVENTS_CANONICAL,
   ELDER_COMPANION_MORE_ALTERNATES,
   ELDER_COMPANION_MORE_CANONICALS,
   isDigipritelHost,
   isTryMyFriendHost,
   requestHostFromHeaders,
 } from "@/lib/elder-companion-seo";
-
 export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -61,6 +61,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "monthly",
         priority: 0.8,
         alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
+      },
+      {
+        url: ELDER_COMPANION_EVENTS_CANONICAL,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.8,
       },
     ];
   }

@@ -182,12 +182,18 @@ export default function RoboCompanion() {
             </div>
           </div>
         </section>
-        <div className="w-full flex flex-col items-center justify-center py-16">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 py-16">
           <Link
             href="/myfriend/more"
             className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-400 transition-colors"
           >
             More about project
+          </Link>
+          <Link
+            href="/myfriend/events"
+            className="bg-transparent border border-orange-500 text-orange-500 px-8 py-3 rounded-lg font-semibold hover:bg-orange-500 hover:text-white transition-colors"
+          >
+            Events
           </Link>
         </div>
       </div>

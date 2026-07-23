@@ -52,6 +52,12 @@ export default function RoboCompanion() {
                 <br />
                 In the end, we decided to replace the physical robot with a simple phone number. That makes MyFriend accessible to everyone. No smartphone or internet connection is required.
               </p>
+              <Link
+                href="/myfriend/events"
+                className="inline-block mt-6 bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-400 transition-colors"
+              >
+                See events
+              </Link>
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
               <iframe

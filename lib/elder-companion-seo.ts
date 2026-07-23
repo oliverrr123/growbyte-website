@@ -19,6 +19,8 @@ export const ELDER_COMPANION_MORE_CANONICALS: Record<Locale, string> = {
   de: `${GROWBYTE_ORIGIN}/digifreund/more`,
 };
 
+export const ELDER_COMPANION_EVENTS_CANONICAL = `${TRYMYFRIEND_ORIGIN}/events`;
+
 export const ELDER_COMPANION_ALTERNATES: Record<string, string> = {
   cs: ELDER_COMPANION_CANONICALS.cs,
   en: ELDER_COMPANION_CANONICALS.en,
