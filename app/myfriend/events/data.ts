@@ -13,7 +13,7 @@ export const EVENTS: MyFriendEvent[] = [
   {
     id: "buena-vista-manor-house",
     title: "MyFriend showcase at a senior care home in San Francisco",
-    image: "/images/robo-companion/senior-facility.jpg",
+    image: "/images/robo-companion/buena-vista-manor-house.jpg",
     imageAlt: "Buena Vista Manor House event",
     date: "Jun 25, 2026",
   },
