@@ -20,7 +20,6 @@ export const EVENTS: MyFriendEvent[] = [
   {
     id: "zygmunt-arendt-house",
     title: "MyFriend event at a senior care home in San Francisco",
-    description: "Bring fliers",
     image: "/images/robo-companion/zygmunt-arendt-house.jpg",
     imageAlt: "Zygmunt Arendt House event",
     date: "Jun 24, 2026",
