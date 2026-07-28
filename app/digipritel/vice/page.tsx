@@ -54,6 +54,12 @@ export default function DigiPritelVice() {
                 <br />
                 Nakonec jsme se však rozhodli fyzického robota nahradit jednoduše telefonním číslem. Díky tomu je DigiPřítel dostupný pro každého. Není potřeba chytrý telefon, ani internet.
               </p>
+              <Link
+                href="/digipritel/events"
+                className="inline-block mt-6 bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-400 transition-colors"
+              >
+                Zobrazit akce
+              </Link>
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
               <iframe

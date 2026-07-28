@@ -6,21 +6,21 @@ import {
   elderCompanionJsonLd,
   elderCompanionMetadata,
 } from "@/lib/elder-companion-seo";
-import { EVENTS } from "./data";
+import { EVENTS } from "@/app/myfriend/events/data";
 
-const title = "MyFriend Events";
+const title = "Akce DigiPřítele";
 const description =
-  "Workshops, demos, and community events for MyFriend — the AI phone companion for seniors.";
+  "Workshopy, ukázky a komunitní akce DigiPřítele — telefonního AI společníka pro seniory.";
 
 export const metadata = elderCompanionMetadata({
-  locale: "en",
+  locale: "cs",
   title,
   description,
-  canonical: ELDER_COMPANION_EVENTS_CANONICALS.en,
+  canonical: ELDER_COMPANION_EVENTS_CANONICALS.cs,
   alternates: ELDER_COMPANION_EVENTS_ALTERNATES,
 });
 
-export default function MyFriendEventsPage() {
+export default function DigiPritelEventsPage() {
   return (
     <>
       <script
@@ -28,32 +28,32 @@ export default function MyFriendEventsPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             elderCompanionJsonLd({
-              name: "MyFriend Events",
+              name: "Akce DigiPřítele",
               description,
-              url: ELDER_COMPANION_EVENTS_CANONICALS.en,
-              inLanguage: "en",
+              url: ELDER_COMPANION_EVENTS_CANONICALS.cs,
+              inLanguage: "cs-CZ",
             }),
           ),
         }}
       />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 sm:pt-16 pb-0">
         <Link
-          href="/myfriend"
+          href="/digipritel"
           className="text-black text-sm opacity-50 pb-8 sm:pb-16 block"
         >
-          &lt;&nbsp; Back to MyFriend page
+          &lt;&nbsp; Zpět na stránku DigiPřítele
         </Link>
 
         <div className="text-center mb-12 sm:mb-20">
           <h1 className="text-6xl text-black mb-4 caveat-bold-font">
-            my<span className="italic text-orange-400">friend</span>
+            digi<span className="italic text-orange-400">přítel</span>
           </h1>
-          <p className="text-black opacity-50">Events</p>
+          <p className="text-black opacity-50">Akce</p>
         </div>
 
         {EVENTS.length === 0 ? (
           <p className="text-center text-base sm:text-lg text-gray-800 opacity-70 pb-16">
-            New events will appear here soon.
+            Nové akce se zde brzy objeví.
           </p>
         ) : (
           <section className="space-y-20 sm:space-y-28 text-black pb-4">
@@ -65,26 +65,28 @@ export default function MyFriendEventsPage() {
                 <div className="w-full md:w-96 aspect-16/11 rounded-xl overflow-hidden bg-orange-50 flex items-center justify-center shrink-0">
                   <Image
                     src={event.image}
-                    alt={event.imageAlt}
+                    alt={event.imageAltCs}
                     className="w-full h-full object-cover rounded-xl"
                     width={400}
                     height={400}
                   />
                 </div>
                 <div className="flex-1 flex flex-col gap-3 sm:gap-4 items-start">
-                  {event.date ? (
-                    <p className="text-sm text-gray-500 mt-4 sm:mt-8">{event.date}</p>
+                  {event.dateCs || event.date ? (
+                    <p className="text-sm text-gray-500 mt-4 sm:mt-8">
+                      {event.dateCs ?? event.date}
+                    </p>
                   ) : null}
                   <p
                     className={`text-2xl font-medium sm:text-3xl max-w-11/12 ${
-                      event.date ? "" : "mt-4 sm:mt-8"
+                      event.dateCs || event.date ? "" : "mt-4 sm:mt-8"
                     }`}
                   >
-                    {event.title}
+                    {event.titleCs}
                   </p>
-                  {event.description ? (
+                  {event.descriptionCs ? (
                     <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                      {event.description}
+                      {event.descriptionCs}
                     </p>
                   ) : null}
                 </div>
@@ -96,15 +98,15 @@ export default function MyFriendEventsPage() {
 
       <footer className="mt-24 sm:mt-32">
         <p className="text-center mb-6">
-          Do you have any questions, feedback, or ideas for MyFriend?
+          Máte jakékoliv dotazy, připomínky, nebo nápady na DigiPřítele?
           <br />
-          Contact me through the links below:
+          Kontaktujte mě přes odkazy níže:
         </p>
         <div className="flex justify-center gap-4">
           <a
             href="https://x.com/olivercingl"
             target="_blank"
-            aria-label="Twitter profile"
+            aria-label="Twitter profil"
           >
             <Image
               src="/icons/twitter-x.svg"
@@ -117,7 +119,7 @@ export default function MyFriendEventsPage() {
           <a
             href="https://linkedin.com/in/olivercingl"
             target="_blank"
-            aria-label="Linkedin profile"
+            aria-label="Linkedin profil"
           >
             <Image
               src="/icons/linkedin.svg"
@@ -130,20 +132,20 @@ export default function MyFriendEventsPage() {
           <a
             href="mailto:oliver.cingl@gmail.com"
             target="_blank"
-            aria-label="Email"
+            aria-label="E-mail"
           >
             <Image
               src="/icons/mail.svg"
-              alt="Email"
+              alt="E-mail"
               className="w-8 h-8 hover:opacity-100 transition-opacity"
               width={32}
               height={32}
             />
           </a>
-          <a href="tel:+420776781248" target="_blank" aria-label="Phone">
+          <a href="tel:+420776781248" target="_blank" aria-label="Telefon">
             <Image
               src="/icons/phone.svg"
-              alt="Phone"
+              alt="Telefon"
               className="w-8 h-8 hover:opacity-100 transition-opacity"
               width={32}
               height={32}

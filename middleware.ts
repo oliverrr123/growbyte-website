@@ -115,9 +115,23 @@ export function middleware(request: NextRequest) {
       return redirectToDigipritel(request, "/vice");
     }
 
-    if (pathname === "/" || pathname === "/vice") {
+    if (
+      pathname === "/digipritel/events" ||
+      pathname === "/digipritel/events/" ||
+      pathname === "/digipritel/udalosti" ||
+      pathname === "/digipritel/udalosti/"
+    ) {
+      return redirectToDigipritel(request, "/udalosti");
+    }
+
+    if (pathname === "/" || pathname === "/vice" || pathname === "/udalosti") {
       const rewriteUrl = request.nextUrl.clone();
-      rewriteUrl.pathname = pathname === "/" ? "/digipritel" : "/digipritel/vice";
+      rewriteUrl.pathname =
+        pathname === "/"
+          ? "/digipritel"
+          : pathname === "/vice"
+            ? "/digipritel/vice"
+            : "/digipritel/events";
       const response = NextResponse.rewrite(rewriteUrl, {
         request: { headers: requestHeadersWithLocale(request, "cs") },
       });
@@ -170,6 +184,10 @@ export function middleware(request: NextRequest) {
       pathname === "/digipritel/" ||
       pathname === "/digipritel/vice" ||
       pathname === "/digipritel/vice/" ||
+      pathname === "/digipritel/events" ||
+      pathname === "/digipritel/events/" ||
+      pathname === "/digipritel/udalosti" ||
+      pathname === "/digipritel/udalosti/" ||
       pathname === "/myfriend" ||
       pathname === "/myfriend/" ||
       pathname === "/myfriend/more" ||
@@ -179,6 +197,10 @@ export function middleware(request: NextRequest) {
       pathname === "/myfriend/events" ||
       pathname === "/myfriend/events/")
   ) {
+    if (pathname.startsWith("/digipritel/events") || pathname.startsWith("/digipritel/udalosti")) {
+      return redirectToDigipritel(request, "/udalosti");
+    }
+
     if (pathname.startsWith("/digipritel/vice")) {
       return redirectToDigipritel(request, "/vice");
     }

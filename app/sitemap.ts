@@ -13,7 +13,8 @@ import { SITE_URL } from "./case-studies/site";
 import {
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
-  ELDER_COMPANION_EVENTS_CANONICAL,
+  ELDER_COMPANION_EVENTS_ALTERNATES,
+  ELDER_COMPANION_EVENTS_CANONICALS,
   ELDER_COMPANION_MORE_ALTERNATES,
   ELDER_COMPANION_MORE_CANONICALS,
   isDigipritelHost,
@@ -43,6 +44,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
         alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
       },
+      {
+        url: ELDER_COMPANION_EVENTS_CANONICALS.cs,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.8,
+        alternates: { languages: ELDER_COMPANION_EVENTS_ALTERNATES },
+      },
     ];
   }
 
@@ -63,10 +71,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
       },
       {
-        url: ELDER_COMPANION_EVENTS_CANONICAL,
+        url: ELDER_COMPANION_EVENTS_CANONICALS.en,
         lastModified: now,
         changeFrequency: "weekly",
         priority: 0.8,
+        alternates: { languages: ELDER_COMPANION_EVENTS_ALTERNATES },
       },
     ];
   }

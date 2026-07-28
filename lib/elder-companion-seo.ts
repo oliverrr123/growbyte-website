@@ -19,7 +19,14 @@ export const ELDER_COMPANION_MORE_CANONICALS: Record<Locale, string> = {
   de: `${GROWBYTE_ORIGIN}/digifreund/more`,
 };
 
-export const ELDER_COMPANION_EVENTS_CANONICAL = `${TRYMYFRIEND_ORIGIN}/events`;
+export const ELDER_COMPANION_EVENTS_CANONICALS: Record<"cs" | "en", string> = {
+  cs: `${DIGIPRITEL_ORIGIN}/udalosti`,
+  en: `${TRYMYFRIEND_ORIGIN}/events`,
+};
+
+/** @deprecated Use ELDER_COMPANION_EVENTS_CANONICALS.en */
+export const ELDER_COMPANION_EVENTS_CANONICAL =
+  ELDER_COMPANION_EVENTS_CANONICALS.en;
 
 export const ELDER_COMPANION_ALTERNATES: Record<string, string> = {
   cs: ELDER_COMPANION_CANONICALS.cs,
@@ -35,6 +42,12 @@ export const ELDER_COMPANION_MORE_ALTERNATES: Record<string, string> = {
   sk: ELDER_COMPANION_MORE_CANONICALS.sk,
   de: ELDER_COMPANION_MORE_CANONICALS.de,
   "x-default": ELDER_COMPANION_MORE_CANONICALS.en,
+};
+
+export const ELDER_COMPANION_EVENTS_ALTERNATES: Record<string, string> = {
+  cs: ELDER_COMPANION_EVENTS_CANONICALS.cs,
+  en: ELDER_COMPANION_EVENTS_CANONICALS.en,
+  "x-default": ELDER_COMPANION_EVENTS_CANONICALS.en,
 };
 
 export const ELDER_COMPANION_IMAGE = `${GROWBYTE_ORIGIN}/images/robo-companion/robo-companion.png`;
