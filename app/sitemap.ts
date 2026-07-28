@@ -99,6 +99,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         priority: 0.8,
         alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
       },
+      {
+        url: ELDER_COMPANION_EVENTS_CANONICALS.ja,
+        lastModified: now,
+        changeFrequency: "weekly",
+        priority: 0.8,
+        alternates: { languages: ELDER_COMPANION_EVENTS_ALTERNATES },
+      },
     ];
   }
 

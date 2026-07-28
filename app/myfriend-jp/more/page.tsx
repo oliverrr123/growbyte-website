@@ -37,7 +37,7 @@ export default function MaiFurendoMore() {
       />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
         <Link
-          href="/"
+          href="/myfriend-jp"
           className="text-black text-sm opacity-50 pb-8 sm:pb-16 block"
         >
           &lt;&nbsp; MyFriendページへ戻る
@@ -59,6 +59,12 @@ export default function MaiFurendoMore() {
                 <br />
                 最終的に、物理ロボットの代わりにシンプルな電話番号にしました。誰でも使えるようにするためです。スマホもインターネットも不要です。
               </p>
+              <Link
+                href="/myfriend-jp/events"
+                className="inline-block mt-6 bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-400 transition-colors"
+              >
+                イベントを見る
+              </Link>
             </div>
             <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
               <iframe
@@ -152,7 +158,13 @@ export default function MaiFurendoMore() {
               <br />
               いつでも無料でお電話ください:
             </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pb-8 sm:pb-12">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 pb-8 sm:pb-12">
+              <div className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+                <span className="block text-sm font-normal text-gray-500 mb-1">
+                  日本
+                </span>
+                <span className="text-2xl sm:text-3xl text-gray-400">近日公開</span>
+              </div>
               <a
                 href="tel:+12346036167"
                 className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg"

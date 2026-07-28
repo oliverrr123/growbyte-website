@@ -24,9 +24,10 @@ export const ELDER_COMPANION_MORE_CANONICALS: Record<Locale, string> = {
   ja: `${MYFRIEND_JP_ORIGIN}/more`,
 };
 
-export const ELDER_COMPANION_EVENTS_CANONICALS: Record<"cs" | "en", string> = {
+export const ELDER_COMPANION_EVENTS_CANONICALS: Record<"cs" | "en" | "ja", string> = {
   cs: `${DIGIPRITEL_ORIGIN}/udalosti`,
   en: `${TRYMYFRIEND_ORIGIN}/events`,
+  ja: `${MYFRIEND_JP_ORIGIN}/events`,
 };
 
 /** @deprecated Use ELDER_COMPANION_EVENTS_CANONICALS.en */
@@ -55,6 +56,7 @@ export const ELDER_COMPANION_MORE_ALTERNATES: Record<string, string> = {
 export const ELDER_COMPANION_EVENTS_ALTERNATES: Record<string, string> = {
   cs: ELDER_COMPANION_EVENTS_CANONICALS.cs,
   en: ELDER_COMPANION_EVENTS_CANONICALS.en,
+  ja: ELDER_COMPANION_EVENTS_CANONICALS.ja,
   "x-default": ELDER_COMPANION_EVENTS_CANONICALS.en,
 };
 

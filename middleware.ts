@@ -206,10 +206,21 @@ export function middleware(request: NextRequest) {
       return redirectToMyFriendJp(request, "/more");
     }
 
-    if (pathname === "/" || pathname === "/more") {
+    if (
+      pathname === "/myfriend-jp/events" ||
+      pathname === "/myfriend-jp/events/"
+    ) {
+      return redirectToMyFriendJp(request, "/events");
+    }
+
+    if (pathname === "/" || pathname === "/more" || pathname === "/events") {
       const rewriteUrl = request.nextUrl.clone();
       rewriteUrl.pathname =
-        pathname === "/" ? "/myfriend-jp" : "/myfriend-jp/more";
+        pathname === "/"
+          ? "/myfriend-jp"
+          : pathname === "/more"
+            ? "/myfriend-jp/more"
+            : "/myfriend-jp/events";
       const response = NextResponse.rewrite(rewriteUrl);
       return maybePersistLocale(request, "ja", response);
     }
@@ -240,7 +251,9 @@ export function middleware(request: NextRequest) {
       pathname === "/myfriend-jp" ||
       pathname === "/myfriend-jp/" ||
       pathname === "/myfriend-jp/more" ||
-      pathname === "/myfriend-jp/more/")
+      pathname === "/myfriend-jp/more/" ||
+      pathname === "/myfriend-jp/events" ||
+      pathname === "/myfriend-jp/events/")
   ) {
     if (pathname.startsWith("/digipritel/events") || pathname.startsWith("/digipritel/udalosti")) {
       return redirectToDigipritel(request, "/udalosti");
@@ -252,6 +265,10 @@ export function middleware(request: NextRequest) {
 
     if (pathname.startsWith("/digipritel")) {
       return redirectToDigipritel(request, "/");
+    }
+
+    if (pathname.startsWith("/myfriend-jp/events")) {
+      return redirectToMyFriendJp(request, "/events");
     }
 
     if (pathname.startsWith("/myfriend-jp/more")) {

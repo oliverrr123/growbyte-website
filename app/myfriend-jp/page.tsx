@@ -164,7 +164,13 @@ export default function MaiFurendoLanding() {
               <br />
               いつでも無料でお電話ください:
             </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pb-8 sm:pb-12">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center items-center gap-4 pb-8 sm:pb-12">
+              <div className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
+                <span className="block text-sm font-normal text-gray-500 mb-1">
+                  日本
+                </span>
+                <span className="text-2xl sm:text-3xl text-gray-400">近日公開</span>
+              </div>
               <a
                 href="tel:+12346036167"
                 className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg"
@@ -209,12 +215,18 @@ export default function MaiFurendoLanding() {
             </div>
           </div>
         </section>
-        <div className="w-full flex flex-col items-center justify-center py-16">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 py-16">
           <Link
-            href="/more"
+            href="/myfriend-jp/more"
             className="bg-orange-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-orange-400 transition-colors"
           >
             プロジェクトについてもっと知る
+          </Link>
+          <Link
+            href="/myfriend-jp/events"
+            className="bg-transparent border border-orange-500 text-orange-500 px-8 py-3 rounded-lg font-semibold hover:bg-orange-500 hover:text-white transition-colors"
+          >
+            イベント
           </Link>
         </div>
       </div>
