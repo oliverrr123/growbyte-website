@@ -9,7 +9,7 @@ export type HomeSkillLink =
   | { type: "internal"; path: string }
   /** MyFriend / DigiPřítel landing — URL slug depends on locale */
   | { type: "elder-companion" }
-  /** Webovka marketing site — path segment en/cs/sk; DE uses English */
+  /** Webovka marketing site — path segment en/cs/sk; JA uses English */
   | { type: "webovka" };
 
 export type HomeSkill = {
@@ -145,38 +145,38 @@ export const HOME_DICTIONARIES: Record<Locale, HomeDictionary> = {
       },
     ],
   },
-  de: {
+  ja: {
     metadataTitle: "GrowByte",
     metadataDescription:
-      "Mehr Geld verdienen mit KI — maßgeschneiderte Automatisierung, Websites und Produkte wie DigiFreund für Senioren.",
-    taglineLead: "~ Mit ",
-    taglineEmphasis: "KI",
-    taglineTail: " mehr Geld verdienen",
-    sectionHeading: "Was bauen wir?",
-    findOutMore: "Mehr erfahren",
+      "AIで収益を伸ばす — オーダーメイド自動化、ウェブサイト、シニア向けMyFriendなどのプロダクト。",
+    taglineLead: "~ ",
+    taglineEmphasis: "AI",
+    taglineTail: " で、もっと稼げるように",
+    sectionHeading: "何を作っているか？",
+    findOutMore: "詳しく見る",
     skills: [
       {
-        title: "Individual-Lösungen",
+        title: "オーダーメイドソリューション",
         description:
-          "Automatisieren, Zeit sparen und mehr verdienen. Wir entwickeln passgenaue Automatisierung für deine Geschäftsprozesse.",
+          "自動化して時間を節約し、売上を伸ばしましょう。ビジネスプロセスを自動化する、あなた向けのソリューションを構築します。",
         image: "gradient-1.jpg",
-        alt: "Automatisierung und maßgeschneiderte Lösungen für Unternehmen",
+        alt: "企業向け自動化とオーダーメイドソリューション",
         link: { type: "solutions" },
       },
       {
-        title: "Websites",
+        title: "ウェブサイト",
         description:
-          "Ob einfache Präsentationsseite oder komplexe SaaS-Anwendung — wir können beides.",
+          "シンプルな紹介サイトから複雑なSaaSアプリまで — どちらもお任せください。",
         image: "gradient-2.jpg",
-        alt: "Websites und Webanwendungen",
+        alt: "ウェブサイトとWebアプリケーション",
         link: { type: "webovka" },
       },
       {
-        title: "Begleiter für Senioren",
+        title: "シニア向けコンパニオン",
         description:
-          "DigiFreund ist ein KI-Begleiter für Senioren über einen normalen Telefonanruf. Er hilft gegen Einsamkeit, erinnert an wichtige Dinge und bietet Unterstützung ohne Smartphone, App oder Internet.",
+          "MyFriendは、通常の電話で使えるシニア向けAIコンパニオンです。孤独感の軽減、大切なリマインダー、日常のサポートを、スマホ・アプリ・インターネットなしで提供します。",
         image: "gradient-3.jpg",
-        alt: "KI-Begleiter für Senioren DigiFreund",
+        alt: "シニア向けAIコンパニオン MyFriend",
         link: { type: "elder-companion" },
       },
     ],

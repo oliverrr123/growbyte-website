@@ -15,6 +15,29 @@ const nextConfig: NextConfig = {
         destination: "/digipriatel/viac",
         permanent: true,
       },
+      // German GrowByte site locale removed in favor of Japanese.
+      { source: "/de", destination: "/ja", permanent: true },
+      { source: "/solutions/de", destination: "/solutions/ja", permanent: true },
+      {
+        source: "/solutions/de/:slug",
+        destination: "/solutions/ja/:slug",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/de",
+        destination: "/case-studies/ja",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/de/lebenslauf-suchmaschine",
+        destination: "/case-studies/ja/rirekisho-kensaku",
+        permanent: true,
+      },
+      {
+        source: "/case-studies/de/marketing-analyse-tool",
+        destination: "/case-studies/ja/marketing-bunseki",
+        permanent: true,
+      },
     ];
   },
 

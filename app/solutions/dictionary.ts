@@ -60,19 +60,19 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
     contactFooterTitle: "Chcete vidieť viac?\nKontaktujte nás cez odkazy nižšie:",
     langSwitcherLabel: "Jazyk",
   },
-  de: {
-    pageTitle: "Lösungen & Fallstudien",
+  ja: {
+    pageTitle: "ソリューションと事例",
     pageDescription:
-      "KI-Lösungen und Automatisierung (Chatbots, Cold Outreach) plus Fallstudien aus echten Kundenprojekten.",
-    listHeading: "LÖSUNGEN",
-    caseStudiesSectionHeading: "FALLSTUDIEN",
-    exploreCta: "ENTDECKEN \u00a0\u00a0→",
-    back: "<\u00a0 Zurück zu den Lösungen",
-    backToMainPage: "<\u00a0 Zurück zur Startseite",
-    writtenByHuman: "Verfasst von einem Menschen:",
-    founderCeoOf: "Gründer & CEO von",
-    contactFooterTitle: "Willst du mehr sehen?\nKontaktiere mich über die Links unten:",
-    langSwitcherLabel: "Sprache",
+      "AIソリューションと自動化（チャットボット、コールドアウトリーチ）、そして実際のクライアントプロジェクトの詳細な事例。",
+    listHeading: "ソリューション",
+    caseStudiesSectionHeading: "事例紹介",
+    exploreCta: "詳しく見る \u00a0\u00a0→",
+    back: "<\u00a0 ソリューション一覧へ戻る",
+    backToMainPage: "<\u00a0 トップページへ戻る",
+    writtenByHuman: "人が執筆:",
+    founderCeoOf: "創業者兼CEO",
+    contactFooterTitle: "もっと知りたいですか？\n下のリンクからご連絡ください:",
+    langSwitcherLabel: "言語",
   },
 };
 

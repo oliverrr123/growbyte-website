@@ -3,7 +3,7 @@ import type { CaseStudyId, Locale } from "../data";
 import { ChatbotArticleEn, AutomailerArticleEn } from "./en";
 import { ChatbotArticleCs, AutomailerArticleCs } from "./cs";
 import { ChatbotArticleSk, AutomailerArticleSk } from "./sk";
-import { ChatbotArticleDe, AutomailerArticleDe } from "./de";
+import { ChatbotArticleJa, AutomailerArticleJa } from "./ja";
 
 export const ARTICLES: Record<Locale, Record<CaseStudyId, ComponentType>> = {
   en: {
@@ -18,9 +18,9 @@ export const ARTICLES: Record<Locale, Record<CaseStudyId, ComponentType>> = {
     chatbot: ChatbotArticleSk,
     automailer: AutomailerArticleSk,
   },
-  de: {
-    chatbot: ChatbotArticleDe,
-    automailer: AutomailerArticleDe,
+  ja: {
+    chatbot: ChatbotArticleJa,
+    automailer: AutomailerArticleJa,
   },
 };
 

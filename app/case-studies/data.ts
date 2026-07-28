@@ -1,4 +1,4 @@
-export const LOCALES = ["en", "cs", "sk", "de"] as const;
+export const LOCALES = ["en", "cs", "sk", "ja"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
 
@@ -123,27 +123,27 @@ export const CASE_STUDIES: Record<Locale, CaseStudy[]> = {
       ...COMMON,
     },
   ],
-  de: [
+  ja: [
     {
       id: "cv-search-engine",
-      slug: "lebenslauf-suchmaschine",
-      title: "Wie findet man den perfekten Kandidaten unter 50 000 Lebensläufen?",
+      slug: "rirekisho-kensaku",
+      title: "5万件の履歴書から最適な候補者をどう見つけるか？",
       description:
-        "Wie wir für Atollon eine KI-gestützte Lebenslauf-Suchmaschine gebaut haben: semantische Suche, strukturierte Filter und einheitliche Kandidatenprofile über 50 000+ Dokumente hinweg.",
+        "Atollon向けに構築したAI履歴書検索エンジン：セマンティック検索、構造化フィルター、5万件超のドキュメントにわたる統一候補者プロファイル。",
       image: "/images/case-studies/case1.jpg",
-      imageAlt: "KI-Suchoberfläche und datengetriebener Recruiting-Workflow",
-      readTime: "2 Min. Lesezeit",
+      imageAlt: "AI検索インターフェースとデータ駆動の採用ワークフロー",
+      readTime: "約2分",
       ...COMMON,
     },
     {
       id: "marketing-analyzer",
-      slug: "marketing-analyse-tool",
-      title: "Wie MarketUp Tabellen gegen ein KI-basiertes Marketing-Analyse-Tool eintauschte",
+      slug: "marketing-bunseki",
+      title: "MarketUpが表計算をやめ、AIマーケティング分析ツールへ移行した理由",
       description:
-        "Wie wir für MarketUp ein KI-basiertes Anzeigen-Analyse-Tool gebaut haben, das stundenlange Tabellenarbeit durch sofortige Wettbewerbsvergleiche ersetzt.",
+        "MarketUp向けに構築したAI広告分析ツール。何時間もの表計算作業を、競合との即座の比較インサイトに置き換えます。",
       image: "/images/case-studies/case2.jpg",
-      imageAlt: "Marketing-Performance-Dashboard und Wettbewerbs-Benchmarking",
-      readTime: "2 Min. Lesezeit",
+      imageAlt: "マーケティング成果ダッシュボードと競合ベンチマーク",
+      readTime: "約2分",
       ...COMMON,
     },
   ],

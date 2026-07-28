@@ -49,17 +49,17 @@ export const DICTIONARIES: Record<Locale, Dictionary> = {
     contactFooterTitle: "Chcete vidieť viac prípadových štúdií?\nKontaktujte nás cez odkazy nižšie:",
     langSwitcherLabel: "Jazyk",
   },
-  de: {
-    pageTitle: "Fallstudien",
+  ja: {
+    pageTitle: "事例紹介",
     pageDescription:
-      "Wie GrowByte KI-Produkte baut, die echten Unternehmen mehr Geld einbringen. Lies unsere Fallstudien.",
-    listHeading: "FALLSTUDIEN",
-    exploreCta: "ENTDECKEN \u00a0\u00a0→",
-    back: "<\u00a0 Zurück zu Lösungen & Fallstudien",
-    writtenByHuman: "Verfasst von einem Menschen:",
-    founderCeoOf: "Gründer & CEO von",
-    contactFooterTitle: "Möchtest du mehr Fallstudien sehen?\nKontaktiere mich über die Links unten:",
-    langSwitcherLabel: "Sprache",
+      "GrowByteが、実際のビジネスの収益につながるAIプロダクトをどう作っているか。事例をご覧ください。",
+    listHeading: "事例紹介",
+    exploreCta: "詳しく見る \u00a0\u00a0→",
+    back: "<\u00a0 ソリューションと事例へ戻る",
+    writtenByHuman: "人が執筆:",
+    founderCeoOf: "創業者兼CEO",
+    contactFooterTitle: "他の事例も見たいですか？\n下のリンクからご連絡ください:",
+    langSwitcherLabel: "言語",
   },
 };
 

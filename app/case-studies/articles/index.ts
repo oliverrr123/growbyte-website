@@ -3,7 +3,7 @@ import type { CaseStudyId, Locale } from "../data";
 import { CvSearchEngineArticleEn, MarketingAnalyzerArticleEn } from "./en";
 import { CvSearchEngineArticleCs, MarketingAnalyzerArticleCs } from "./cs";
 import { CvSearchEngineArticleSk, MarketingAnalyzerArticleSk } from "./sk";
-import { CvSearchEngineArticleDe, MarketingAnalyzerArticleDe } from "./de";
+import { CvSearchEngineArticleJa, MarketingAnalyzerArticleJa } from "./ja";
 
 export const ARTICLES: Record<Locale, Record<CaseStudyId, ComponentType>> = {
   en: {
@@ -18,9 +18,9 @@ export const ARTICLES: Record<Locale, Record<CaseStudyId, ComponentType>> = {
     "cv-search-engine": CvSearchEngineArticleSk,
     "marketing-analyzer": MarketingAnalyzerArticleSk,
   },
-  de: {
-    "cv-search-engine": CvSearchEngineArticleDe,
-    "marketing-analyzer": MarketingAnalyzerArticleDe,
+  ja: {
+    "cv-search-engine": CvSearchEngineArticleJa,
+    "marketing-analyzer": MarketingAnalyzerArticleJa,
   },
 };
 

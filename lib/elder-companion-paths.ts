@@ -2,14 +2,15 @@ import type { Locale } from "@/app/solutions/data";
 import { LOCALES } from "@/app/solutions/data";
 
 /**
- * Human-facing slug per locale (`/digipritel` CS, `/digipriatel` SK,
- * `/myfriend` EN, `/digifreund` DE).
+ * Human-facing path per GrowByte site locale.
+ * Dedicated product domains rewrite/redirect these (digipritel.cz, trymyfriend.com, myfriend.jp).
  */
 export const ELDER_COMPANION_PATH: Record<Locale, string> = {
   en: "/myfriend",
   cs: "/digipritel",
   sk: "/digipriatel",
-  de: "/digifreund",
+  // Internal app route; myfriend.jp serves this as `/` (and growbyte redirects here → jp).
+  ja: "/myfriend-jp",
 };
 
 export function elderCompanionPath(locale: Locale): string {

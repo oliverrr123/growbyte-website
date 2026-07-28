@@ -13,7 +13,7 @@ export function generateStaticParams() {
   return LOCALES.map((locale) => ({ locale }));
 }
 
-// Only en/cs/sk/de are valid; unknown single-segment paths must 404 without
+// Only en/cs/sk/ja are valid; unknown single-segment paths must 404 without
 // invoking the page function (bots otherwise hammer /[locale] as SSR).
 export const dynamicParams = false;
 

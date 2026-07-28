@@ -4,19 +4,24 @@ import type { Locale } from "@/app/solutions/data";
 export const GROWBYTE_ORIGIN = "https://growbyte.co";
 export const DIGIPRITEL_ORIGIN = "https://digipritel.cz";
 export const TRYMYFRIEND_ORIGIN = "https://trymyfriend.com";
+export const MYFRIEND_JP_ORIGIN = "https://myfriend.jp";
 
 export const ELDER_COMPANION_CANONICALS: Record<Locale, string> = {
   cs: DIGIPRITEL_ORIGIN,
   en: TRYMYFRIEND_ORIGIN,
   sk: `${GROWBYTE_ORIGIN}/digipriatel`,
-  de: `${GROWBYTE_ORIGIN}/digifreund`,
+  ja: MYFRIEND_JP_ORIGIN,
 };
+
+/** German DigiFreund product (outside GrowByte site locales). */
+export const DIGIFREUND_CANONICAL = `${GROWBYTE_ORIGIN}/digifreund`;
+export const DIGIFREUND_MORE_CANONICAL = `${GROWBYTE_ORIGIN}/digifreund/more`;
 
 export const ELDER_COMPANION_MORE_CANONICALS: Record<Locale, string> = {
   cs: `${DIGIPRITEL_ORIGIN}/vice`,
   en: `${TRYMYFRIEND_ORIGIN}/more`,
   sk: `${GROWBYTE_ORIGIN}/digipriatel/viac`,
-  de: `${GROWBYTE_ORIGIN}/digifreund/more`,
+  ja: `${MYFRIEND_JP_ORIGIN}/more`,
 };
 
 export const ELDER_COMPANION_EVENTS_CANONICALS: Record<"cs" | "en", string> = {
@@ -32,7 +37,9 @@ export const ELDER_COMPANION_ALTERNATES: Record<string, string> = {
   cs: ELDER_COMPANION_CANONICALS.cs,
   en: ELDER_COMPANION_CANONICALS.en,
   sk: ELDER_COMPANION_CANONICALS.sk,
-  de: ELDER_COMPANION_CANONICALS.de,
+  ja: ELDER_COMPANION_CANONICALS.ja,
+  // Keep DigiFreund in hreflang even though GrowByte site locale is no longer `de`.
+  de: DIGIFREUND_CANONICAL,
   "x-default": ELDER_COMPANION_CANONICALS.en,
 };
 
@@ -40,7 +47,8 @@ export const ELDER_COMPANION_MORE_ALTERNATES: Record<string, string> = {
   cs: ELDER_COMPANION_MORE_CANONICALS.cs,
   en: ELDER_COMPANION_MORE_CANONICALS.en,
   sk: ELDER_COMPANION_MORE_CANONICALS.sk,
-  de: ELDER_COMPANION_MORE_CANONICALS.de,
+  ja: ELDER_COMPANION_MORE_CANONICALS.ja,
+  de: DIGIFREUND_MORE_CANONICAL,
   "x-default": ELDER_COMPANION_MORE_CANONICALS.en,
 };
 
@@ -127,6 +135,44 @@ export const MYFRIEND_FAQS = [
     question: "Who created MyFriend?",
     answer:
       "MyFriend was created by high school student Oliver Cingl in cooperation with senior Zdeněk Svoboda, who organizes workshops and talks for seniors, mostly focused on mental health.",
+  },
+];
+
+export const MYFRIEND_JA_FAQS = [
+  {
+    question: "MyFriendとは何ですか？",
+    answer:
+      "MyFriendはシニア向けのAI電話コンパニオンです。専用番号に24時間無料で電話でき、雑談したり、困りごとの相談をしたり、服薬などの大切な予定のリマインダーを設定できます。",
+  },
+  {
+    question: "誰のためのサービスですか？",
+    answer:
+      "主に、一人で過ごす時間が長い、家族との連絡が減っている、日中ちょっとした支えがほしいシニア向けです。もちろん誰でも使えます。作者の私もリマインダーなどに使っています。",
+  },
+  {
+    question: "スマホやインターネットは必要ですか？",
+    answer:
+      "いいえ。MyFriendは通常の電話で動くので、スマホもアプリもインターネットも不要です。",
+  },
+  {
+    question: "何を手伝ってくれますか？",
+    answer:
+      "フレンドリーな会話、大切なことのリマインダー、家での日常の質問へのサポート、軽い運動や頭の体操、規則正しい生活の後押しなどです。",
+  },
+  {
+    question: "料金はいくらですか？",
+    answer:
+      "現在は無料です。いまはテストと改善のフェーズだからです。将来はサブスクリプションになる予定ですが、その前にすべてのユーザーへ事前にお知らせします。",
+  },
+  {
+    question: "どうやって試せますか？",
+    answer:
+      "いつでも無料でお電話ください。米国は +1 234 603 6167、ヨーロッパ / チェコは +420 910 920 500 です。",
+  },
+  {
+    question: "誰が作りましたか？",
+    answer:
+      "高校生の Oliver Cingl が、主にメンタルヘルスをテーマにシニア向けワークショップや講演を行うシニアの Zdeněk Svoboda さんと協力して作りました。",
   },
 ];
 
@@ -244,6 +290,11 @@ export function isTryMyFriendHost(host: string | null): boolean {
   );
 }
 
+export function isMyFriendJpHost(host: string | null): boolean {
+  const normalized = normalizeHost(host);
+  return normalized === "myfriend.jp" || normalized === "www.myfriend.jp";
+}
+
 export function elderCompanionMetadata({
   locale,
   title,
@@ -252,7 +303,7 @@ export function elderCompanionMetadata({
   alternates,
   ogImage,
 }: {
-  locale: Locale;
+  locale: string;
   title: string;
   description: string;
   canonical: string;
@@ -271,7 +322,12 @@ export function elderCompanionMetadata({
       title,
       description,
       url: canonical,
-      siteName: locale === "cs" ? "DigiPřítel" : "GrowByte",
+      siteName:
+        locale === "cs"
+          ? "DigiPřítel"
+          : locale === "ja" || locale === "en"
+            ? "MyFriend"
+            : "GrowByte",
       images: [
         {
           url: image.url,

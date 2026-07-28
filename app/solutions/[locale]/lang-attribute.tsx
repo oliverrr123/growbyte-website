@@ -1,14 +1,13 @@
 "use client";
 
 import { useEffect } from "react";
-import type { Locale } from "../data";
 
 /**
  * Patches <html lang> at runtime for accessibility/screen readers when the
- * user navigates into a localized solutions route. SEO uses the
- * `hreflang` alternates set in metadata, which Google ranks above this.
+ * user navigates into a localized route. SEO uses the `hreflang` alternates
+ * set in metadata, which Google ranks above this.
  */
-export function LangAttribute({ locale }: { locale: Locale }) {
+export function LangAttribute({ locale }: { locale: string }) {
   useEffect(() => {
     const previous = document.documentElement.lang;
     document.documentElement.lang = locale;

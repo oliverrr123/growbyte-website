@@ -1,4 +1,4 @@
-export const LOCALES = ["en", "cs", "sk", "de"] as const;
+export const LOCALES = ["en", "cs", "sk", "ja"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
 
@@ -135,24 +135,24 @@ export const CASE_STUDIES: Record<Locale, CaseStudy[]> = {
       readTime: "2 min čítania",
     },
   ]),
-  de: buildStudies([
+  ja: buildStudies([
     {
       id: "chatbot",
-      title: "Kundensupport automatisieren, Leads bekommen und Calls buchen, ohne einen Finger zu rühren",
+      title: "サポートを自動化し、リード獲得と商談予約を手間なく実現",
       description:
-        "Wie ein AI-Chatbot deine Website in einen 24/7-Kundensupport verwandelt — beantwortet Fragen, schlägt nächste Schritte vor und bucht Calls, ohne dass du einen Finger rühren musst.",
+        "AIチャットボットがウェブサイトを24時間対応のサポート担当に変え、質問への回答・次のアクション提案・通話予約まで、手を動かすことなく進めます。",
       image: "/images/solutions/solution1.jpg",
-      imageAlt: "AI-Chatbot beantwortet Fragen und bucht Calls auf einer Website",
-      readTime: "2 Min. Lesezeit",
+      imageAlt: "ウェブサイト上で質問に答え、商談を予約するAIチャットボット",
+      readTime: "約2分",
     },
     {
       id: "automailer",
-      title: "Versende täglich hunderte personalisierter Emails, alles automatisiert",
+      title: "毎日何百通もの超パーソナライズメールを、すべて自動で送信",
       description:
-        "Wie AI einen Sales-Mitarbeiter mit Spreadsheet ersetzt — generiert Leads, schreibt personalisierte Cold Emails und versendet täglich hunderte davon, vollautomatisch.",
+        "AIが営業担当とスプレッドシートの役割を代替。リード生成、パーソナライズしたコールドメールの作成、毎日何百通もの送信までを完全自動化します。",
       image: "/images/solutions/solution2.jpg",
-      imageAlt: "AI generiert und versendet personalisierte Cold Emails im großen Stil",
-      readTime: "2 Min. Lesezeit",
+      imageAlt: "パーソナライズしたコールドメールを大規模に生成・送信するAI",
+      readTime: "約2分",
     },
   ]),
 };

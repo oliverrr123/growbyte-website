@@ -11,6 +11,8 @@ import {
 } from "./solutions/data";
 import { SITE_URL } from "./case-studies/site";
 import {
+  DIGIFREUND_CANONICAL,
+  DIGIFREUND_MORE_CANONICAL,
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
   ELDER_COMPANION_EVENTS_ALTERNATES,
@@ -18,6 +20,7 @@ import {
   ELDER_COMPANION_MORE_ALTERNATES,
   ELDER_COMPANION_MORE_CANONICALS,
   isDigipritelHost,
+  isMyFriendJpHost,
   isTryMyFriendHost,
   requestHostFromHeaders,
 } from "@/lib/elder-companion-seo";
@@ -76,6 +79,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         changeFrequency: "weekly",
         priority: 0.8,
         alternates: { languages: ELDER_COMPANION_EVENTS_ALTERNATES },
+      },
+    ];
+  }
+
+  if (isMyFriendJpHost(host)) {
+    return [
+      {
+        url: ELDER_COMPANION_CANONICALS.ja,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 1,
+        alternates: { languages: ELDER_COMPANION_ALTERNATES },
+      },
+      {
+        url: ELDER_COMPANION_MORE_CANONICALS.ja,
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.8,
+        alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
       },
     ];
   }
@@ -146,25 +168,44 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     alternates: { languages: homeAlternates },
   }));
 
-  const elderCompanionEntries: MetadataRoute.Sitemap = LOCALES.filter(
-    (locale) => locale !== "cs",
-  ).map((locale) => ({
-    url: ELDER_COMPANION_CANONICALS[locale],
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.72,
-    alternates: { languages: ELDER_COMPANION_ALTERNATES },
-  }));
+  // digipritel.cz / myfriend.jp have their own sitemaps; DigiFreund is listed explicitly.
+  const elderCompanionEntries: MetadataRoute.Sitemap = [
+    ...LOCALES.filter((locale) => locale !== "cs" && locale !== "ja").map(
+      (locale) => ({
+        url: ELDER_COMPANION_CANONICALS[locale],
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.72,
+        alternates: { languages: ELDER_COMPANION_ALTERNATES },
+      }),
+    ),
+    {
+      url: DIGIFREUND_CANONICAL,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.72,
+      alternates: { languages: ELDER_COMPANION_ALTERNATES },
+    },
+  ];
 
-  const elderCompanionMoreEntries: MetadataRoute.Sitemap = LOCALES.filter(
-    (locale) => locale !== "cs",
-  ).map((locale) => ({
-    url: ELDER_COMPANION_MORE_CANONICALS[locale],
-    lastModified: now,
-    changeFrequency: "monthly",
-    priority: 0.6,
-    alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
-  }));
+  const elderCompanionMoreEntries: MetadataRoute.Sitemap = [
+    ...LOCALES.filter((locale) => locale !== "cs" && locale !== "ja").map(
+      (locale) => ({
+        url: ELDER_COMPANION_MORE_CANONICALS[locale],
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.6,
+        alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
+      }),
+    ),
+    {
+      url: DIGIFREUND_MORE_CANONICAL,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+      alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
+    },
+  ];
 
   return [
     ...homeEntries,

@@ -10,7 +10,7 @@ const LOCALE_LABELS: Record<Locale, string> = {
   en: "EN",
   cs: "CS",
   sk: "SK",
-  de: "DE",
+  ja: "JA",
 };
 
 /**

@@ -3,8 +3,10 @@ import { headers } from "next/headers";
 import { SITE_URL } from "./case-studies/site";
 import {
   DIGIPRITEL_ORIGIN,
+  MYFRIEND_JP_ORIGIN,
   TRYMYFRIEND_ORIGIN,
   isDigipritelHost,
+  isMyFriendJpHost,
   isTryMyFriendHost,
   requestHostFromHeaders,
 } from "@/lib/elder-companion-seo";
@@ -18,7 +20,9 @@ export default async function robots(): Promise<MetadataRoute.Robots> {
     ? DIGIPRITEL_ORIGIN
     : isTryMyFriendHost(host)
       ? TRYMYFRIEND_ORIGIN
-      : SITE_URL;
+      : isMyFriendJpHost(host)
+        ? MYFRIEND_JP_ORIGIN
+        : SITE_URL;
 
   return {
     rules: {

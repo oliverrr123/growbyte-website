@@ -4,10 +4,12 @@ import { SITE_LOCALE_COOKIE } from "./lib/site-locale-cookie";
 import {
   DIGIPRITEL_ORIGIN,
   GROWBYTE_ORIGIN,
+  MYFRIEND_JP_ORIGIN,
   TRYMYFRIEND_ORIGIN,
   isDigipritelComHost,
   isDigipritelHost,
   isGrowbyteHost,
+  isMyFriendJpHost,
   isTryMyFriendHost,
   requestHostFromHeaders,
 } from "./lib/elder-companion-seo";
@@ -17,12 +19,12 @@ import {
  * sending everyone to `/` (Accept-Language) when they return "home".
  */
 function localeFromPathname(pathname: string): string | null {
-  const top = pathname.match(/^\/(en|cs|sk|de)(?:\/|$)/);
+  const top = pathname.match(/^\/(en|cs|sk|ja)(?:\/|$)/);
   if (top) return top[1];
-  const solutions = pathname.match(/^\/solutions\/(en|cs|sk|de)(?:\/|$)/);
+  const solutions = pathname.match(/^\/solutions\/(en|cs|sk|ja)(?:\/|$)/);
   if (solutions) return solutions[1];
   const caseStudies = pathname.match(
-    /^\/case-studies\/(en|cs|sk|de)(?:\/|$)/,
+    /^\/case-studies\/(en|cs|sk|ja)(?:\/|$)/,
   );
   if (caseStudies) return caseStudies[1];
 
@@ -35,9 +37,7 @@ function localeFromPathname(pathname: string): string | null {
   if (pathname === "/myfriend" || pathname.startsWith("/myfriend/")) {
     return "en";
   }
-  if (pathname === "/digifreund" || pathname.startsWith("/digifreund/")) {
-    return "de";
-  }
+  // DigiFreund is a German product page, not a GrowByte site locale.
   return null;
 }
 
@@ -81,7 +81,13 @@ function redirectToTryMyFriend(request: NextRequest, pathname: string) {
   return NextResponse.redirect(url, 301);
 }
 
-function isDigipritelPublicPath(pathname: string): boolean {
+function redirectToMyFriendJp(request: NextRequest, pathname: string) {
+  const url = new URL(pathname, MYFRIEND_JP_ORIGIN);
+  url.search = request.nextUrl.search;
+  return NextResponse.redirect(url, 301);
+}
+
+function isProductPublicPath(pathname: string): boolean {
   return (
     pathname === "/llms.txt" ||
     pathname === "/robots.txt" ||
@@ -141,7 +147,7 @@ export function middleware(request: NextRequest) {
       return maybePersistLocale(request, "cs", response);
     }
 
-    if (!isDigipritelPublicPath(pathname)) {
+    if (!isProductPublicPath(pathname)) {
       return redirectToGrowbyte(request, pathname);
     }
   }
@@ -174,7 +180,43 @@ export function middleware(request: NextRequest) {
       return maybePersistLocale(request, "en", response);
     }
 
-    if (!isDigipritelPublicPath(pathname)) {
+    if (!isProductPublicPath(pathname)) {
+      return redirectToGrowbyte(request, pathname);
+    }
+  }
+
+  if (host === "www.myfriend.jp") {
+    return redirectToMyFriendJp(request, pathname);
+  }
+
+  if (isMyFriendJpHost(host)) {
+    if (pathname === "/index.html" || pathname === "/index.html/") {
+      return redirectToMyFriendJp(request, "/");
+    }
+
+    if (
+      pathname === "/myfriend-jp" ||
+      pathname === "/myfriend-jp/"
+    ) {
+      return redirectToMyFriendJp(request, "/");
+    }
+
+    if (
+      pathname === "/myfriend-jp/more" ||
+      pathname === "/myfriend-jp/more/"
+    ) {
+      return redirectToMyFriendJp(request, "/more");
+    }
+
+    if (pathname === "/" || pathname === "/more") {
+      const rewriteUrl = request.nextUrl.clone();
+      rewriteUrl.pathname =
+        pathname === "/" ? "/myfriend-jp" : "/myfriend-jp/more";
+      const response = NextResponse.rewrite(rewriteUrl);
+      return maybePersistLocale(request, "ja", response);
+    }
+
+    if (!isProductPublicPath(pathname)) {
       return redirectToGrowbyte(request, pathname);
     }
   }
@@ -196,7 +238,11 @@ export function middleware(request: NextRequest) {
       pathname === "/myfriend/try" ||
       pathname === "/myfriend/try/" ||
       pathname === "/myfriend/events" ||
-      pathname === "/myfriend/events/")
+      pathname === "/myfriend/events/" ||
+      pathname === "/myfriend-jp" ||
+      pathname === "/myfriend-jp/" ||
+      pathname === "/myfriend-jp/more" ||
+      pathname === "/myfriend-jp/more/")
   ) {
     if (pathname.startsWith("/digipritel/events") || pathname.startsWith("/digipritel/udalosti")) {
       return redirectToDigipritel(request, "/udalosti");
@@ -208,6 +254,14 @@ export function middleware(request: NextRequest) {
 
     if (pathname.startsWith("/digipritel")) {
       return redirectToDigipritel(request, "/");
+    }
+
+    if (pathname.startsWith("/myfriend-jp/more")) {
+      return redirectToMyFriendJp(request, "/more");
+    }
+
+    if (pathname.startsWith("/myfriend-jp")) {
+      return redirectToMyFriendJp(request, "/");
     }
 
     if (pathname.startsWith("/myfriend/events")) {
