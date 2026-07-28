@@ -52,10 +52,15 @@ function responseWithLocale(locale: string, response: NextResponse) {
   return response;
 }
 
-function requestHeadersWithLocale(request: NextRequest, locale: string) {
-  const headers = new Headers(request.headers);
-  headers.set("x-site-locale", locale);
-  return headers;
+/** Only Set-Cookie when the value changes, so static pages stay CDN-cacheable. */
+function maybePersistLocale(
+  request: NextRequest,
+  locale: string,
+  response: NextResponse,
+) {
+  const existing = request.cookies.get(SITE_LOCALE_COOKIE)?.value;
+  if (existing === locale) return response;
+  return responseWithLocale(locale, response);
 }
 
 function redirectToDigipritel(request: NextRequest, pathname: string) {
@@ -132,10 +137,8 @@ export function middleware(request: NextRequest) {
           : pathname === "/vice"
             ? "/digipritel/vice"
             : "/digipritel/events";
-      const response = NextResponse.rewrite(rewriteUrl, {
-        request: { headers: requestHeadersWithLocale(request, "cs") },
-      });
-      return responseWithLocale("cs", response);
+      const response = NextResponse.rewrite(rewriteUrl);
+      return maybePersistLocale(request, "cs", response);
     }
 
     if (!isDigipritelPublicPath(pathname)) {
@@ -167,10 +170,8 @@ export function middleware(request: NextRequest) {
             : pathname === "/try"
               ? "/myfriend/try"
               : "/myfriend/events";
-      const response = NextResponse.rewrite(rewriteUrl, {
-        request: { headers: requestHeadersWithLocale(request, "en") },
-      });
-      return responseWithLocale("en", response);
+      const response = NextResponse.rewrite(rewriteUrl);
+      return maybePersistLocale(request, "en", response);
     }
 
     if (!isDigipritelPublicPath(pathname)) {
@@ -227,14 +228,15 @@ export function middleware(request: NextRequest) {
   const locale = localeFromPathname(pathname);
   if (!locale) return NextResponse.next();
 
-  const response = NextResponse.next({
-    request: { headers: requestHeadersWithLocale(request, locale) },
-  });
-  return responseWithLocale(locale, response);
+  return maybePersistLocale(request, locale, NextResponse.next());
 }
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|ingest).*)",
+    /*
+     * Skip Next internals, Vercel internals, and any path with a file extension
+     * (assets + common scanner probes like .php / .env).
+     */
+    "/((?!_next|_vercel|ingest|.*\\..*).*)",
   ],
 };

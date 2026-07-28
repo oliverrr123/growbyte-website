@@ -5,7 +5,6 @@ import { Providers } from "./providers";
 import { Geist } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { SITE_URL } from "./case-studies/site";
-import { headers } from "next/headers";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -15,16 +14,16 @@ export const metadata: Metadata = {
   description: "Making you more money with AI",
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const headerList = await headers();
-  const locale = headerList.get("x-site-locale") ?? "en";
-
+  // Keep this layout free of headers()/cookies() so localized SSG routes
+  // (e.g. /[locale]) can ship as static HTML. Nested layouts patch <html lang>
+  // via LangAttribute where needed.
   return (
-    <html lang={locale} className={cn("font-sans", geist.variable)} suppressHydrationWarning>
+    <html lang="en" className={cn("font-sans", geist.variable)} suppressHydrationWarning>
       <body
         className={`font-sf-pro antialiased`}
       >

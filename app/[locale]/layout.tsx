@@ -1,6 +1,12 @@
 import { notFound } from "next/navigation";
 import { LangAttribute } from "@/app/solutions/[locale]/lang-attribute";
-import { isLocale, type Locale } from "@/app/solutions/data";
+import { isLocale, LOCALES, type Locale } from "@/app/solutions/data";
+
+export function generateStaticParams() {
+  return LOCALES.map((locale) => ({ locale }));
+}
+
+export const dynamicParams = false;
 
 export default async function LocaleLayout({
   children,
