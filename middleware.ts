@@ -185,10 +185,8 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  if (host === "www.myfriend.jp") {
-    return redirectToMyFriendJp(request, pathname);
-  }
-
+  // Serve on both apex and www. Do not redirect www→apex here — if Vercel’s
+  // primary domain is www, that redirect loops with middleware the other way.
   if (isMyFriendJpHost(host)) {
     if (pathname === "/index.html" || pathname === "/index.html/") {
       return redirectToMyFriendJp(request, "/");
