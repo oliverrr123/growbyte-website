@@ -15,7 +15,7 @@ const nextConfig: NextConfig = {
         destination: "/digipriatel/viac",
         permanent: true,
       },
-      // German GrowByte site locale removed in favor of Japanese.
+      // German GrowByte site locale + DigiFreund product removed.
       { source: "/de", destination: "/ja", permanent: true },
       { source: "/solutions/de", destination: "/solutions/ja", permanent: true },
       {
@@ -36,6 +36,22 @@ const nextConfig: NextConfig = {
       {
         source: "/case-studies/de/marketing-analyse-tool",
         destination: "/case-studies/ja/marketing-bunseki",
+        permanent: true,
+      },
+      { source: "/digifreund", destination: "/myfriend", permanent: true },
+      {
+        source: "/digifreund/more",
+        destination: "/myfriend/more",
+        permanent: true,
+      },
+      {
+        source: "/digifreund/try",
+        destination: "/myfriend",
+        permanent: true,
+      },
+      {
+        source: "/digifreund/:path*",
+        destination: "/myfriend",
         permanent: true,
       },
     ];

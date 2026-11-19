@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
+import { LonelySeniorsGraphic } from "@/components/lonely-seniors-graphic";
+import { FaqAccordion } from "@/components/faq-accordion";
+import { SoftFadeImage } from "@/components/soft-fade-image";
+import { STORY_CLIP_PATHS } from "@/lib/story-clip-paths";
 import {
   DIGIPRIATEL_FAQS,
   ELDER_COMPANION_ALTERNATES,
@@ -44,7 +48,7 @@ export default function DigiPriatel() {
           __html: JSON.stringify(faqJsonLd(DIGIPRIATEL_FAQS)),
         }}
       />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="sk"
           className="text-black text-sm opacity-50 pb-8 sm:pb-16 block"
@@ -52,10 +56,11 @@ export default function DigiPriatel() {
           &lt;&nbsp; Späť na hlavnú stránku
         </LocalizedHomeLink>
         <div className="flex w-full justify-center items-center pb-8 sm:pb-12">
-          <Image
+          <SoftFadeImage
             src="/images/robo-companion/robo-companion.png"
             alt="DigiPriateľ – robotický spoločník"
-            className="rounded-xl w-48 sm:w-64 object-cover"
+            className="w-48 sm:w-64"
+            imageClassName="rounded-xl w-full h-auto object-cover"
             width={1000}
             height={1000}
           />
@@ -68,92 +73,129 @@ export default function DigiPriatel() {
           <p className="text-black opacity-50">Spoločník pre seniorov</p>
         </div>
 
-        <section className="space-y-12 sm:space-y-16">
-          <p className="text-base sm:text-lg leading-relaxed text-gray-800 w-full md:max-w-1/2 md:mx-auto md:text-center mb-32 -mt-8">
-            DigiPriateľ je <strong>AI spoločník pre seniorov cez bežný telefonický hovor</strong>. Pomáha proti samote, pripomína dôležité veci a ponúka zrozumiteľnú oporu bez potreby smartfónu, aplikácie alebo internetu.
-          </p>
+        <section className="space-y-20 sm:space-y-28">
+          <div className="mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+            <p>
+              DigiPriateľ je <strong>AI spoločník pre seniorov cez bežný telefonický hovor</strong>.
+            </p>
+            <p>
+              Pomáha proti samote, pripomína dôležité veci a ponúka zrozumiteľnú oporu bez potreby
+              smartfónu, aplikácie alebo internetu.
+            </p>
+          </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="flex-1 order-2 md:order-1">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                V Českej republike žije osamote približne <strong>750 000 seniorov</strong>. To je viac ľudí, než žije dohromady v celom Juhočeskom kraji. Mnohí z nich sa so svojou rodinou vídajú len zriedka alebo vôbec a samota sa stáva súčasťou ich každodenného života.
+          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+            <div className="flex-1 order-2 md:order-1 mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+              <p>
+                Na Slovensku žije <strong>každý tretí senior úplne osamote</strong>.
+              </p>
+              <p>
+                To je cez <strong>200&nbsp;000 osamelých seniorov</strong>.
+              </p>
+              <p>
+                Mnohí z nich sa so svojou rodinou vídajú len zriedka alebo vôbec a samota sa stáva
+                súčasťou ich každodenného života.
               </p>
             </div>
-            <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
-              <Image
-                src="/images/robo-companion/map.png"
-                alt="Štatistiky súvisiace so seniormi žijúcimi sami"
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
-              />
+            <div className="order-1 md:order-2 flex justify-center">
+              <LonelySeniorsGraphic label="Každý tretí senior žije osamote" />
             </div>
           </div>
 
-          <div className="text-center py-6 sm:py-8">
-            <p className="text-xl sm:text-2xl font-semibold">
-              Preto sme vytvorili{" "}
-              <span className="caveat-bold-font text-3xl sm:text-4xl">
+          <div className="text-center py-8 sm:py-12">
+            <p className="text-xl sm:text-2xl font-semibold text-black/80">
+              Preto som vytvoril{" "}
+              <span className="caveat-bold-font text-3xl sm:text-4xl text-black">
                 digi<span className="italic text-orange-500">priateľa</span>
               </span>
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="w-full md:w-96 bg-blue-200 rounded-xl flex items-center justify-center order-1">
-              <Image
+          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+            <div className="w-full md:w-[32rem] flex items-center justify-center order-1">
+              <SoftFadeImage
                 src="/images/robo-companion/myfriend-talking-to-senior.jpg"
                 alt="Malý robotický spoločník počas konverzácie"
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
+                className="w-full"
+                imageClassName="w-full h-auto object-cover"
+                width={804}
+                height={603}
+                clipPath={STORY_CLIP_PATHS.talking}
               />
             </div>
-            <div className="flex-1 order-2">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                <strong>DigiPriateľ je kamarát na telefóne</strong>, ktorý seniorom dáva to, čo im často najviac chýba: spoločnosť a oporu. Môžu sa s ním rozprávať a vďaka tomu lepšie zvládať pocit samoty. Zároveň pomáha v každodenných situáciách – pripomenie, ako sa ovláda televízor, ukáže nastavenie rúry alebo pomôže nájsť obľúbený recept.
+            <div className="flex-1 order-2 mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+              <p>
+                <strong>DigiPriateľ je kamarát na telefóne</strong>, ktorý seniorom dáva to, čo im
+                často najviac chýba: spoločnosť a oporu.
+              </p>
+              <p>
+                Môžu mu zavolať 24/7 len tak sa porozprávať, spýtať sa, získať pomoc s riešením
+                problémov, alebo nastaviť pripomienky napríklad na užívanie liekov.
               </p>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="flex-1 order-2 md:order-1">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                DigiPriateľ sa <strong>prispôsobuje každému človeku</strong>. Učí sa o jeho záujmoch a sám dokáže začínať rozhovory. Občas seniorovi zavolá, aby sa len tak porozprával, alebo mu pripomenie nejakú dôležitú udalosť.
+          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+            <div className="flex-1 order-2 md:order-1 mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+              <p>
+                DigiPriateľ sa <strong>prispôsobuje každému človeku</strong>.
+              </p>
+              <p>
+                Učí sa o jeho záujmoch a pamätá si minulé rozhovory, rovnako ako ľudský priateľ.
+              </p>
+              <p>
+                Občas seniorovi sám zavolá, aby sa len tak porozprával, alebo aby sa podelil o
+                zaujímavé novinky a nápady podľa jeho záujmov.
               </p>
             </div>
-            <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
-              <Image
+            <div className="w-full md:w-[32rem] flex items-center justify-center order-1 md:order-2">
+              <SoftFadeImage
                 src="/images/robo-companion/myfriend-greeting-senior.jpg"
                 alt="Robot sa rozpráva so seniorom"
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
+                className="w-full"
+                imageClassName="w-full h-auto object-cover"
+                width={804}
+                height={603}
+                clipPath={STORY_CLIP_PATHS.greeting}
               />
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="w-full md:w-96 bg-purple-200 rounded-xl flex items-center justify-center order-1">
-              <Image
+          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+            <div className="w-full md:w-[32rem] flex items-center justify-center order-1">
+              <SoftFadeImage
                 src="/images/robo-companion/senior-exercising.jpg"
                 alt="Pripomenutia na pohyb a aktivity"
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
+                className="w-full"
+                imageClassName="w-full h-auto object-cover"
+                width={804}
+                height={603}
+                clipPath={STORY_CLIP_PATHS.exercising}
               />
             </div>
-            <div className="flex-1 order-2">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                Okrem konverzácie DigiPriateľ <strong>dohliada aj na pohodu seniorov</strong>. Pripomína užívanie liekov, motivuje k ľahkému cvičeniu aj mentálnym aktivitám a mení ich na zábavné výzvy gamifikáciou. Vďaka tomu je zdravý životný štýl prirodzenejší a príjemnejší.
+            <div className="flex-1 order-2 mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+              <p>Okrem konverzácie DigiPriateľ pečuje aj o pohodu seniorov.</p>
+              <p>
+                Pripomína užívanie liekov načas, motivuje k ľahkému cvičeniu a mentálnym aktivitám a
+                zároveň to robí zábavnou formou gamifikácie.
               </p>
+              <p>Vďaka tomu je jednoduchšie a príjemnejšie zostať zdravý a aktívny.</p>
             </div>
           </div>
 
-          <div className="mb-12">
-            <p className="text-center mb-4 text-lg">Chcete vyskúšať DigiPriateľa?<br />Zavolajte kedykoľvek zadarmo:</p>
+          <div className="pt-8 sm:pt-12">
+            <p className="text-center mb-6 text-lg">
+              Chcete vyskúšať DigiPriateľa?
+              <br />
+              Zavolajte kedykoľvek zadarmo:
+            </p>
             <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
-              <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+420 910 920 500</a>
+              <a
+                href="tel:+420910920500"
+                className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg"
+              >
+                +420 910 920 500
+              </a>
             </h3>
           </div>
 
@@ -163,21 +205,7 @@ export default function DigiPriatel() {
                 Časté otázky
               </h2>
             </div>
-            <div className="grid gap-4">
-              {DIGIPRIATEL_FAQS.map((item) => (
-                <article
-                  key={item.question}
-                  className="rounded-lg border border-gray-200 px-5 py-5"
-                >
-                  <h3 className="text-lg font-semibold text-gray-950 mb-2">
-                    {item.question}
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray-800">
-                    {item.answer}
-                  </p>
-                </article>
-              ))}
-            </div>
+            <FaqAccordion items={DIGIPRIATEL_FAQS} />
           </div>
         </section>
         <div className="w-full flex flex-col items-center justify-center py-16">
@@ -199,7 +227,7 @@ export default function DigiPriatel() {
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Profil na X">
             <Image
-              src="/icons/twitter-x.svg"
+              src="/icons/twitter-x.svg?v=5"
               alt="X"
               className="w-8 h-8 hover:opacity-100 transition-opacity"
               width={32}
@@ -208,7 +236,7 @@ export default function DigiPriatel() {
           </a>
           <a href="https://linkedin.com/in/olivercingl" target="_blank" aria-label="Profil na LinkedIn">
             <Image
-              src="/icons/linkedin.svg"
+              src="/icons/linkedin.svg?v=5"
               alt="LinkedIn"
               className="w-8 h-8 hover:opacity-100 transition-opacity"
               width={32}
@@ -216,10 +244,10 @@ export default function DigiPriatel() {
             />
           </a>
           <a href="mailto:oliver.cingl@gmail.com" target="_blank" aria-label="E-mail">
-            <Image src="/icons/mail.svg" alt="E-mail" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
+            <Image src="/icons/mail.svg?v=5" alt="E-mail" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
-          <a href="tel:+420776781248" target="_blank" aria-label="Telefón">
-            <Image src="/icons/phone.svg" alt="Telefón" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
+          <a href="tel:+14153771909" target="_blank" aria-label="Telefón">
+            <Image src="/icons/phone.svg?v=5" alt="Telefón" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
         </div>
         <h6 className="py-6 text-center text-black">© {new Date().getFullYear()} GrowByte</h6>

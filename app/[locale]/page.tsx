@@ -158,7 +158,7 @@ export default async function LocalizedHome({
                 height={32}
               />
             </a>
-            <a href="tel:+420776781248" target="_blank" aria-label="Phone">
+            <a href="tel:+14153771909" target="_blank" aria-label="Phone">
               <Image
                 src="/icons/phone.svg"
                 alt="Phone"

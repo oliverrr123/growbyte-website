@@ -35,7 +35,7 @@ export const EVENTS: MyFriendEvent[] = [
     titleJa: "サンフランシスコの介護施設でのMyFriend紹介",
     descriptionJa:
       "アメリカでの2回目の紹介。スケジュールが詰まっていたので短めでしたが、みなさんとてもワクワクしていました！チェコ出身の方もいて、少しチェコ語で話せました。",
-    image: "/images/robo-companion/buena-vista-manor-house.jpg",
+    image: "/images/robo-companion/buena-vista-manor-house.png",
     imageAlt: "Buena Vista Manor House event",
     imageAltCs: "Akce v Buena Vista Manor House",
     imageAltJa: "Buena Vista Manor Houseでのイベント",
@@ -54,7 +54,7 @@ export const EVENTS: MyFriendEvent[] = [
     titleJa: "サンフランシスコの介護施設でのMyFriendイベント",
     descriptionJa:
       "アメリカで初めてユーザーを得た回です！介護施設でMyFriendを紹介し、お菓子も持っていきました。みなさんとたくさん話せて、とてもワクワクしました。",
-    image: "/images/robo-companion/zygmunt-arendt-house.jpg",
+    image: "/images/robo-companion/zygmunt-arendt-house.png",
     imageAlt: "Zygmunt Arendt House event",
     imageAltCs: "Akce v Zygmunt Arendt House",
     imageAltJa: "Zygmunt Arendt Houseでのイベント",
@@ -73,7 +73,7 @@ export const EVENTS: MyFriendEvent[] = [
     titleJa: "プラハのシニアコミュニティセンターでのMyFriend紹介",
     descriptionJa:
       "プラハのシニア向けコミュニティセンターでMyFriendを紹介し、その後も残って技術的なサポートやMyFriendについての質問に答えました。",
-    image: "/images/robo-companion/komunitni-centrum-louka.jpg",
+    image: "/images/robo-companion/komunitni-centrum-louka.png",
     imageAlt: "MyFriend showcase at a senior community center in Prague",
     imageAltCs: "Představení DigiPřítele v komunitním centru pro seniory v Praze",
     imageAltJa: "プラハのシニアコミュニティセンターでのMyFriend紹介",
@@ -92,7 +92,7 @@ export const EVENTS: MyFriendEvent[] = [
     titleJa: "プラハの介護施設でのMyFriendイベント",
     descriptionJa:
       "MyFriendだけに焦点を当てた初めてのイベントです。介護施設で紹介したあと、一人ひとりの技術的な困りごとにも付き合いしました。ある方にとっては初めてのAI体験で、とても喜んでいました。スマホを持っていない方でも使えるものを作れたことが、自分にとっても嬉しかったです。",
-    image: "/images/robo-companion/digipritel-domov-senioru.jpg",
+    image: "/images/robo-companion/digipritel-domov-senioru.png",
     imageAlt: "MyFriend event at a senior care home in Prague",
     imageAltCs: "Akce DigiPřítele v domově seniorů v Praze",
     imageAltJa: "プラハの介護施設でのMyFriendイベント",
@@ -111,7 +111,7 @@ export const EVENTS: MyFriendEvent[] = [
     titleJa: "プラハの非営利シニアイベントでのMyFriend紹介",
     descriptionJa:
       "Moudrá síť主催のイベントで、オンラインの安全やアプリの活用についての発表があり、私もMyFriendについて話しました。その後ボランティアと一緒に、シニア一人ひとりの技術的な困りごとに付き合いました。とても温かい体験でした。",
-    image: "/images/robo-companion/moudra-sit-senior-event.jpg",
+    image: "/images/robo-companion/moudra-sit-senior-event.png",
     imageAlt: "MyFriend showcase at a Moudrá síť senior event in Prague",
     imageAltCs: "Představení DigiPřítele na akci Moudré sítě v Praze",
     imageAltJa: "プラハのMoudrá síťシニアイベントでのMyFriend紹介",
@@ -130,7 +130,7 @@ export const EVENTS: MyFriendEvent[] = [
     titleJa: "Maker Faire PragueでのMyFriend紹介",
     descriptionJa:
       "Maker Faire Pragueは、全国の作り手がプロジェクトを展示する年次イベントです。今年はMyFriendを出展しました。動くプロダクトの初めての一般公開で、とても素晴らしい体験でした。ブースにはたくさんの方が来て関心を持ち、チラシを200枚以上配り、100人以上の新規ユーザーと、いくつかのコラボも生まれました。",
-    image: "/images/robo-companion/maker-faire-digipritel.jpg",
+    image: "/images/robo-companion/maker-faire-digipritel.png",
     imageAlt: "MyFriend / DigiPřítel booth at Maker Faire Prague",
     imageAltCs: "Stánek DigiPřítele na Maker Faire Prague",
     imageAltJa: "Maker Faire PragueのMyFriendブース",

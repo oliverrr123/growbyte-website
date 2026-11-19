@@ -1,6 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LocalizedHomeLink } from "@/components/localized-home-link";
+import { LonelySeniorsGraphic } from "@/components/lonely-seniors-graphic";
+import { FaqAccordion } from "@/components/faq-accordion";
+import { SoftFadeImage } from "@/components/soft-fade-image";
+import { STORY_CLIP_PATHS } from "@/lib/story-clip-paths";
 import {
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
@@ -46,7 +50,7 @@ export default function MaiFurendoLanding() {
           __html: JSON.stringify(faqJsonLd(MYFRIEND_JA_FAQS)),
         }}
       />
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 pb-0 sm:pb-0 pt-8 sm:pt-16">
         <LocalizedHomeLink
           fallbackLocale="ja"
           className="text-black text-sm opacity-50 pb-8 sm:pb-16 block"
@@ -54,10 +58,11 @@ export default function MaiFurendoLanding() {
           &lt;&nbsp; トップページへ戻る
         </LocalizedHomeLink>
         <div className="flex w-full justify-center items-center pb-8 sm:pb-12">
-          <Image
+          <SoftFadeImage
             src="/images/robo-companion/robo-companion.png"
             alt="MyFriend コンパニオンロボット"
-            className="rounded-xl w-48 sm:w-64 object-cover"
+            className="w-48 sm:w-64"
+            imageClassName="rounded-xl w-full h-auto object-cover"
             width={1000}
             height={1000}
           />
@@ -70,96 +75,117 @@ export default function MaiFurendoLanding() {
           <p className="text-black opacity-50">シニア向けコンパニオン</p>
         </div>
 
-        <section className="space-y-12 sm:space-y-16">
-          <p className="text-base sm:text-lg leading-relaxed text-gray-800 w-full md:max-w-1/2 md:mx-auto md:text-center mb-32 -mt-8">
-            MyFriendは、<strong>通常の電話で使えるシニア向けAIコンパニオン</strong>
-            です。孤独感の軽減、大切なことのリマインダー、わかりやすいサポートを、スマホ・アプリ・インターネットなしで提供します。
-          </p>
+        <section className="space-y-20 sm:space-y-28">
+          <div className="mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+            <p>
+              MyFriendは、<strong>通常の電話で使えるシニア向けAIコンパニオン</strong>
+              です。
+            </p>
+            <p>
+              孤独感の軽減、大切なことのリマインダー、わかりやすいサポートを、スマホ・アプリ・インターネットなしで提供します。
+            </p>
+          </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="flex-1 order-2 md:order-1">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                日本では、<strong>約700万人の高齢者が一人暮らし</strong>
-                をしています。家族とほとんど会えない、あるいは全く会えない人も多く、孤独が日常の一部になってしまっています。
+          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+            <div className="flex-1 order-2 md:order-1 mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+              <p>
+                日本では、<strong>高齢者の3人に1人が一人暮らし</strong>
+                をしています。
+              </p>
+              <p>
+                それは<strong>約700万人の孤独な高齢者</strong>
+                です。
+              </p>
+              <p>
+                家族とほとんど会えない、あるいは全く会えない人も多く、孤独が日常の一部になってしまっています。
               </p>
             </div>
-            <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 md:order-2">
-              <Image
-                src="/images/robo-companion/map.png"
-                alt="一人暮らしの高齢者のイメージ"
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
-              />
+            <div className="order-1 md:order-2 flex justify-center">
+              <LonelySeniorsGraphic label="高齢者の3人に1人が一人暮らし" />
             </div>
           </div>
 
-          <div className="text-center py-6 sm:py-8">
-            <p className="text-xl sm:text-2xl font-semibold">
-              だから私たちは{" "}
-              <span className="caveat-bold-font text-3xl sm:text-4xl">
+          <div className="text-center py-8 sm:py-12">
+            <p className="text-xl sm:text-2xl font-semibold text-black/80">
+              だから私は{" "}
+              <span className="caveat-bold-font text-3xl sm:text-4xl text-black">
                 my<span className="italic text-orange-500">friend</span>
               </span>
               {" を作りました"}
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="w-full md:w-96 bg-blue-200 rounded-xl flex items-center justify-center order-1">
-              <Image
+          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+            <div className="w-full md:w-[32rem] flex items-center justify-center order-1">
+              <SoftFadeImage
                 src="/images/robo-companion/myfriend-talking-to-senior.jpg"
                 alt="コンパニオンロボットとの会話"
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
+                className="w-full"
+                imageClassName="w-full h-auto object-cover"
+                width={804}
+                height={603}
+                clipPath={STORY_CLIP_PATHS.talking}
               />
             </div>
-            <div className="flex-1 order-2">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
+            <div className="flex-1 order-2 mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+              <p>
                 <strong>MyFriendは電話の友だち</strong>
-                です。シニアがしばしば最も欠けているもの — 寄り添いと支え —
-                を届けます。話をして孤独感と向き合いやすくし、テレビの使い方、オーブンの設定、好きなレシピ探しなど、日常の困りごとにも手伝います。
+                です。シニアがしばしば最も欠けているもの — 寄り添いと支え — を届けます。
+              </p>
+              <p>
+                24時間いつでも電話して雑談したり、質問したり、困りごとの解決を頼んだり、服薬などのリマインダーを設定したりできます。
               </p>
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="flex-1 order-2 md:order-1">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                MyFriendは<strong>一人ひとりに合わせて育ちます</strong>
-                。興味を学び、自分から会話を始めることもできます。雑談のために電話したり、大切な予定を思い出させたりします。
+          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+            <div className="flex-1 order-2 md:order-1 mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+              <p>
+                MyFriendは<strong>一人ひとりに合わせて育ちます</strong>。
+              </p>
+              <p>
+                興味を学び、これまでの会話を覚え、まるで人間の友だちのように寄り添います。
+              </p>
+              <p>
+                雑談のために自分から電話したり、その人の興味に合わせた嬉しいニュースやアイデアを届けたりします。
               </p>
             </div>
-            <div className="w-full md:w-96 bg-green-200 rounded-xl flex items-center justify-center order-1 md:order-2">
-              <Image
+            <div className="w-full md:w-[32rem] flex items-center justify-center order-1 md:order-2">
+              <SoftFadeImage
                 src="/images/robo-companion/myfriend-greeting-senior.jpg"
                 alt="シニアと話すロボット"
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
+                className="w-full"
+                imageClassName="w-full h-auto object-cover"
+                width={804}
+                height={603}
+                clipPath={STORY_CLIP_PATHS.greeting}
               />
             </div>
           </div>
 
-          <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="w-full md:w-96 bg-purple-200 rounded-xl flex items-center justify-center order-1">
-              <Image
+          <div className="flex flex-col md:flex-row md:items-center gap-10 md:gap-16">
+            <div className="w-full md:w-[32rem] flex items-center justify-center order-1">
+              <SoftFadeImage
                 src="/images/robo-companion/senior-exercising.jpg"
                 alt="健康とウェルネスのリマインダー"
-                className="w-full h-full object-cover rounded-xl"
-                width={400}
-                height={400}
+                className="w-full"
+                imageClassName="w-full h-auto object-cover"
+                width={804}
+                height={603}
+                clipPath={STORY_CLIP_PATHS.exercising}
               />
             </div>
-            <div className="flex-1 order-2">
-              <p className="text-base sm:text-lg leading-relaxed text-gray-800">
-                会話だけでなく、MyFriendは心と体の調子にも気を配ります。服薬の時間を知らせ、軽い運動や頭の体操をすすめ、ゲーム感覚の小さなチャレンジに変えます。健康で活動的でいることが、もっと楽しく続けやすくなります。
+            <div className="flex-1 order-2 mx-auto max-w-md space-y-4 text-center text-base sm:text-lg leading-relaxed text-gray-800">
+              <p>会話だけでなく、MyFriendは心と体の調子にも気を配ります。</p>
+              <p>
+                服薬の時間を知らせ、軽い運動や頭の体操をすすめ、ゲーム感覚で楽しく続けられるようにします。
               </p>
+              <p>健康で活動的でいることが、もっと楽しく続けやすくなります。</p>
             </div>
           </div>
 
-          <div className="mb-12">
-            <p className="text-center mb-4 text-lg">
+          <div className="pt-8 sm:pt-12">
+            <p className="text-center mb-6 text-lg">
               MyFriendを試してみませんか？
               <br />
               いつでも無料でお電話ください:
@@ -198,21 +224,7 @@ export default function MaiFurendoLanding() {
                 よくある質問
               </h2>
             </div>
-            <div className="grid gap-4">
-              {MYFRIEND_JA_FAQS.map((item) => (
-                <article
-                  key={item.question}
-                  className="rounded-lg border border-gray-200 px-5 py-5"
-                >
-                  <h3 className="text-lg font-semibold text-gray-950 mb-2">
-                    {item.question}
-                  </h3>
-                  <p className="text-base leading-relaxed text-gray-800">
-                    {item.answer}
-                  </p>
-                </article>
-              ))}
-            </div>
+            <FaqAccordion items={MYFRIEND_JA_FAQS} />
           </div>
         </section>
         <div className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 py-16">
@@ -240,7 +252,7 @@ export default function MaiFurendoLanding() {
         <div className="flex justify-center gap-4">
           <a href="https://x.com/olivercingl" target="_blank" aria-label="Xプロフィール">
             <Image
-              src="/icons/twitter-x.svg"
+              src="/icons/twitter-x.svg?v=5"
               alt="X"
               className="w-8 h-8 hover:opacity-100 transition-opacity"
               width={32}
@@ -253,7 +265,7 @@ export default function MaiFurendoLanding() {
             aria-label="LinkedInプロフィール"
           >
             <Image
-              src="/icons/linkedin.svg"
+              src="/icons/linkedin.svg?v=5"
               alt="LinkedIn"
               className="w-8 h-8 hover:opacity-100 transition-opacity"
               width={32}
@@ -262,16 +274,16 @@ export default function MaiFurendoLanding() {
           </a>
           <a href="mailto:oliver.cingl@gmail.com" target="_blank" aria-label="メール">
             <Image
-              src="/icons/mail.svg"
+              src="/icons/mail.svg?v=5"
               alt="メール"
               className="w-8 h-8 hover:opacity-100 transition-opacity"
               width={32}
               height={32}
             />
           </a>
-          <a href="tel:+420776781248" target="_blank" aria-label="電話">
+          <a href="tel:+14153771909" target="_blank" aria-label="電話">
             <Image
-              src="/icons/phone.svg"
+              src="/icons/phone.svg?v=5"
               alt="電話"
               className="w-8 h-8 hover:opacity-100 transition-opacity"
               width={32}

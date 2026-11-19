@@ -37,7 +37,6 @@ function localeFromPathname(pathname: string): string | null {
   if (pathname === "/myfriend" || pathname.startsWith("/myfriend/")) {
     return "en";
   }
-  // DigiFreund is a German product page, not a GrowByte site locale.
   return null;
 }
 
@@ -102,6 +101,20 @@ export function middleware(request: NextRequest) {
   const host = requestHostFromHeaders(request.headers);
   const { pathname } = request.nextUrl;
 
+  if (host === "testing.trymyfriend.com") {
+    const url = request.nextUrl.clone();
+    if (pathname === "/") {
+      url.pathname = "/myfriend";
+    } else if (/^\/(more|try|events|onboarding|login|verify|dashboard|messages|call)(\/|$)/.test(pathname)) {
+      url.pathname = `/myfriend${pathname}`;
+    }
+    const response = url.pathname === pathname
+      ? NextResponse.next()
+      : NextResponse.rewrite(url);
+    response.headers.set("X-Robots-Tag", "noindex, nofollow");
+    return maybePersistLocale(request, "en", response);
+  }
+
   if (host === "www.digipritel.cz") {
     return redirectToDigipritel(request, pathname);
   }
@@ -111,6 +124,27 @@ export function middleware(request: NextRequest) {
   }
 
   if (isDigipritelHost(host)) {
+    if (pathname === "/dashboard" || pathname === "/login") {
+      const url = request.nextUrl.clone();
+      url.pathname = `/digipritel${pathname}`;
+      return maybePersistLocale(request, "cs", NextResponse.rewrite(url));
+    }
+    if (pathname === "/digipritel/dashboard" || pathname === "/digipritel/login") {
+      return maybePersistLocale(request, "cs", NextResponse.next());
+    }
+    if (pathname === "/digipritel/podminky" || pathname === "/digipritel/soukromi") {
+      return redirectToDigipritel(request, pathname.replace("/digipritel", ""));
+    }
+    if (pathname === "/podminky" || pathname === "/soukromi") {
+      const url = request.nextUrl.clone();
+      url.pathname = `/digipritel${pathname}`;
+      return maybePersistLocale(request, "cs", NextResponse.rewrite(url));
+    }
+    if (pathname === "/call" || pathname === "/myfriend/call") return redirectToDigipritel(request, "/start");
+    // Keep onboarding, checkout cookies, verification and account setup on the Czech origin.
+    if (pathname === "/start" || pathname.startsWith("/myfriend/") || pathname.startsWith("/api/myfriend/")) {
+      return maybePersistLocale(request, "cs", NextResponse.next());
+    }
     if (pathname === "/index.html" || pathname === "/index.html/") {
       return redirectToDigipritel(request, "/");
     }
@@ -157,15 +191,37 @@ export function middleware(request: NextRequest) {
   }
 
   if (isTryMyFriendHost(host)) {
+    // Client links may contain the internal prefix after a homepage rewrite.
+    // These routes belong to MyFriend and must never fall through to GrowByte.
+    if (pathname === "/myfriend" || pathname.startsWith("/myfriend/")) {
+      return maybePersistLocale(request, "en", NextResponse.next());
+    }
+
     if (pathname === "/index.html" || pathname === "/index.html/") {
       return redirectToTryMyFriend(request, "/");
+    }
+
+    if (pathname.startsWith("/api/")) {
+      return maybePersistLocale(request, "en", NextResponse.next());
     }
 
     if (
       pathname === "/" ||
       pathname === "/more" ||
       pathname === "/try" ||
-      pathname === "/events"
+      pathname === "/call" ||
+      pathname.startsWith("/try/") ||
+      pathname === "/events" ||
+      pathname === "/verify" ||
+      pathname.startsWith("/verify/") ||
+      pathname === "/dashboard" ||
+      pathname.startsWith("/dashboard/") ||
+      pathname === "/messages" ||
+      pathname.startsWith("/messages/") ||
+      pathname === "/onboarding" ||
+      pathname === "/onboarding/" ||
+      pathname === "/login" ||
+      pathname.startsWith("/login/")
     ) {
       const rewriteUrl = request.nextUrl.clone();
       rewriteUrl.pathname =
@@ -173,9 +229,9 @@ export function middleware(request: NextRequest) {
           ? "/myfriend"
           : pathname === "/more"
             ? "/myfriend/more"
-            : pathname === "/try"
-              ? "/myfriend/try"
-              : "/myfriend/events";
+            : pathname === "/events"
+              ? "/myfriend/events"
+              : `/myfriend${pathname}`;
       const response = NextResponse.rewrite(rewriteUrl);
       return maybePersistLocale(request, "en", response);
     }
@@ -246,6 +302,17 @@ export function middleware(request: NextRequest) {
       pathname === "/myfriend/more/" ||
       pathname === "/myfriend/try" ||
       pathname === "/myfriend/try/" ||
+      pathname === "/myfriend/verify" ||
+      pathname === "/myfriend/verify/" ||
+      pathname === "/myfriend/dashboard" ||
+      pathname === "/myfriend/dashboard/" ||
+      pathname === "/myfriend/messages" ||
+      pathname === "/myfriend/messages/" ||
+      pathname === "/myfriend/onboarding" ||
+      pathname === "/myfriend/onboarding/" ||
+      pathname === "/myfriend/call" ||
+      pathname === "/myfriend/login" ||
+      pathname === "/myfriend/login/" ||
       pathname === "/myfriend/events" ||
       pathname === "/myfriend/events/" ||
       pathname === "/myfriend-jp" ||
@@ -288,7 +355,18 @@ export function middleware(request: NextRequest) {
     }
 
     if (pathname.startsWith("/myfriend/try")) {
-      return redirectToTryMyFriend(request, "/try");
+      return redirectToTryMyFriend(request, pathname.replace("/myfriend", "") || "/try");
+    }
+
+    if (
+      pathname.startsWith("/myfriend/verify") ||
+      pathname.startsWith("/myfriend/dashboard") ||
+      pathname.startsWith("/myfriend/messages") ||
+      pathname.startsWith("/myfriend/login") ||
+      pathname.startsWith("/myfriend/onboarding")
+      || pathname.startsWith("/myfriend/call")
+    ) {
+      return redirectToTryMyFriend(request, pathname.replace("/myfriend", "") || "/");
     }
 
     return redirectToTryMyFriend(request, "/");

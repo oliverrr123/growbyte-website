@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 150" fill="currentColor">
+  <defs>
+    <g id="adult">
+      <circle cx="40" cy="18" r="16"/>
+      <path d="M8 96V46c0-7 5-12 12-12h40c7 0 12 5 12 12v50H60V62c0-2-1.2-3.5-3-3.5H47c-1.8 0-3 1.5-3 3.5v34H36V62c0-2-1.2-3.5-3-3.5H23c-1.8 0-3 1.5-3 3.5v34H8z"/>
+    </g>
+    <g id="kid">
+      <circle cx="26" cy="13" r="11"/>
+      <path d="M4 68V32c0-5 3.6-8.5 8.4-8.5h27.2c4.8 0 8.4 3.5 8.4 8.5v36H39V44c0-1.4-.9-2.5-2.1-2.5h-6.6c-1.2 0-2.1 1.1-2.1 2.5v24h-6.4V44c0-1.4-.9-2.5-2.1-2.5h-6.6c-1.2 0-2.1 1.1-2.1 2.5v24H4z"/>
+    </g>
+  </defs>
+  <g color="#ff8804" transform="translate(12 26)">
+    <use href="#adult"/>
+  </g>
+  <path
+    d="M142 18l12 16-12 16 12 16-12 16 12 16-12 16"
+    fill="none"
+    stroke="#111"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <g color="#111" transform="translate(168 14)">
+    <use href="#adult"/>
+    <use href="#adult" x="54"/>
+    <use href="#kid" x="38" y="42"/>
+  </g>
+</svg>

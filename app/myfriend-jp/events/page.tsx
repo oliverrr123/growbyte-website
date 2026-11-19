@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SoftFadeImage } from "@/components/soft-fade-image";
 import {
   ELDER_COMPANION_EVENTS_ALTERNATES,
   ELDER_COMPANION_EVENTS_CANONICALS,
@@ -62,11 +63,12 @@ export default function MyFriendJpEventsPage() {
                 key={event.id}
                 className="flex flex-col md:flex-row md:items-start md:gap-12"
               >
-                <div className="w-full md:w-96 aspect-16/11 rounded-xl overflow-hidden bg-orange-50 flex items-center justify-center shrink-0">
-                  <Image
+                <div className="w-full md:w-96 aspect-16/11 flex items-center justify-center shrink-0">
+                  <SoftFadeImage
                     src={event.image}
                     alt={event.imageAltJa}
-                    className="w-full h-full object-cover rounded-xl"
+                    className="w-full h-full"
+                    imageClassName="w-full h-full object-cover"
                     width={400}
                     height={400}
                   />
@@ -142,7 +144,7 @@ export default function MyFriendJpEventsPage() {
               height={32}
             />
           </a>
-          <a href="tel:+420776781248" target="_blank" aria-label="電話">
+          <a href="tel:+14153771909" target="_blank" aria-label="電話">
             <Image
               src="/icons/phone.svg"
               alt="電話"

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SoftFadeImage } from "@/components/soft-fade-image";
 import {
   ELDER_COMPANION_MORE_ALTERNATES,
   ELDER_COMPANION_MORE_CANONICALS,
@@ -80,11 +81,12 @@ export default function MaiFurendoMore() {
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="w-full md:w-96 bg-blue-200 rounded-xl flex items-center justify-center order-1">
-              <Image
+            <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 overflow-hidden">
+              <SoftFadeImage
                 src="/images/robo-companion/president.jpg"
                 alt="大統領へのプロジェクト紹介"
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full rounded-xl overflow-hidden"
+                imageClassName="w-full h-full object-cover rounded-xl"
                 width={400}
                 height={400}
               />
@@ -226,7 +228,7 @@ export default function MaiFurendoMore() {
               height={32}
             />
           </a>
-          <a href="tel:+420776781248" target="_blank" aria-label="電話">
+          <a href="tel:+14153771909" target="_blank" aria-label="電話">
             <Image
               src="/icons/phone.svg"
               alt="電話"

@@ -1,5 +1,7 @@
 import Image from "next/image";
+import { MyFriendTryButton } from "@/components/myfriend-try-button";
 import Link from "next/link";
+import { SoftFadeImage } from "@/components/soft-fade-image";
 import {
   ELDER_COMPANION_MORE_ALTERNATES,
   ELDER_COMPANION_MORE_CANONICALS,
@@ -73,13 +75,14 @@ export default function RoboCompanion() {
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="w-full md:w-96 bg-blue-200 rounded-xl flex items-center justify-center order-1">
-              <Image 
-                src="/images/robo-companion/president.jpg" 
-                alt="Project presentation to the President" 
-                className="w-full h-full object-cover rounded-xl" 
-                width={400} 
-                height={400} 
+            <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 overflow-hidden">
+              <SoftFadeImage
+                src="/images/robo-companion/president.jpg"
+                alt="Project presentation to the President"
+                className="w-full rounded-xl overflow-hidden"
+                imageClassName="w-full h-full object-cover rounded-xl"
+                width={400}
+                height={400}
               />
             </div>
             <div className="flex-1 order-2">
@@ -131,18 +134,8 @@ export default function RoboCompanion() {
             </div>
           </div>
 
-          <div className="-mb-16 mt-20">
-            <p className="text-center mb-4 text-lg">Want to try MyFriend?<br />Call anytime for free:</p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pb-8 sm:pb-12">
-              <a href="tel:+12346036167" className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
-                <span className="block text-sm font-normal text-gray-500 mb-1">US</span>
-                +1 234 603 6167
-              </a>
-              <a href="tel:+420910920500" className="text-center text-3xl sm:text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">
-                <span className="block text-sm font-normal text-gray-500 mb-1">Europe / Czechia</span>
-                +420 910 920 500
-              </a>
-            </div>
+          <div className="-mb-16 mt-20 flex justify-center pb-8 sm:pb-12">
+            <MyFriendTryButton className="min-h-[72px] rounded-[24px] px-8 text-[24px]" />
           </div>
         </section>
       </div>
@@ -159,7 +152,7 @@ export default function RoboCompanion() {
           <a href="mailto:oliver.cingl@gmail.com" target="_blank" aria-label="Email">
             <Image src="/icons/mail.svg" alt="Email" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
-          <a href="tel:+420776781248" target="_blank" aria-label="Phone">
+          <a href="tel:+14153771909" target="_blank" aria-label="Phone">
             <Image src="/icons/phone.svg" alt="Phone" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
         </div>

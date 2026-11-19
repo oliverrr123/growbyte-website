@@ -1,0 +1,20 @@
+// Run alongside `npm run dev` to forward sandbox billing events locally.
+const { loadEnvConfig } = require('@next/env');
+const { spawn, execFileSync } = require('node:child_process');
+const fs = require('node:fs');
+loadEnvConfig(process.cwd());
+const key = process.env.STRIPE_SECRET_KEY;
+if (!key?.startsWith('sk_test_')) throw new Error('A sandbox STRIPE_SECRET_KEY is required.');
+const env = { ...process.env, STRIPE_API_KEY: key };
+const secret = execFileSync('stripe', ['listen', '--print-secret'], { env, encoding: 'utf8' }).trim();
+if (!secret.startsWith('whsec_')) throw new Error('Stripe did not return a signing secret.');
+const file = '.env.local';
+const contents = fs.existsSync(file) ? fs.readFileSync(file, 'utf8') : '';
+const next = contents.replace(/^STRIPE_WEBHOOK_SECRET=.*\r?\n?/gm, '');
+fs.writeFileSync(file, next.trimEnd() + '\nSTRIPE_WEBHOOK_SECRET=' + secret + '\n', { mode: 0o600 });
+console.log('Local webhook secret saved. Restart Next.js if it was already running.');
+const child = spawn('stripe', ['listen', '--forward-to', 'http://localhost:3000/api/myfriend/stripe/webhook', '--events', 'checkout.session.completed,customer.subscription.created,customer.subscription.updated,customer.subscription.deleted,invoice.paid,invoice.payment_failed'], { env, stdio: ['ignore', 'pipe', 'pipe'] });
+for (const stream of [child.stdout, child.stderr]) stream.on('data', data => process.stdout.write(data.toString().replace(/whsec_[A-Za-z0-9]+/g, '[signing secret hidden]')));
+process.on('SIGTERM', () => child.kill());
+process.on('SIGINT', () => child.kill());
+child.on('exit', code => process.exit(code ?? 0));

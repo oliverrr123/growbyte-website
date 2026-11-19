@@ -13,10 +13,6 @@ export const ELDER_COMPANION_CANONICALS: Record<Locale, string> = {
   ja: MYFRIEND_JP_ORIGIN,
 };
 
-/** German DigiFreund product (outside GrowByte site locales). */
-export const DIGIFREUND_CANONICAL = `${GROWBYTE_ORIGIN}/digifreund`;
-export const DIGIFREUND_MORE_CANONICAL = `${GROWBYTE_ORIGIN}/digifreund/more`;
-
 export const ELDER_COMPANION_MORE_CANONICALS: Record<Locale, string> = {
   cs: `${DIGIPRITEL_ORIGIN}/vice`,
   en: `${TRYMYFRIEND_ORIGIN}/more`,
@@ -39,8 +35,6 @@ export const ELDER_COMPANION_ALTERNATES: Record<string, string> = {
   en: ELDER_COMPANION_CANONICALS.en,
   sk: ELDER_COMPANION_CANONICALS.sk,
   ja: ELDER_COMPANION_CANONICALS.ja,
-  // Keep DigiFreund in hreflang even though GrowByte site locale is no longer `de`.
-  de: DIGIFREUND_CANONICAL,
   "x-default": ELDER_COMPANION_CANONICALS.en,
 };
 
@@ -49,7 +43,6 @@ export const ELDER_COMPANION_MORE_ALTERNATES: Record<string, string> = {
   en: ELDER_COMPANION_MORE_CANONICALS.en,
   sk: ELDER_COMPANION_MORE_CANONICALS.sk,
   ja: ELDER_COMPANION_MORE_CANONICALS.ja,
-  de: DIGIFREUND_MORE_CANONICAL,
   "x-default": ELDER_COMPANION_MORE_CANONICALS.en,
 };
 
@@ -68,7 +61,7 @@ export const DIGIPRITEL_FAQS = [
   {
     question: "Co je DigiPřítel?",
     answer:
-      "DigiPřítel je telefonní AI společník pro seniory. Senior mu může 24/7 zdarma zavolat na jeho telefonní číslo a jen tak si s ním popovídat, získat pomoc s různými problémy, nebo si nastavit připomínky na důležité události, jako je braní léků.",
+      "DigiPřítel je telefonní AI společník pro seniory. Po aktivaci mu můžete 24/7 zavolat, popovídat si, získat pomoc s běžnými otázkami nebo si nastavit připomínky. Noví uživatelé začínají úvodním hovorem a předplatné stojí 300 Kč měsíčně. Stávající bezplatní uživatelé zůstávají zdarma.",
   },
   {
     question: "Komu DigiPřítel pomáhá?",
@@ -88,12 +81,12 @@ export const DIGIPRITEL_FAQS = [
   {
     question: "Kolik to stojí?",
     answer:
-      "DigiPřítel je zdarma. Jakto? Nynější fáze projektu je zaměřena na testování a vylepšování. V budoucnu bude fungovat na základě předplatného, ale než se tak stane, všichni uživatelé budou předem informováni.",
+      "Pro nové uživatele stojí DigiPřítel 300 Kč měsíčně. Začněte úvodním hovorem a pak použijte kód z hovoru na digipritel.cz/start k dokončení platby. Předplatné se obnovuje každý měsíc do zrušení. Stávající bezplatní uživatelé zůstávají zdarma. Hovorné se řídí tarifem vašeho operátora.",
   },
   {
     question: "Jak mohu vyzkoušet DigiPřítele?",
     answer:
-      "Zavolejte kdykoliv zdarma na telefonní číslo +420 910 920 500.",
+      "Zavolejte na +420 910 920 500. DigiPřítel se představí, zeptá se, pro koho službu hledáte, a předá vám čtyřmístný kód pro dokončení platby na digipritel.cz/start.",
   },
   {
     question: "Kdo vytvořil DigiPřítele?",
@@ -106,7 +99,7 @@ export const MYFRIEND_FAQS = [
   {
     question: "What is MyFriend?",
     answer:
-      "MyFriend is an AI phone companion for seniors. A senior can call its phone number 24/7 for free and simply chat, get help with different problems, or set reminders for important events such as taking medication.",
+      "MyFriend is an AI phone companion for seniors. A senior can call its phone number 24/7 and simply chat, get help with different problems, or set reminders for important events such as taking medication.",
   },
   {
     question: "Who does MyFriend help?",
@@ -126,12 +119,13 @@ export const MYFRIEND_FAQS = [
   {
     question: "How much does it cost?",
     answer:
-      "MyFriend is free. Why? The current phase of the project is focused on testing and improving it. In the future it will work as a subscription, but before that happens, all users will be informed in advance.",
+      "MyFriend is $25 per month. If you come from a background that cannot afford that, you can request need-based access by contacting me.",
   },
   {
-    question: "How can I try MyFriend?",
+    question: "How do I get MyFriend?",
     answer:
-      "Call anytime for free. In the US, use +1 234 603 6167. In Europe or Czechia, use +420 910 920 500.",
+      "Call MyFriend at +1 949 676 7670 to get to know each other and talk about who it is for. Then open trymyfriend.com/call, tap “I have a code”, enter the four-digit code from your call, and subscribe for $25/month. Verify your phone number to finish setup. If it is for a loved one, you can add their number too.",
+    link: { href: "#get-myfriend", label: "Call, then enter your code" },
   },
   {
     question: "Who created MyFriend?",
@@ -216,44 +210,6 @@ export const DIGIPRIATEL_FAQS = [
   },
 ];
 
-export const DIGIFREUND_FAQS = [
-  {
-    question: "Was ist DigiFreund?",
-    answer:
-      "DigiFreund ist ein KI-Telefonbegleiter für Senioren. Eine ältere Person kann seine Telefonnummer rund um die Uhr kostenlos anrufen, einfach plaudern, Hilfe bei verschiedenen Problemen bekommen oder Erinnerungen an wichtige Ereignisse wie die Medikamenteneinnahme einstellen.",
-  },
-  {
-    question: "Wem hilft DigiFreund?",
-    answer:
-      "DigiFreund richtet sich vor allem an Senioren, die viel Zeit allein verbringen, weniger regelmäßigen Kontakt zur Familie haben oder tagsüber einfache Unterstützung brauchen. Natürlich kann ihn aber jeder nutzen. Ich, der Autor, nutze ihn zum Beispiel auch für Erinnerungen.",
-  },
-  {
-    question: "Braucht man ein Smartphone oder Internet?",
-    answer:
-      "Nein. DigiFreund funktioniert über einen normalen Telefonanruf, daher braucht die ältere Person kein Smartphone, keine App und keine Internetverbindung.",
-  },
-  {
-    question: "Wobei kann DigiFreund helfen?",
-    answer:
-      "DigiFreund bietet freundliche Gespräche, erinnert an wichtige Dinge, hilft bei Alltagsfragen zu Hause und unterstützt leichte Bewegung, mentale Aktivitäten und eine regelmäßige Routine.",
-  },
-  {
-    question: "Wie viel kostet es?",
-    answer:
-      "DigiFreund ist kostenlos. Warum? Die aktuelle Projektphase konzentriert sich auf Tests und Verbesserungen. In Zukunft wird DigiFreund auf Basis eines Abonnements funktionieren, aber bevor das passiert, werden alle Nutzer vorab informiert.",
-  },
-  {
-    question: "Wie kann ich DigiFreund ausprobieren?",
-    answer:
-      "Rufen Sie jederzeit kostenlos die Telefonnummer +420 910 920 500 an.",
-  },
-  {
-    question: "Wer hat DigiFreund entwickelt?",
-    answer:
-      "DigiFreund wurde vom Gymnasiasten Oliver Cingl in Zusammenarbeit mit dem Senior Zdeněk Svoboda entwickelt, der Workshops und Vorträge für Senioren organisiert, meistens zum Thema mentale Gesundheit.",
-  },
-];
-
 export function normalizeHost(host: string | null): string {
   return (host ?? "")
     .split(",")[0]
@@ -288,7 +244,8 @@ export function isGrowbyteHost(host: string | null): boolean {
 export function isTryMyFriendHost(host: string | null): boolean {
   const normalized = normalizeHost(host);
   return (
-    normalized === "trymyfriend.com" || normalized === "www.trymyfriend.com"
+    normalized === "trymyfriend.com" || normalized === "www.trymyfriend.com" ||
+    normalized === "testing.trymyfriend.com"
   );
 }
 
@@ -390,7 +347,7 @@ export function elderCompanionJsonLd({
   };
 }
 
-export function faqJsonLd(faqs: typeof DIGIPRITEL_FAQS) {
+export function faqJsonLd(faqs: readonly { question: string; answer: string }[]) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 220" fill="currentColor">
+  <defs>
+    <g id="person">
+      <circle cx="40" cy="18" r="16"/>
+      <path d="M8 96V46c0-7 5-12 12-12h40c7 0 12 5 12 12v50H60V62c0-2-1.2-3.5-3-3.5H47c-1.8 0-3 1.5-3 3.5v34H36V62c0-2-1.2-3.5-3-3.5H23c-1.8 0-3 1.5-3 3.5v34H8z"/>
+    </g>
+  </defs>
+  <g color="#ff8804" transform="translate(80 4)">
+    <use href="#person"/>
+  </g>
+  <g color="#111" transform="translate(16 112)">
+    <use href="#person"/>
+  </g>
+  <g color="#111" transform="translate(144 112)">
+    <use href="#person"/>
+  </g>
+</svg>

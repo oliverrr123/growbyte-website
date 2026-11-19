@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <defs>
+    <radialGradient id="crowd-fade" cx="50%" cy="50%" r="52%">
+      <stop offset="32%" stop-color="#fff"/>
+      <stop offset="78%" stop-color="#000"/>
+    </radialGradient>
+    <mask id="crowd-mask">
+      <rect width="400" height="400" fill="url(#crowd-fade)"/>
+    </mask>
+    <g id="person-sm" fill="currentColor">
+      <circle cx="24" cy="11" r="10"/>
+      <path d="M4 58V28c0-4 3.2-7 7.2-7h25.6c4 0 7.2 3 7.2 7v30H36V38c0-1.2-.8-2.1-1.9-2.1h-6.2c-1.1 0-1.9.9-1.9 2.1v20h-5.2V38c0-1.2-.8-2.1-1.9-2.1h-6.2c-1.1 0-1.9.9-1.9 2.1v20H4z"/>
+    </g>
+  </defs>
+  <g color="#111" mask="url(#crowd-mask)">
+    <use href="#person-sm" x="12" y="8"/>
+    <use href="#person-sm" x="88" y="8"/>
+    <use href="#person-sm" x="164" y="8"/>
+    <use href="#person-sm" x="240" y="8"/>
+    <use href="#person-sm" x="316" y="8"/>
+    <use href="#person-sm" x="12" y="86"/>
+    <use href="#person-sm" x="88" y="86"/>
+    <use href="#person-sm" x="164" y="86"/>
+    <use href="#person-sm" x="240" y="86"/>
+    <use href="#person-sm" x="316" y="86"/>
+    <use href="#person-sm" x="12" y="164"/>
+    <use href="#person-sm" x="88" y="164"/>
+    <use href="#person-sm" x="164" y="164"/>
+    <use href="#person-sm" x="240" y="164"/>
+    <use href="#person-sm" x="316" y="164"/>
+    <use href="#person-sm" x="12" y="242"/>
+    <use href="#person-sm" x="88" y="242"/>
+    <use href="#person-sm" x="164" y="242"/>
+    <use href="#person-sm" x="240" y="242"/>
+    <use href="#person-sm" x="316" y="242"/>
+    <use href="#person-sm" x="12" y="320"/>
+    <use href="#person-sm" x="88" y="320"/>
+    <use href="#person-sm" x="164" y="320"/>
+    <use href="#person-sm" x="240" y="320"/>
+    <use href="#person-sm" x="316" y="320"/>
+  </g>
+</svg>

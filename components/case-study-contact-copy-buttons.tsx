@@ -8,8 +8,8 @@ import { useSkMaxCampaign } from "@/components/sk-max-campaign-context";
 import { SK_MAX_CONTACTS } from "@/app/solutions/sk-max-contacts";
 
 const EMAIL = "oliver.cingl@gmail.com";
-const PHONE_TEXT = "+420 776 781 248";
-const WHATSAPP_COPY = "+420 776 781 248";
+const PHONE_TEXT = "+1 415 377 1909";
+const WHATSAPP_COPY = "+1 415 377 1909";
 
 export function CaseStudyContactCopyButtons() {
   const pathname = usePathname();

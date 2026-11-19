@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { SoftFadeImage } from "@/components/soft-fade-image";
 import {
   ELDER_COMPANION_MORE_ALTERNATES,
   ELDER_COMPANION_MORE_CANONICALS,
@@ -75,11 +76,12 @@ export default function DigiPritelVice() {
           </div>
 
           <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-12">
-            <div className="w-full md:w-96 bg-blue-200 rounded-xl flex items-center justify-center order-1">
-              <Image
+            <div className="w-full md:w-96 rounded-xl flex items-center justify-center order-1 overflow-hidden">
+              <SoftFadeImage
                 src="/images/robo-companion/president.jpg"
                 alt="Prezentace projektu prezidentovi"
-                className="w-full h-full object-cover rounded-xl"
+                className="w-full rounded-xl overflow-hidden"
+                imageClassName="w-full h-full object-cover rounded-xl"
                 width={400}
                 height={400}
               />
@@ -134,10 +136,12 @@ export default function DigiPritelVice() {
           </div>
 
           <div className="-mb-16 mt-20">
-            <p className="text-center mb-4 text-lg">Chcete vyzkoušet DigiPřítele?<br />Zavolejte kdykoliv zdarma:</p>
+            <p className="text-center mb-4 text-lg">Chcete vyzkoušet DigiPřítele?<br />Zavolejte a poznejte DigiPřítele:</p>
             <h3 className="flex w-full justify-center items-center pb-8 sm:pb-12">
               <a href="tel:+420910920500" className="text-4xl font-semibold bg-gray-100 px-8 py-4 rounded-lg">+420 910 920 500</a>
             </h3>
+            <p className="text-center text-base text-black/60">Pro nové uživatele 300 Kč měsíčně. Stávající bezplatní uživatelé zůstávají zdarma.</p>
+            <a href="https://digipritel.cz/start" className="mt-4 block text-center font-semibold underline underline-offset-4">Mám kód z hovoru</a>
           </div>
         </section>
       </div>
@@ -154,7 +158,7 @@ export default function DigiPritelVice() {
           <a href="mailto:oliver.cingl@gmail.com" target="_blank" aria-label="E-mail">
             <Image src="/icons/mail.svg" alt="E-mail" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
-          <a href="tel:+420776781248" target="_blank" aria-label="Telefon">
+          <a href="tel:+14153771909" target="_blank" aria-label="Telefon">
             <Image src="/icons/phone.svg" alt="Telefon" className="w-8 h-8 hover:opacity-100 transition-opacity" width={32} height={32} />
           </a>
         </div>
