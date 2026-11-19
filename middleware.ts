@@ -3,15 +3,8 @@ import { NextResponse } from "next/server";
 import { SITE_LOCALE_COOKIE } from "./lib/site-locale-cookie";
 import {
   DIGIPRITEL_ORIGIN,
-  GROWBYTE_ORIGIN,
   MYFRIEND_JP_ORIGIN,
   TRYMYFRIEND_ORIGIN,
-  isDigipritelComHost,
-  isDigipritelHost,
-  isGrowbyteHost,
-  isMyFriendJpHost,
-  isTryMyFriendHost,
-  requestHostFromHeaders,
 } from "./lib/elder-companion-seo";
 
 /**
@@ -28,14 +21,8 @@ function localeFromPathname(pathname: string): string | null {
   );
   if (caseStudies) return caseStudies[1];
 
-  if (pathname === "/digipritel" || pathname.startsWith("/digipritel/")) {
-    return "cs";
-  }
   if (pathname === "/digipriatel" || pathname.startsWith("/digipriatel/")) {
     return "sk";
-  }
-  if (pathname === "/myfriend" || pathname.startsWith("/myfriend/")) {
-    return "en";
   }
   return null;
 }
@@ -62,314 +49,59 @@ function maybePersistLocale(
   return responseWithLocale(locale, response);
 }
 
-function redirectToDigipritel(request: NextRequest, pathname: string) {
-  const url = new URL(pathname, DIGIPRITEL_ORIGIN);
-  url.search = request.nextUrl.search;
-  return NextResponse.redirect(url, 301);
-}
+/**
+ * MyFriend, DigiPřítel and myfriend.jp now live in the separate
+ * myfriend-website project. Old growbyte.co links keep working through
+ * permanent redirects to the product domains.
+ */
+export function productRedirect(pathname: string): { url: string; status: 301 | 308 } | null {
+  const to = (origin: string, path: string) => ({ url: `${origin}${path}`, status: 301 as const });
 
-function redirectToGrowbyte(request: NextRequest, pathname: string) {
-  const url = new URL(pathname, GROWBYTE_ORIGIN);
-  url.search = request.nextUrl.search;
-  return NextResponse.redirect(url, 301);
-}
+  if (pathname.startsWith("/api/myfriend/")) {
+    // 308 keeps the method and body for any API client still using this host.
+    return { url: `${TRYMYFRIEND_ORIGIN}${pathname}`, status: 308 };
+  }
 
-function redirectToTryMyFriend(request: NextRequest, pathname: string) {
-  const url = new URL(pathname, TRYMYFRIEND_ORIGIN);
-  url.search = request.nextUrl.search;
-  return NextResponse.redirect(url, 301);
-}
+  if (pathname === "/start" || pathname === "/start/") return to(DIGIPRITEL_ORIGIN, "/start");
 
-function redirectToMyFriendJp(request: NextRequest, pathname: string) {
-  const url = new URL(pathname, MYFRIEND_JP_ORIGIN);
-  url.search = request.nextUrl.search;
-  return NextResponse.redirect(url, 301);
-}
+  if (pathname === "/digipritel" || pathname.startsWith("/digipritel/")) {
+    const rest = pathname.slice("/digipritel".length).replace(/\/$/, "");
+    if (rest.startsWith("/events") || rest.startsWith("/udalosti")) return to(DIGIPRITEL_ORIGIN, "/udalosti");
+    if (rest.startsWith("/vice")) return to(DIGIPRITEL_ORIGIN, "/vice");
+    if (["/podminky", "/soukromi", "/dashboard", "/login"].includes(rest)) return to(DIGIPRITEL_ORIGIN, rest);
+    return to(DIGIPRITEL_ORIGIN, "/");
+  }
 
-function isProductPublicPath(pathname: string): boolean {
-  return (
-    pathname === "/llms.txt" ||
-    pathname === "/robots.txt" ||
-    pathname === "/sitemap.xml" ||
-    pathname.startsWith("/images/") ||
-    pathname.startsWith("/icons/") ||
-    pathname.startsWith("/fonts/")
-  );
+  if (pathname === "/myfriend-jp" || pathname.startsWith("/myfriend-jp/")) {
+    const rest = pathname.slice("/myfriend-jp".length).replace(/\/$/, "");
+    if (rest.startsWith("/events")) return to(MYFRIEND_JP_ORIGIN, "/events");
+    if (rest.startsWith("/more")) return to(MYFRIEND_JP_ORIGIN, "/more");
+    return to(MYFRIEND_JP_ORIGIN, "/");
+  }
+
+  if (pathname === "/myfriend" || pathname.startsWith("/myfriend/")) {
+    const rest = pathname.slice("/myfriend".length).replace(/\/$/, "");
+    if (rest === "") return to(TRYMYFRIEND_ORIGIN, "/");
+    if (rest.startsWith("/events")) return to(TRYMYFRIEND_ORIGIN, "/events");
+    if (rest.startsWith("/more")) return to(TRYMYFRIEND_ORIGIN, "/more");
+    if (/^\/(try|verify|dashboard|messages|login|onboarding|call)(\/|$)/.test(rest)) {
+      return to(TRYMYFRIEND_ORIGIN, rest);
+    }
+    // e.g. /myfriend/privacy and /myfriend/terms are served under the same path.
+    return to(TRYMYFRIEND_ORIGIN, pathname.replace(/\/$/, ""));
+  }
+
+  return null;
 }
 
 export function middleware(request: NextRequest) {
-  const host = requestHostFromHeaders(request.headers);
   const { pathname } = request.nextUrl;
 
-  if (host === "testing.trymyfriend.com") {
-    const url = request.nextUrl.clone();
-    if (pathname === "/") {
-      url.pathname = "/myfriend";
-    } else if (/^\/(more|try|events|onboarding|login|verify|dashboard|messages|call)(\/|$)/.test(pathname)) {
-      url.pathname = `/myfriend${pathname}`;
-    }
-    const response = url.pathname === pathname
-      ? NextResponse.next()
-      : NextResponse.rewrite(url);
-    response.headers.set("X-Robots-Tag", "noindex, nofollow");
-    return maybePersistLocale(request, "en", response);
-  }
-
-  if (host === "www.digipritel.cz") {
-    return redirectToDigipritel(request, pathname);
-  }
-
-  if (isDigipritelComHost(host)) {
-    return redirectToDigipritel(request, pathname);
-  }
-
-  if (isDigipritelHost(host)) {
-    if (pathname === "/dashboard" || pathname === "/login") {
-      const url = request.nextUrl.clone();
-      url.pathname = `/digipritel${pathname}`;
-      return maybePersistLocale(request, "cs", NextResponse.rewrite(url));
-    }
-    if (pathname === "/digipritel/dashboard" || pathname === "/digipritel/login") {
-      return maybePersistLocale(request, "cs", NextResponse.next());
-    }
-    if (pathname === "/digipritel/podminky" || pathname === "/digipritel/soukromi") {
-      return redirectToDigipritel(request, pathname.replace("/digipritel", ""));
-    }
-    if (pathname === "/podminky" || pathname === "/soukromi") {
-      const url = request.nextUrl.clone();
-      url.pathname = `/digipritel${pathname}`;
-      return maybePersistLocale(request, "cs", NextResponse.rewrite(url));
-    }
-    if (pathname === "/call" || pathname === "/myfriend/call") return redirectToDigipritel(request, "/start");
-    // Keep onboarding, checkout cookies, verification and account setup on the Czech origin.
-    if (pathname === "/start" || pathname.startsWith("/myfriend/") || pathname.startsWith("/api/myfriend/")) {
-      return maybePersistLocale(request, "cs", NextResponse.next());
-    }
-    if (pathname === "/index.html" || pathname === "/index.html/") {
-      return redirectToDigipritel(request, "/");
-    }
-
-    if (pathname === "/digipritel" || pathname === "/digipritel/") {
-      return redirectToDigipritel(request, "/");
-    }
-
-    if (
-      pathname === "/digipritel/vice" ||
-      pathname === "/digipritel/vice/"
-    ) {
-      return redirectToDigipritel(request, "/vice");
-    }
-
-    if (
-      pathname === "/digipritel/events" ||
-      pathname === "/digipritel/events/" ||
-      pathname === "/digipritel/udalosti" ||
-      pathname === "/digipritel/udalosti/"
-    ) {
-      return redirectToDigipritel(request, "/udalosti");
-    }
-
-    if (pathname === "/" || pathname === "/vice" || pathname === "/udalosti") {
-      const rewriteUrl = request.nextUrl.clone();
-      rewriteUrl.pathname =
-        pathname === "/"
-          ? "/digipritel"
-          : pathname === "/vice"
-            ? "/digipritel/vice"
-            : "/digipritel/events";
-      const response = NextResponse.rewrite(rewriteUrl);
-      return maybePersistLocale(request, "cs", response);
-    }
-
-    if (!isProductPublicPath(pathname)) {
-      return redirectToGrowbyte(request, pathname);
-    }
-  }
-
-  if (host === "www.trymyfriend.com") {
-    return redirectToTryMyFriend(request, pathname);
-  }
-
-  if (isTryMyFriendHost(host)) {
-    // Client links may contain the internal prefix after a homepage rewrite.
-    // These routes belong to MyFriend and must never fall through to GrowByte.
-    if (pathname === "/myfriend" || pathname.startsWith("/myfriend/")) {
-      return maybePersistLocale(request, "en", NextResponse.next());
-    }
-
-    if (pathname === "/index.html" || pathname === "/index.html/") {
-      return redirectToTryMyFriend(request, "/");
-    }
-
-    if (pathname.startsWith("/api/")) {
-      return maybePersistLocale(request, "en", NextResponse.next());
-    }
-
-    if (
-      pathname === "/" ||
-      pathname === "/more" ||
-      pathname === "/try" ||
-      pathname === "/call" ||
-      pathname.startsWith("/try/") ||
-      pathname === "/events" ||
-      pathname === "/verify" ||
-      pathname.startsWith("/verify/") ||
-      pathname === "/dashboard" ||
-      pathname.startsWith("/dashboard/") ||
-      pathname === "/messages" ||
-      pathname.startsWith("/messages/") ||
-      pathname === "/onboarding" ||
-      pathname === "/onboarding/" ||
-      pathname === "/login" ||
-      pathname.startsWith("/login/")
-    ) {
-      const rewriteUrl = request.nextUrl.clone();
-      rewriteUrl.pathname =
-        pathname === "/"
-          ? "/myfriend"
-          : pathname === "/more"
-            ? "/myfriend/more"
-            : pathname === "/events"
-              ? "/myfriend/events"
-              : `/myfriend${pathname}`;
-      const response = NextResponse.rewrite(rewriteUrl);
-      return maybePersistLocale(request, "en", response);
-    }
-
-    if (!isProductPublicPath(pathname)) {
-      return redirectToGrowbyte(request, pathname);
-    }
-  }
-
-  // Serve on both apex and www. Do not redirect www→apex here — if Vercel’s
-  // primary domain is www, that redirect loops with middleware the other way.
-  if (isMyFriendJpHost(host)) {
-    if (pathname === "/index.html" || pathname === "/index.html/") {
-      return redirectToMyFriendJp(request, "/");
-    }
-
-    if (
-      pathname === "/myfriend-jp" ||
-      pathname === "/myfriend-jp/"
-    ) {
-      return redirectToMyFriendJp(request, "/");
-    }
-
-    if (
-      pathname === "/myfriend-jp/more" ||
-      pathname === "/myfriend-jp/more/"
-    ) {
-      return redirectToMyFriendJp(request, "/more");
-    }
-
-    if (
-      pathname === "/myfriend-jp/events" ||
-      pathname === "/myfriend-jp/events/"
-    ) {
-      return redirectToMyFriendJp(request, "/events");
-    }
-
-    if (pathname === "/" || pathname === "/more" || pathname === "/events") {
-      const rewriteUrl = request.nextUrl.clone();
-      rewriteUrl.pathname =
-        pathname === "/"
-          ? "/myfriend-jp"
-          : pathname === "/more"
-            ? "/myfriend-jp/more"
-            : "/myfriend-jp/events";
-      const response = NextResponse.rewrite(rewriteUrl);
-      return maybePersistLocale(request, "ja", response);
-    }
-
-    if (!isProductPublicPath(pathname)) {
-      return redirectToGrowbyte(request, pathname);
-    }
-  }
-
-  if (
-    isGrowbyteHost(host) &&
-    (pathname === "/digipritel" ||
-      pathname === "/digipritel/" ||
-      pathname === "/digipritel/vice" ||
-      pathname === "/digipritel/vice/" ||
-      pathname === "/digipritel/events" ||
-      pathname === "/digipritel/events/" ||
-      pathname === "/digipritel/udalosti" ||
-      pathname === "/digipritel/udalosti/" ||
-      pathname === "/myfriend" ||
-      pathname === "/myfriend/" ||
-      pathname === "/myfriend/more" ||
-      pathname === "/myfriend/more/" ||
-      pathname === "/myfriend/try" ||
-      pathname === "/myfriend/try/" ||
-      pathname === "/myfriend/verify" ||
-      pathname === "/myfriend/verify/" ||
-      pathname === "/myfriend/dashboard" ||
-      pathname === "/myfriend/dashboard/" ||
-      pathname === "/myfriend/messages" ||
-      pathname === "/myfriend/messages/" ||
-      pathname === "/myfriend/onboarding" ||
-      pathname === "/myfriend/onboarding/" ||
-      pathname === "/myfriend/call" ||
-      pathname === "/myfriend/login" ||
-      pathname === "/myfriend/login/" ||
-      pathname === "/myfriend/events" ||
-      pathname === "/myfriend/events/" ||
-      pathname === "/myfriend-jp" ||
-      pathname === "/myfriend-jp/" ||
-      pathname === "/myfriend-jp/more" ||
-      pathname === "/myfriend-jp/more/" ||
-      pathname === "/myfriend-jp/events" ||
-      pathname === "/myfriend-jp/events/")
-  ) {
-    if (pathname.startsWith("/digipritel/events") || pathname.startsWith("/digipritel/udalosti")) {
-      return redirectToDigipritel(request, "/udalosti");
-    }
-
-    if (pathname.startsWith("/digipritel/vice")) {
-      return redirectToDigipritel(request, "/vice");
-    }
-
-    if (pathname.startsWith("/digipritel")) {
-      return redirectToDigipritel(request, "/");
-    }
-
-    if (pathname.startsWith("/myfriend-jp/events")) {
-      return redirectToMyFriendJp(request, "/events");
-    }
-
-    if (pathname.startsWith("/myfriend-jp/more")) {
-      return redirectToMyFriendJp(request, "/more");
-    }
-
-    if (pathname.startsWith("/myfriend-jp")) {
-      return redirectToMyFriendJp(request, "/");
-    }
-
-    if (pathname.startsWith("/myfriend/events")) {
-      return redirectToTryMyFriend(request, "/events");
-    }
-
-    if (pathname.startsWith("/myfriend/more")) {
-      return redirectToTryMyFriend(request, "/more");
-    }
-
-    if (pathname.startsWith("/myfriend/try")) {
-      return redirectToTryMyFriend(request, pathname.replace("/myfriend", "") || "/try");
-    }
-
-    if (
-      pathname.startsWith("/myfriend/verify") ||
-      pathname.startsWith("/myfriend/dashboard") ||
-      pathname.startsWith("/myfriend/messages") ||
-      pathname.startsWith("/myfriend/login") ||
-      pathname.startsWith("/myfriend/onboarding")
-      || pathname.startsWith("/myfriend/call")
-    ) {
-      return redirectToTryMyFriend(request, pathname.replace("/myfriend", "") || "/");
-    }
-
-    return redirectToTryMyFriend(request, "/");
+  const product = productRedirect(pathname);
+  if (product) {
+    const url = new URL(product.url);
+    url.search = request.nextUrl.search;
+    return NextResponse.redirect(url, product.status);
   }
 
   const locale = localeFromPathname(pathname);

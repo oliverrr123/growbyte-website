@@ -1,5 +1,4 @@
 import type { MetadataRoute } from "next";
-import { headers } from "next/headers";
 import {
   CASE_STUDIES as PORTFOLIO_CASE_STUDIES,
   getAllLocaleSlugsForId as getPortfolioSlugsForId,
@@ -13,99 +12,12 @@ import { SITE_URL } from "./case-studies/site";
 import {
   ELDER_COMPANION_ALTERNATES,
   ELDER_COMPANION_CANONICALS,
-  ELDER_COMPANION_EVENTS_ALTERNATES,
-  ELDER_COMPANION_EVENTS_CANONICALS,
   ELDER_COMPANION_MORE_ALTERNATES,
   ELDER_COMPANION_MORE_CANONICALS,
-  isDigipritelHost,
-  isMyFriendJpHost,
-  isTryMyFriendHost,
-  requestHostFromHeaders,
 } from "@/lib/elder-companion-seo";
-export const dynamic = "force-dynamic";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
-  const headerList = await headers();
-  const host = requestHostFromHeaders(headerList);
-
-  if (isDigipritelHost(host)) {
-    return [
-      {
-        url: ELDER_COMPANION_CANONICALS.cs,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 1,
-        alternates: { languages: ELDER_COMPANION_ALTERNATES },
-      },
-      {
-        url: ELDER_COMPANION_MORE_CANONICALS.cs,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 0.8,
-        alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
-      },
-      {
-        url: ELDER_COMPANION_EVENTS_CANONICALS.cs,
-        lastModified: now,
-        changeFrequency: "weekly",
-        priority: 0.8,
-        alternates: { languages: ELDER_COMPANION_EVENTS_ALTERNATES },
-      },
-    ];
-  }
-
-  if (isTryMyFriendHost(host)) {
-    return [
-      {
-        url: ELDER_COMPANION_CANONICALS.en,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 1,
-        alternates: { languages: ELDER_COMPANION_ALTERNATES },
-      },
-      {
-        url: ELDER_COMPANION_MORE_CANONICALS.en,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 0.8,
-        alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
-      },
-      {
-        url: ELDER_COMPANION_EVENTS_CANONICALS.en,
-        lastModified: now,
-        changeFrequency: "weekly",
-        priority: 0.8,
-        alternates: { languages: ELDER_COMPANION_EVENTS_ALTERNATES },
-      },
-    ];
-  }
-
-  if (isMyFriendJpHost(host)) {
-    return [
-      {
-        url: ELDER_COMPANION_CANONICALS.ja,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 1,
-        alternates: { languages: ELDER_COMPANION_ALTERNATES },
-      },
-      {
-        url: ELDER_COMPANION_MORE_CANONICALS.ja,
-        lastModified: now,
-        changeFrequency: "monthly",
-        priority: 0.8,
-        alternates: { languages: ELDER_COMPANION_MORE_ALTERNATES },
-      },
-      {
-        url: ELDER_COMPANION_EVENTS_CANONICALS.ja,
-        lastModified: now,
-        changeFrequency: "weekly",
-        priority: 0.8,
-        alternates: { languages: ELDER_COMPANION_EVENTS_ALTERNATES },
-      },
-    ];
-  }
 
   const solutionsListAlternates = LOCALES.reduce<Record<string, string>>((acc, l) => {
     acc[l] = `${SITE_URL}/solutions/${l}`;
@@ -173,9 +85,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     alternates: { languages: homeAlternates },
   }));
 
-  // digipritel.cz / myfriend.jp have their own sitemaps.
+  // MyFriend products have their own sitemaps; only Slovak DigiPriateľ lives here.
   const elderCompanionEntries: MetadataRoute.Sitemap = LOCALES.filter(
-    (locale) => locale !== "cs" && locale !== "ja",
+    (locale) => locale === "sk",
   ).map((locale) => ({
     url: ELDER_COMPANION_CANONICALS[locale],
     lastModified: now,
@@ -185,7 +97,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   }));
 
   const elderCompanionMoreEntries: MetadataRoute.Sitemap = LOCALES.filter(
-    (locale) => locale !== "cs" && locale !== "ja",
+    (locale) => locale === "sk",
   ).map((locale) => ({
     url: ELDER_COMPANION_MORE_CANONICALS[locale],
     lastModified: now,

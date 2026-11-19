@@ -1,4 +1,3 @@
-import { headers } from "next/headers";
 import {
   DIGIPRIATEL_FAQS,
   DIGIPRITEL_FAQS,
@@ -9,10 +8,6 @@ import {
   MYFRIEND_JA_FAQS,
   MYFRIEND_FAQS,
   MYFRIEND_JP_ORIGIN,
-  isDigipritelHost,
-  isMyFriendJpHost,
-  isTryMyFriendHost,
-  requestHostFromHeaders,
 } from "@/lib/elder-companion-seo";
 
 export const dynamic = "force-dynamic";
@@ -25,85 +20,8 @@ function faqLines(faqs: typeof DIGIPRITEL_FAQS) {
 }
 
 export async function GET() {
-  const headerList = await headers();
-  const host = requestHostFromHeaders(headerList);
-  const isDigiPritel = isDigipritelHost(host);
-  const isTryMyFriend = isTryMyFriendHost(host);
-  const isMyFriendJp = isMyFriendJpHost(host);
 
-  const body = isDigiPritel
-    ? [
-        "# DigiPřítel",
-        "",
-        "DigiPřítel je AI společník pro seniory dostupný přes běžný telefonní hovor.",
-        "Pomáhá seniorům, kteří tráví hodně času o samotě, nabízí přátelskou konverzaci, připomenutí a praktickou podporu v každodenních situacích.",
-        "Není potřeba chytrý telefon, aplikace ani internetové připojení.",
-        "",
-        "## Kanonické stránky",
-        `- Přehled projektu: ${ELDER_COMPANION_CANONICALS.cs}`,
-        `- Více o projektu: ${ELDER_COMPANION_MORE_CANONICALS.cs}`,
-        "",
-        "## Jazykové verze",
-        `- Čeština: ${ELDER_COMPANION_CANONICALS.cs}`,
-        `- English: ${ELDER_COMPANION_CANONICALS.en}`,
-        `- Slovenština: ${ELDER_COMPANION_CANONICALS.sk}`,
-        `- 日本語: ${ELDER_COMPANION_CANONICALS.ja}`,
-        "",
-        "## Časté otázky",
-        ...faqLines(DIGIPRITEL_FAQS),
-        "",
-        "## Kontakt",
-        "Projekt vyvíjí GrowByte. Kontakt: oliver.cingl@gmail.com",
-      ].join("\n")
-    : isTryMyFriend
-      ? [
-          "# MyFriend",
-          "",
-          "MyFriend is an AI phone companion for seniors available through a regular phone call.",
-          "It helps reduce loneliness, offers friendly conversation, reminders, and practical support in everyday situations.",
-          "No smartphone, app, or internet connection is required.",
-          "",
-          "## Canonical pages",
-          `- Project overview: ${ELDER_COMPANION_CANONICALS.en}`,
-          `- More about the project: ${ELDER_COMPANION_MORE_CANONICALS.en}`,
-          "",
-          "## Language versions",
-          `- English: ${ELDER_COMPANION_CANONICALS.en}`,
-          `- Czech: ${ELDER_COMPANION_CANONICALS.cs}`,
-          `- Slovak: ${ELDER_COMPANION_CANONICALS.sk}`,
-          `- Japanese: ${ELDER_COMPANION_CANONICALS.ja}`,
-          "",
-          "## Frequently asked questions",
-          ...faqLines(MYFRIEND_FAQS),
-          "",
-          "## Contact",
-          "Project by GrowByte. Contact: oliver.cingl@gmail.com",
-        ].join("\n")
-      : isMyFriendJp
-        ? [
-            "# MyFriend",
-            "",
-            "MyFriendは、通常の電話で使えるシニア向けAIコンパニオンです。",
-            "孤独感の軽減、フレンドリーな会話、リマインダー、日常のサポートを提供します。",
-            "スマホ・アプリ・インターネットは不要です。",
-            "",
-            "## 正規ページ",
-            `- プロジェクト概要: ${ELDER_COMPANION_CANONICALS.ja}`,
-            `- プロジェクト詳細: ${ELDER_COMPANION_MORE_CANONICALS.ja}`,
-            "",
-            "## 言語バージョン",
-            `- 日本語: ${ELDER_COMPANION_CANONICALS.ja}`,
-            `- English: ${ELDER_COMPANION_CANONICALS.en}`,
-            `- Čeština: ${ELDER_COMPANION_CANONICALS.cs}`,
-            `- Slovenčina: ${ELDER_COMPANION_CANONICALS.sk}`,
-            "",
-            "## よくある質問",
-            ...faqLines(MYFRIEND_JA_FAQS),
-            "",
-            "## お問い合わせ",
-            "GrowByteによるプロジェクト。連絡先: oliver.cingl@gmail.com",
-          ].join("\n")
-        : [
+  const body = [
             "# GrowByte",
             "",
             "GrowByte builds AI products, automation systems, websites, and applied AI tools.",

@@ -16,7 +16,9 @@ This redirects to my other website - a website agency ([webovka.online](https://
 
 ### 3. Companion for elderly
 
-This is the main page for my MyFriend project. 28% of elderly people in the US live alone. That's why I built MyFriend. MyFriend is an AI companion for elderly. It's a phone number that they can call any time just to chat, or get help with some questions. It can also call them to remind them to eg. take their medications on time, so that they never forget.
+MyFriend now has its own repo (`myfriend-website`) and Vercel project, serving trymyfriend.com, digipritel.cz and myfriend.jp. Old growbyte.co/myfriend, /digipritel and /myfriend-jp links redirect there (see `middleware.ts`). Only the Slovak DigiPriateľ page (`/digipriatel`) still lives here.
+
+This was the main page for my MyFriend project. 28% of elderly people in the US live alone. That's why I built MyFriend. MyFriend is an AI companion for elderly. It's a phone number that they can call any time just to chat, or get help with some questions. It can also call them to remind them to eg. take their medications on time, so that they never forget.
 
 <br>
 
